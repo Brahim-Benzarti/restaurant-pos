@@ -37,12 +37,17 @@ public class AdminDashboardView extends javax.swing.JFrame {
     
     //cashier management 
     private JFileChooser newCashierPic;
+    private JFileChooser newProductPic;
+    private JFileChooser newCustomerPic;
     private int prefixCashierMenu;
+    private int prefixProductMenu;
+    private int prefixCustomerMenu;
     
     /**
      * Creates new form LoginView
      */
     public AdminDashboardView(Connection con, AdminModel admin) {
+        this.con = con;
         initComponents();
         setTitle("POS");
         setLocationRelativeTo(null);
@@ -51,7 +56,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
             setIconImage(new ImageIcon(iconURL).getImage());
         }
         setVisible(true);
-        this.con=con;
         updateAdminMenu(admin);
     }
 
@@ -99,13 +103,59 @@ public class AdminDashboardView extends javax.swing.JFrame {
         cashierMenuCashier4 = new javax.swing.JLabel();
         cashierMenuCashier4Info = new javax.swing.JLabel();
         cashierMenuViewCashier4 = new javax.swing.JButton();
+        productMenu = new javax.swing.JPanel();
+        menuName2 = new javax.swing.JLabel();
+        itemAdd2 = new javax.swing.JButton();
+        productMenuNavLeft = new javax.swing.JButton();
+        productMenuNavRight = new javax.swing.JButton();
+        productMenuProduct1Pic = new javax.swing.JLabel();
+        productMenuProduct1 = new javax.swing.JLabel();
+        productMenuProduct1Info = new javax.swing.JLabel();
+        productMenuViewProduct1 = new javax.swing.JButton();
+        productMenuProduct2Pic = new javax.swing.JLabel();
+        productMenuProduct2 = new javax.swing.JLabel();
+        productMenuProduct2Info = new javax.swing.JLabel();
+        productMenuViewProduct2 = new javax.swing.JButton();
+        productMenuProduct3Pic = new javax.swing.JLabel();
+        productMenuProduct3 = new javax.swing.JLabel();
+        productMenuProduct3Info = new javax.swing.JLabel();
+        productMenuViewProduct3 = new javax.swing.JButton();
+        productMenuProduct4Pic = new javax.swing.JLabel();
+        productMenuProduct4 = new javax.swing.JLabel();
+        productMenuProduct4Info = new javax.swing.JLabel();
+        productMenuViewProduct4 = new javax.swing.JButton();
+        customerMenu = new javax.swing.JPanel();
+        menuName3 = new javax.swing.JLabel();
+        cutomerAdd = new javax.swing.JButton();
+        customerMenuNavLeft = new javax.swing.JButton();
+        customerMenuNavRight = new javax.swing.JButton();
+        customerMenuCustomer1Pic = new javax.swing.JLabel();
+        customerMenuCustomer1 = new javax.swing.JLabel();
+        customerMenuCustomer1Info = new javax.swing.JLabel();
+        customerMenuViewCustomer1 = new javax.swing.JButton();
+        customerMenuCustomer2Pic = new javax.swing.JLabel();
+        customerMenuCustomer2 = new javax.swing.JLabel();
+        customerMenuCustomer2Info = new javax.swing.JLabel();
+        customerMenuViewCustomer2 = new javax.swing.JButton();
+        customerMenuCustomer3Pic = new javax.swing.JLabel();
+        customerMenuCustomer3 = new javax.swing.JLabel();
+        customerMenuCustomer3Info = new javax.swing.JLabel();
+        customerMenuViewCustomer3 = new javax.swing.JButton();
+        customerMenuCustomer4Pic = new javax.swing.JLabel();
+        customerMenuCustomer4 = new javax.swing.JLabel();
+        customerMenuCustomer4Info = new javax.swing.JLabel();
+        customerMenuViewCustomer4 = new javax.swing.JButton();
         jPanel4 = new javax.swing.JPanel();
         kGradientPanel4 = new com.k33ptoo.components.KGradientPanel();
         jButton1 = new javax.swing.JButton();
         jButton2 = new javax.swing.JButton();
+        jButton3 = new javax.swing.JButton();
+        jButton4 = new javax.swing.JButton();
+        jButton5 = new javax.swing.JButton();
         kGradientPanel3 = new com.k33ptoo.components.KGradientPanel();
         jPanel3 = new javax.swing.JPanel();
         tabbedPreview = new javax.swing.JTabbedPane();
+        jPanel6 = new javax.swing.JPanel();
         addCashier = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -134,7 +184,53 @@ public class AdminDashboardView extends javax.swing.JFrame {
         flashAddCashier = new javax.swing.JLabel();
         inputAddCashierEndDate = new com.toedter.calendar.JDateChooser();
         inputAddCashierStartDate = new com.toedter.calendar.JDateChooser();
-        jPanel6 = new javax.swing.JPanel();
+        addProduct = new javax.swing.JPanel();
+        jLabel3 = new javax.swing.JLabel();
+        jLabel5 = new javax.swing.JLabel();
+        kGradientPanel2 = new com.k33ptoo.components.KGradientPanel();
+        jLabel10 = new javax.swing.JLabel();
+        jLabel11 = new javax.swing.JLabel();
+        inputAddProductNewCategory = new javax.swing.JTextField();
+        submitAddCashier1 = new javax.swing.JButton();
+        flashAddProduct = new javax.swing.JLabel();
+        jLabel12 = new javax.swing.JLabel();
+        inputAddProductNewSubCategory = new javax.swing.JTextField();
+        jLabel13 = new javax.swing.JLabel();
+        jLabel39 = new javax.swing.JLabel();
+        inputAddProductName = new javax.swing.JTextField();
+        jLabel40 = new javax.swing.JLabel();
+        inputAddProductQuantity = new javax.swing.JTextField();
+        jLabel41 = new javax.swing.JLabel();
+        inputAddProductPrice = new javax.swing.JTextField();
+        jLabel42 = new javax.swing.JLabel();
+        kGradientPanel5 = new com.k33ptoo.components.KGradientPanel();
+        uploadAddProductPic = new javax.swing.JButton();
+        displayAddProductPic = new javax.swing.JLabel();
+        inputAddProductCategory = new javax.swing.JComboBox();
+        inputAddProductSubCategory = new javax.swing.JComboBox();
+        addCustomer = new javax.swing.JPanel();
+        jLabel6 = new javax.swing.JLabel();
+        jLabel14 = new javax.swing.JLabel();
+        kGradientPanel6 = new com.k33ptoo.components.KGradientPanel();
+        jLabel15 = new javax.swing.JLabel();
+        jLabel16 = new javax.swing.JLabel();
+        inputAddCustomerLastName = new javax.swing.JTextField();
+        inputAddCustomerFirstName = new javax.swing.JTextField();
+        jLabel17 = new javax.swing.JLabel();
+        inputAddCustomerEmail = new javax.swing.JTextField();
+        jLabel32 = new javax.swing.JLabel();
+        inputAddCustomerPhone = new javax.swing.JTextField();
+        jLabel33 = new javax.swing.JLabel();
+        inputAddCustomerPassword = new javax.swing.JPasswordField();
+        submitAddCashier2 = new javax.swing.JButton();
+        jLabel38 = new javax.swing.JLabel();
+        inputAddCustomerMale = new javax.swing.JRadioButton();
+        inputAddCustomerFemale = new javax.swing.JRadioButton();
+        jLabel43 = new javax.swing.JLabel();
+        pictureUploadAddCustomer = new javax.swing.JButton();
+        flashAddCustomer = new javax.swing.JLabel();
+        jLabel44 = new javax.swing.JLabel();
+        inputAddCustomerAdress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMaximumSize(new java.awt.Dimension(1440, 960));
@@ -410,6 +506,272 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         tabbedMenu.addTab("tab3", cashierMenu);
 
+        productMenu.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        menuName2.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        menuName2.setText("Products");
+        productMenu.add(menuName2, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 23, 217, 61));
+
+        itemAdd2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/plus.png"))); // NOI18N
+        itemAdd2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                itemAdd2ActionPerformed(evt);
+            }
+        });
+        productMenu.add(itemAdd2, new org.netbeans.lib.awtextra.AbsoluteConstraints(258, 23, 58, 61));
+
+        productMenuNavLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/nav_prev.png"))); // NOI18N
+        productMenuNavLeft.setEnabled(false);
+        productMenuNavLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productMenuNavLeftActionPerformed(evt);
+            }
+        });
+        productMenu.add(productMenuNavLeft, new org.netbeans.lib.awtextra.AbsoluteConstraints(35, 102, 33, -1));
+
+        productMenuNavRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/nav_next.png"))); // NOI18N
+        productMenuNavRight.setEnabled(false);
+        productMenuNavRight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productMenuNavRightActionPerformed(evt);
+            }
+        });
+        productMenu.add(productMenuNavRight, new org.netbeans.lib.awtextra.AbsoluteConstraints(74, 102, 33, -1));
+        productMenu.add(productMenuProduct1Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 187, 54, 52));
+
+        productMenuProduct1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        productMenuProduct1.setText("prev");
+        productMenu.add(productMenuProduct1, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 187, 159, -1));
+
+        productMenuProduct1Info.setText("jLabel5");
+        productMenu.add(productMenuProduct1Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 223, 153, -1));
+
+        productMenuViewProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenuViewProduct1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productMenuViewProduct1ActionPerformed(evt);
+            }
+        });
+        productMenu.add(productMenuViewProduct1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 196, 38, -1));
+        productMenu.add(productMenuProduct2Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 281, 54, 52));
+
+        productMenuProduct2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        productMenuProduct2.setText("qfd");
+        productMenu.add(productMenuProduct2, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 281, 159, -1));
+
+        productMenuProduct2Info.setText("jLabel5");
+        productMenu.add(productMenuProduct2Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 317, 153, -1));
+
+        productMenuViewProduct2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenu.add(productMenuViewProduct2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 289, 38, -1));
+        productMenu.add(productMenuProduct3Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 375, 54, 52));
+
+        productMenuProduct3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        productMenuProduct3.setText("jLabel4");
+        productMenu.add(productMenuProduct3, new org.netbeans.lib.awtextra.AbsoluteConstraints(93, 375, 159, -1));
+
+        productMenuProduct3Info.setText("jLabel5");
+        productMenu.add(productMenuProduct3Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 411, 153, -1));
+
+        productMenuViewProduct3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenu.add(productMenuViewProduct3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 383, 38, -1));
+        productMenu.add(productMenuProduct4Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 469, 54, 50));
+
+        productMenuProduct4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        productMenuProduct4.setText("jLabel4");
+        productMenu.add(productMenuProduct4, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 470, 153, -1));
+
+        productMenuProduct4Info.setText("jLabel5");
+        productMenu.add(productMenuProduct4Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 500, 147, -1));
+
+        productMenuViewProduct4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenu.add(productMenuViewProduct4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 470, 38, -1));
+
+        tabbedMenu.addTab("tab3", productMenu);
+
+        menuName3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        menuName3.setText("Customers");
+
+        cutomerAdd.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/plus.png"))); // NOI18N
+        cutomerAdd.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cutomerAddActionPerformed(evt);
+            }
+        });
+
+        customerMenuNavLeft.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/nav_prev.png"))); // NOI18N
+        customerMenuNavLeft.setEnabled(false);
+        customerMenuNavLeft.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuNavLeftActionPerformed(evt);
+            }
+        });
+
+        customerMenuNavRight.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/nav_next.png"))); // NOI18N
+        customerMenuNavRight.setEnabled(false);
+        customerMenuNavRight.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuNavRightActionPerformed(evt);
+            }
+        });
+
+        customerMenuCustomer1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        customerMenuCustomer1.setText("prev");
+
+        customerMenuCustomer1Info.setText("jLabel5");
+
+        customerMenuViewCustomer1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        customerMenuViewCustomer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuViewCustomer1ActionPerformed(evt);
+            }
+        });
+
+        customerMenuCustomer2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        customerMenuCustomer2.setText("qfd");
+
+        customerMenuCustomer2Info.setText("jLabel5");
+
+        customerMenuViewCustomer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+
+        customerMenuCustomer3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        customerMenuCustomer3.setText("jLabel4");
+
+        customerMenuCustomer3Info.setText("jLabel5");
+
+        customerMenuViewCustomer3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+
+        customerMenuCustomer4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        customerMenuCustomer4.setText("jLabel4");
+
+        customerMenuCustomer4Info.setText("jLabel5");
+
+        customerMenuViewCustomer4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+
+        javax.swing.GroupLayout customerMenuLayout = new javax.swing.GroupLayout(customerMenu);
+        customerMenu.setLayout(customerMenuLayout);
+        customerMenuLayout.setHorizontalGroup(
+            customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerMenuLayout.createSequentialGroup()
+                .addGap(27, 27, 27)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuCustomer1Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(customerMenuLayout.createSequentialGroup()
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(customerMenuCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, 159, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, customerMenuLayout.createSequentialGroup()
+                                .addGap(18, 18, 18)
+                                .addComponent(customerMenuCustomer1Info, javax.swing.GroupLayout.PREFERRED_SIZE, 153, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(18, 18, 18)
+                        .addComponent(customerMenuViewCustomer1, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(customerMenuLayout.createSequentialGroup()
+                                .addComponent(customerMenuCustomer4Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(customerMenuLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(customerMenuCustomer4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(customerMenuLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(customerMenuCustomer4Info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(customerMenuViewCustomer4, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(customerMenuLayout.createSequentialGroup()
+                                .addComponent(customerMenuCustomer3Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(customerMenuLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(customerMenuCustomer3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(customerMenuLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(customerMenuCustomer3Info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(customerMenuViewCustomer3, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(customerMenuLayout.createSequentialGroup()
+                                .addComponent(customerMenuCustomer2Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 54, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(customerMenuLayout.createSequentialGroup()
+                                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                        .addComponent(customerMenuCustomer2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(customerMenuLayout.createSequentialGroup()
+                                        .addGap(18, 18, 18)
+                                        .addComponent(customerMenuCustomer2Info, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                                .addGap(18, 18, 18)
+                                .addComponent(customerMenuViewCustomer2, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(50, 50, 50))))
+            .addGroup(customerMenuLayout.createSequentialGroup()
+                .addGap(35, 35, 35)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuNavLeft, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(customerMenuNavRight, javax.swing.GroupLayout.PREFERRED_SIZE, 33, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(menuName3, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                        .addComponent(cutomerAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(42, Short.MAX_VALUE))
+        );
+        customerMenuLayout.setVerticalGroup(
+            customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(customerMenuLayout.createSequentialGroup()
+                .addGap(23, 23, 23)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(cutomerAdd, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(menuName3, javax.swing.GroupLayout.DEFAULT_SIZE, 61, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(customerMenuNavLeft)
+                    .addComponent(customerMenuNavRight))
+                .addGap(49, 49, 49)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerMenuCustomer1Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuCustomer1)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(customerMenuCustomer1Info))
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addGap(9, 9, 9)
+                        .addComponent(customerMenuViewCustomer1)))
+                .addGap(42, 42, 42)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerMenuCustomer2Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuCustomer2)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(customerMenuCustomer2Info))
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addGap(11, 11, 11)
+                        .addComponent(customerMenuViewCustomer2)))
+                .addGap(42, 42, 42)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(customerMenuCustomer3Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuCustomer3)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(customerMenuCustomer3Info))
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addGap(10, 10, 10)
+                        .addComponent(customerMenuViewCustomer3)))
+                .addGap(42, 42, 42)
+                .addGroup(customerMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuCustomer4)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(customerMenuCustomer4Info))
+                    .addComponent(customerMenuCustomer4Pic, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(customerMenuLayout.createSequentialGroup()
+                        .addComponent(customerMenuViewCustomer4)
+                        .addGap(11, 11, 11)))
+                .addContainerGap(73, Short.MAX_VALUE))
+        );
+
+        tabbedMenu.addTab("tab3", customerMenu);
+
         javax.swing.GroupLayout jPanel4Layout = new javax.swing.GroupLayout(jPanel4);
         jPanel4.setLayout(jPanel4Layout);
         jPanel4Layout.setHorizontalGroup(
@@ -445,6 +807,30 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }
         });
 
+        jButton3.setBackground(new java.awt.Color(30, 32, 44));
+        jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/product.png"))); // NOI18N
+        jButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton3ActionPerformed(evt);
+            }
+        });
+
+        jButton4.setBackground(new java.awt.Color(30, 32, 44));
+        jButton4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/customer.png"))); // NOI18N
+        jButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton4ActionPerformed(evt);
+            }
+        });
+
+        jButton5.setBackground(new java.awt.Color(30, 32, 44));
+        jButton5.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/menu.png"))); // NOI18N
+        jButton5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton5ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel4Layout = new javax.swing.GroupLayout(kGradientPanel4);
         kGradientPanel4.setLayout(kGradientPanel4Layout);
         kGradientPanel4Layout.setHorizontalGroup(
@@ -452,9 +838,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
             .addGroup(kGradientPanel4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(212, Short.MAX_VALUE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(35, Short.MAX_VALUE))
         );
         kGradientPanel4Layout.setVerticalGroup(
             kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -462,7 +854,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addContainerGap()
                 .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(jButton5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addContainerGap())
         );
 
@@ -473,6 +868,21 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         tabbedPreview.setTabPlacement(javax.swing.JTabbedPane.BOTTOM);
+
+        jPanel6.setBackground(new java.awt.Color(30, 32, 44));
+
+        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
+        jPanel6.setLayout(jPanel6Layout);
+        jPanel6Layout.setHorizontalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 868, Short.MAX_VALUE)
+        );
+        jPanel6Layout.setVerticalGroup(
+            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 784, Short.MAX_VALUE)
+        );
+
+        tabbedPreview.addTab("tab2", jPanel6);
 
         addCashier.setBackground(new java.awt.Color(30, 32, 44));
 
@@ -690,22 +1100,391 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         tabbedPreview.addTab("tab1", addCashier);
 
-        jPanel6.setBackground(new java.awt.Color(30, 32, 44));
+        addProduct.setBackground(new java.awt.Color(30, 32, 44));
 
-        javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
-        jPanel6.setLayout(jPanel6Layout);
-        jPanel6Layout.setHorizontalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 868, Short.MAX_VALUE)
+        jLabel3.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel3.setText("Add a new Product");
+
+        jLabel5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel5.setText("Product into");
+
+        kGradientPanel2.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel2.setkBorderRadius(100);
+        kGradientPanel2.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel2.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        jLabel10.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel10.setText("Category");
+
+        jLabel11.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel11.setText("Name");
+
+        submitAddCashier1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        submitAddCashier1.setText("SAVE");
+        submitAddCashier1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitAddCashier1ActionPerformed(evt);
+            }
+        });
+
+        flashAddProduct.setForeground(new java.awt.Color(255, 0, 51));
+        flashAddProduct.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel12.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel12.setText("SubCategory");
+
+        inputAddProductNewSubCategory.setEditable(false);
+
+        jLabel13.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel13.setText("Name");
+
+        jLabel39.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel39.setText("Product Name");
+
+        jLabel40.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel40.setText("Quantity");
+
+        jLabel41.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel41.setText("Price");
+
+        jLabel42.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel42.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel42.setText("DT");
+
+        kGradientPanel5.setBackground(new java.awt.Color(41, 43, 55));
+        kGradientPanel5.setkBorderRadius(100);
+        kGradientPanel5.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel5.setkStartColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel5.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        uploadAddProductPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/edit.png"))); // NOI18N
+        uploadAddProductPic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                uploadAddProductPicActionPerformed(evt);
+            }
+        });
+        kGradientPanel5.add(uploadAddProductPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 90, 40, 40));
+
+        displayAddProductPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        displayAddProductPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/picture.png"))); // NOI18N
+        kGradientPanel5.add(displayAddProductPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 140));
+
+        inputAddProductCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductCategories()));
+        inputAddProductCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputAddProductCategoryActionPerformed(evt);
+            }
+        });
+
+        inputAddProductSubCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "New" }));
+        inputAddProductSubCategory.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                inputAddProductSubCategoryActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout kGradientPanel2Layout = new javax.swing.GroupLayout(kGradientPanel2);
+        kGradientPanel2.setLayout(kGradientPanel2Layout);
+        kGradientPanel2Layout.setHorizontalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(flashAddProduct, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(submitAddCashier1, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(65, 65, 65)
+                                .addComponent(inputAddProductCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(31, 31, 31)
+                                .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddProductNewCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(55, 55, 55))
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddProductSubCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddProductQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 179, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 150, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 132, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 37, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(31, 31, 31)
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                                .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 68, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddProductNewSubCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(kGradientPanel5, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE))))
         );
-        jPanel6Layout.setVerticalGroup(
-            jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+        kGradientPanel2Layout.setVerticalGroup(
+            kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel10, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel11, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputAddProductNewCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 36, Short.MAX_VALUE)
+                    .addComponent(inputAddProductCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel12, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputAddProductNewSubCategory, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(jLabel13, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputAddProductSubCategory, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel2Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel39, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputAddProductName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel40, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputAddProductQuantity, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel41, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputAddProductPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(jLabel42, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addComponent(kGradientPanel5, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 152, Short.MAX_VALUE)
+                .addGroup(kGradientPanel2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitAddCashier1, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(flashAddProduct, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(33, 33, 33))
         );
 
-        tabbedPreview.addTab("tab2", jPanel6);
+        javax.swing.GroupLayout addProductLayout = new javax.swing.GroupLayout(addProduct);
+        addProduct.setLayout(addProductLayout);
+        addProductLayout.setHorizontalGroup(
+            addProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addProductLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(addProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        addProductLayout.setVerticalGroup(
+            addProductLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addProductLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel3, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kGradientPanel2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(85, Short.MAX_VALUE))
+        );
 
-        tabbedPreview.setSelectedIndex(1);
+        tabbedPreview.addTab("tab1", addProduct);
+
+        addCustomer.setBackground(new java.awt.Color(30, 32, 44));
+
+        jLabel6.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel6.setText("Register a new Customer");
+
+        jLabel14.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel14.setText("Customer into");
+
+        kGradientPanel6.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel6.setkBorderRadius(100);
+        kGradientPanel6.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel6.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        jLabel15.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel15.setText("First Name");
+
+        jLabel16.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel16.setText("Last Name");
+
+        jLabel17.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel17.setText("Email");
+
+        jLabel32.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel32.setText("Phone");
+
+        jLabel33.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel33.setText("Password");
+
+        submitAddCashier2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        submitAddCashier2.setText("SAVE");
+        submitAddCashier2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitAddCashier2ActionPerformed(evt);
+            }
+        });
+
+        jLabel38.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel38.setText("Sex");
+
+        inputAddCashierSex.add(inputAddCustomerMale);
+        inputAddCustomerMale.setText("Male");
+
+        inputAddCashierSex.add(inputAddCustomerFemale);
+        inputAddCustomerFemale.setText("Female");
+
+        jLabel43.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel43.setText("Picture");
+
+        pictureUploadAddCustomer.setText("Select");
+        pictureUploadAddCustomer.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pictureUploadAddCustomerActionPerformed(evt);
+            }
+        });
+
+        flashAddCustomer.setForeground(new java.awt.Color(255, 0, 51));
+        flashAddCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel44.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel44.setText("Adress");
+
+        javax.swing.GroupLayout kGradientPanel6Layout = new javax.swing.GroupLayout(kGradientPanel6);
+        kGradientPanel6.setLayout(kGradientPanel6Layout);
+        kGradientPanel6Layout.setHorizontalGroup(
+            kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                        .addComponent(jLabel38, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(inputAddCustomerMale)
+                        .addGap(18, 18, 18)
+                        .addComponent(inputAddCustomerFemale)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel6Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddCustomerAdress))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(inputAddCustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(inputAddCustomerPhone)))
+                                .addGap(33, 33, 33)
+                                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(inputAddCustomerPassword))))
+                            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(flashAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(29, 29, 29)
+                                .addComponent(submitAddCashier2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddCustomerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddCustomerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(55, 55, 55))))
+        );
+        kGradientPanel6Layout.setVerticalGroup(
+            kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputAddCustomerLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(inputAddCustomerFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputAddCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(inputAddCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(inputAddCustomerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputAddCustomerAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel38, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(inputAddCustomerMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(inputAddCustomerFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitAddCashier2, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(flashAddCustomer, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(33, 33, 33))
+        );
+
+        javax.swing.GroupLayout addCustomerLayout = new javax.swing.GroupLayout(addCustomer);
+        addCustomer.setLayout(addCustomerLayout);
+        addCustomerLayout.setHorizontalGroup(
+            addCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addCustomerLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(addCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        addCustomerLayout.setVerticalGroup(
+            addCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(addCustomerLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel6, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kGradientPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+
+        tabbedPreview.addTab("tab1", addCustomer);
 
         jPanel3.add(tabbedPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 810));
 
@@ -819,17 +1598,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
             try{
                 if(GlobalController.checkInputFields(textfields) && GlobalController.checkInputFieldsNumeric(intfields) && GlobalController.checkInputFieldsDate(datefields) && GlobalController.checkinputFieldsPicture(filefields)){
                     try{
-                        byte[] picture=null;
-                        String filename="cashiers\\"+inputAddCashierEmail.getText().trim()+GlobalController.getExtension(newCashierPic.getSelectedFile());
-                        FileInputStream fis= new FileInputStream(newCashierPic.getSelectedFile());
-                        ByteArrayOutputStream bos= new ByteArrayOutputStream();
-                        FileOutputStream fos= new FileOutputStream(filename);
-                        byte[] buf =new byte[1024];
-                        for(int readNum; (readNum=fis.read(buf))!=-1;){
-                            bos.write(buf,0,readNum);
-                        }
-                        bos.writeTo(fos);
-                        fos.flush();
+                        String filename="cashiers\\"+inputAddCashierEmail.getText().trim()+"."+GlobalController.getExtension(newCashierPic.getSelectedFile());
+                        GlobalController.saveFile(newCashierPic.getSelectedFile(), filename);
                         sd = new java.sql.Date(inputAddCashierStartDate.getDate().getTime());
                         ed = new java.sql.Date(inputAddCashierEndDate.getDate().getTime());
                         new AdminController(this.con).registerCashier(
@@ -861,7 +1631,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     private void itemAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAdd1ActionPerformed
         // TODO add your handling code here:
-        tabbedPreview.setSelectedIndex(0);
+        tabbedPreview.setSelectedIndex(1);
     }//GEN-LAST:event_itemAdd1ActionPerformed
 
     private void cashierMenuViewCashier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier1ActionPerformed
@@ -898,9 +1668,236 @@ public class AdminDashboardView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_cashierMenuNavLeftActionPerformed
 
+    private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
+        // TODO add your handling code here:
+        tabbedMenu.setSelectedIndex(2);
+        prefixProductMenu=0;
+        try{
+            fillProductMenu(new AdminController(this.con).getProducts(prefixProductMenu));
+        }catch(SQLException ex){
+            
+        }
+        
+    }//GEN-LAST:event_jButton3ActionPerformed
+
+    private void submitAddCashier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashier1ActionPerformed
+        // TODO add your handling code here:
+        ArrayList textfields= new ArrayList();
+        if(inputAddProductCategory.getSelectedItem().toString().equals("New")){
+            textfields.add(inputAddProductNewCategory);
+        }
+        if(inputAddProductSubCategory.getSelectedItem().toString().equals("New")){
+            textfields.add(inputAddProductNewSubCategory);
+        }
+        //textfields.add(inputAddProductCategory.getSelectedItem().toString());
+        //textfields.add(inputAddProductSubCategory.getSelectedItem().toString());
+        textfields.add(inputAddProductName);
+        ArrayList doublefields= new ArrayList();
+        doublefields.add(inputAddProductPrice);
+        ArrayList intfields= new ArrayList();
+        intfields.add(inputAddProductQuantity);
+        ArrayList filefields= new ArrayList();
+        filefields.add(newProductPic);
+        java.sql.Date sd,ed;
+
+            try{
+                if(GlobalController.checkInputFieldsDouble(doublefields) && GlobalController.checkInputFields(textfields) && GlobalController.checkInputFieldsNumeric(intfields) && GlobalController.checkinputFieldsPicture(filefields)){
+                    try{
+                        String filename="products\\"+inputAddProductName.getText().trim()+"."+GlobalController.getExtension(newProductPic.getSelectedFile());
+                        GlobalController.saveFile(newProductPic.getSelectedFile(), filename);
+                        new AdminController(this.con).addProduct(
+                                inputAddProductCategory.getSelectedItem().toString().equals("New")?inputAddProductNewCategory.getText():inputAddProductCategory.getSelectedItem().toString(),
+                                inputAddProductSubCategory.getSelectedItem().toString().equals("New")?inputAddProductNewSubCategory.getText():inputAddProductSubCategory.getSelectedItem().toString(),
+                                inputAddProductName.getText(),
+                                Integer.parseInt(inputAddProductQuantity.getText()),
+                                Double.parseDouble(inputAddProductPrice.getText()),
+                                filename
+                        );
+                        flashAddProduct.setText("Product Added.");
+                        fillProductMenu(new AdminController(this.con).getProducts(prefixProductMenu));
+                    }catch(SQLException ex){
+                        flashAddProduct.setText(ex.getMessage());
+                    }catch(Exception e){
+                        flashAddProduct.setText("File upload Error!");
+                    }
+                }else{
+                    flashAddProduct.setText("All fields required!");
+                }
+            }catch(NullPointerException ex){
+                flashAddProduct.setText("All fields required!");
+            }
+        
+    }//GEN-LAST:event_submitAddCashier1ActionPerformed
+
+    private void inputAddProductSubCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddProductSubCategoryActionPerformed
+        // TODO add your handling code here:
+        if(!inputAddProductSubCategory.getSelectedItem().toString().equals("New")){
+            inputAddProductNewSubCategory.setEditable(false);
+        }else{
+            inputAddProductNewSubCategory.setEditable(true);
+        }
+    }//GEN-LAST:event_inputAddProductSubCategoryActionPerformed
+
+    private void inputAddProductCategoryActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddProductCategoryActionPerformed
+        // TODO add your handling code here: 
+        if(!inputAddProductCategory.getSelectedItem().toString().equals("New")){
+            inputAddProductNewCategory.setEditable(false);
+            inputAddProductSubCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductSubCategories(inputAddProductCategory.getSelectedItem().toString())));
+        }else{
+            inputAddProductNewCategory.setEditable(true);
+        }
+    }//GEN-LAST:event_inputAddProductCategoryActionPerformed
+
+    private void uploadAddProductPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_uploadAddProductPicActionPerformed
+        // TODO add your handling code here:
+        newProductPic = new JFileChooser();
+        newProductPic.showOpenDialog(null);
+        if(GlobalController.checkinputFieldPicture(newProductPic)){
+            displayAddProductPic.setIcon(new ImageIcon(new ImageIcon(newProductPic.getSelectedFile().getAbsolutePath()).getImage().getScaledInstance(displayAddProductPic.getWidth(),displayAddProductPic.getHeight(),Image.SCALE_DEFAULT)));    
+        }
+    }//GEN-LAST:event_uploadAddProductPicActionPerformed
+
+    private void submitAddCashier2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashier2ActionPerformed
+        // TODO add your handling code here:
+        ArrayList textfields= new ArrayList();
+        textfields.add(inputAddCustomerFirstName);
+        textfields.add(inputAddCustomerLastName);
+        textfields.add(inputAddCustomerEmail);
+        textfields.add(inputAddCustomerAdress);
+        textfields.add(inputAddCustomerPhone);
+        ArrayList intfields= new ArrayList();
+        intfields.add(inputAddCustomerPhone);
+        ArrayList filefields= new ArrayList();
+        filefields.add(newCustomerPic);
+        String sex="";
+        if(inputAddCustomerMale.isSelected()){
+            sex="M";
+        }else if(inputAddCustomerFemale.isSelected()){
+            sex="F";
+        }
+        if(!sex.isEmpty()){
+            try{
+                if(GlobalController.checkInputFields(textfields) && GlobalController.checkInputFieldsNumeric(intfields) && GlobalController.checkinputFieldsPicture(filefields)){
+                    try{
+                        String filename="customers\\"+inputAddCustomerEmail.getText().trim()+"."+GlobalController.getExtension(newCustomerPic.getSelectedFile());
+                        GlobalController.saveFile(newCustomerPic.getSelectedFile(), filename);
+                        new AdminController(this.con).registerCustomer(
+                                inputAddCustomerFirstName.getText().trim(),
+                                inputAddCustomerLastName.getText().trim(),
+                                inputAddCustomerEmail.getText().trim(),
+                                inputAddCustomerPhone.getText().trim(),
+                                sex,
+                                filename,
+                                inputAddCustomerAdress.getText().trim());
+                        flashAddCustomer.setText("Customer Registered.");
+                        fillCustomerMenu(new AdminController(this.con).getCustomers(prefixCashierMenu));
+                    }catch(SQLException ex){
+                        flashAddCustomer.setText(ex.getMessage());
+                    }catch(Exception e){
+                        flashAddCustomer.setText("File upload Error!");
+                    }
+                }else{
+                    flashAddCustomer.setText("All fields required!");
+                }
+            }catch(NullPointerException ex){
+                flashAddCustomer.setText("All fields required!");
+            }
+        }
+    }//GEN-LAST:event_submitAddCashier2ActionPerformed
+
+    private void pictureUploadAddCustomerActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureUploadAddCustomerActionPerformed
+        // TODO add your handling code here:
+        newCustomerPic = new JFileChooser();
+        newCustomerPic.showOpenDialog(null);
+    }//GEN-LAST:event_pictureUploadAddCustomerActionPerformed
+
+    private void jButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton4ActionPerformed
+        // TODO add your handling code here:
+        tabbedMenu.setSelectedIndex(3);
+        prefixCustomerMenu=0;
+        try{
+            fillCustomerMenu(new AdminController(this.con).getCustomers(prefixCustomerMenu));
+        }catch(SQLException ex){
+            
+        }
+    }//GEN-LAST:event_jButton4ActionPerformed
+
+    private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(4);
+    }//GEN-LAST:event_jButton5ActionPerformed
+
+    private void productMenuViewProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_productMenuViewProduct1ActionPerformed
+
+    private void productMenuNavRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuNavRightActionPerformed
+        // TODO add your handling code here:
+        productMenuNavLeft.setEnabled(true);
+        prefixProductMenu++;
+        try{
+            fillProductMenu(new AdminController(this.con).getProducts(prefixProductMenu));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_productMenuNavRightActionPerformed
+
+    private void productMenuNavLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuNavLeftActionPerformed
+        // TODO add your handling code here:
+        prefixProductMenu--;
+        try{
+            fillProductMenu(new AdminController(this.con).getProducts(prefixProductMenu));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(prefixProductMenu==0){
+            productMenuNavLeft.setEnabled(false);
+        }
+    }//GEN-LAST:event_productMenuNavLeftActionPerformed
+
+    private void itemAdd2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAdd2ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(2);
+    }//GEN-LAST:event_itemAdd2ActionPerformed
+
+    private void cutomerAddActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cutomerAddActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(3);
+    }//GEN-LAST:event_cutomerAddActionPerformed
+
+    private void customerMenuNavLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuNavLeftActionPerformed
+        // TODO add your handling code here:
+        prefixCustomerMenu--;
+        try{
+            fillCustomerMenu(new AdminController(this.con).getCustomers(prefixCustomerMenu));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(prefixCustomerMenu==0){
+            customerMenuNavLeft.setEnabled(false);
+        }
+    }//GEN-LAST:event_customerMenuNavLeftActionPerformed
+
+    private void customerMenuNavRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuNavRightActionPerformed
+        // TODO add your handling code here:
+        customerMenuNavLeft.setEnabled(true);
+        prefixCustomerMenu++;
+        try{
+            fillCustomerMenu(new AdminController(this.con).getCustomers(prefixCustomerMenu));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_customerMenuNavRightActionPerformed
+
+    private void customerMenuViewCustomer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuViewCustomer1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_customerMenuViewCustomer1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
+    private javax.swing.JPanel addCustomer;
+    private javax.swing.JPanel addProduct;
     private javax.swing.JPanel adminMenu;
     private javax.swing.JLabel adminMenuFirstName;
     private javax.swing.JLabel adminMenuLastName;
@@ -925,7 +1922,30 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton cashierMenuViewCashier2;
     private javax.swing.JButton cashierMenuViewCashier3;
     private javax.swing.JButton cashierMenuViewCashier4;
+    private javax.swing.JPanel customerMenu;
+    private javax.swing.JLabel customerMenuCustomer1;
+    private javax.swing.JLabel customerMenuCustomer1Info;
+    private javax.swing.JLabel customerMenuCustomer1Pic;
+    private javax.swing.JLabel customerMenuCustomer2;
+    private javax.swing.JLabel customerMenuCustomer2Info;
+    private javax.swing.JLabel customerMenuCustomer2Pic;
+    private javax.swing.JLabel customerMenuCustomer3;
+    private javax.swing.JLabel customerMenuCustomer3Info;
+    private javax.swing.JLabel customerMenuCustomer3Pic;
+    private javax.swing.JLabel customerMenuCustomer4;
+    private javax.swing.JLabel customerMenuCustomer4Info;
+    private javax.swing.JLabel customerMenuCustomer4Pic;
+    private javax.swing.JButton customerMenuNavLeft;
+    private javax.swing.JButton customerMenuNavRight;
+    private javax.swing.JButton customerMenuViewCustomer1;
+    private javax.swing.JButton customerMenuViewCustomer2;
+    private javax.swing.JButton customerMenuViewCustomer3;
+    private javax.swing.JButton customerMenuViewCustomer4;
+    private javax.swing.JButton cutomerAdd;
+    private javax.swing.JLabel displayAddProductPic;
     private javax.swing.JLabel flashAddCashier;
+    private javax.swing.JLabel flashAddCustomer;
+    private javax.swing.JLabel flashAddProduct;
     private javax.swing.JTextField inputAddCashierEmail;
     private com.toedter.calendar.JDateChooser inputAddCashierEndDate;
     private javax.swing.JRadioButton inputAddCashierFemale;
@@ -937,11 +1957,38 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField inputAddCashierSalary;
     private javax.swing.ButtonGroup inputAddCashierSex;
     private com.toedter.calendar.JDateChooser inputAddCashierStartDate;
+    private javax.swing.JTextField inputAddCustomerAdress;
+    private javax.swing.JTextField inputAddCustomerEmail;
+    private javax.swing.JRadioButton inputAddCustomerFemale;
+    private javax.swing.JTextField inputAddCustomerFirstName;
+    private javax.swing.JTextField inputAddCustomerLastName;
+    private javax.swing.JRadioButton inputAddCustomerMale;
+    private javax.swing.JPasswordField inputAddCustomerPassword;
+    private javax.swing.JTextField inputAddCustomerPhone;
+    private javax.swing.JComboBox<String> inputAddProductCategory;
+    private javax.swing.JTextField inputAddProductName;
+    private javax.swing.JTextField inputAddProductNewCategory;
+    private javax.swing.JTextField inputAddProductNewSubCategory;
+    private javax.swing.JTextField inputAddProductPrice;
+    private javax.swing.JTextField inputAddProductQuantity;
+    private javax.swing.JComboBox<String> inputAddProductSubCategory;
     private javax.swing.JButton itemAdd;
     private javax.swing.JButton itemAdd1;
+    private javax.swing.JButton itemAdd2;
     private javax.swing.JButton jButton1;
     private javax.swing.JButton jButton2;
+    private javax.swing.JButton jButton3;
+    private javax.swing.JButton jButton4;
+    private javax.swing.JButton jButton5;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel10;
+    private javax.swing.JLabel jLabel11;
+    private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
+    private javax.swing.JLabel jLabel14;
+    private javax.swing.JLabel jLabel15;
+    private javax.swing.JLabel jLabel16;
+    private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
@@ -949,9 +1996,21 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel27;
     private javax.swing.JLabel jLabel28;
     private javax.swing.JLabel jLabel29;
+    private javax.swing.JLabel jLabel3;
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
+    private javax.swing.JLabel jLabel32;
+    private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel38;
+    private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
+    private javax.swing.JLabel jLabel42;
+    private javax.swing.JLabel jLabel43;
+    private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
@@ -963,14 +2022,42 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel3;
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel5;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel6;
     private javax.swing.JLabel menuName;
     private javax.swing.JLabel menuName1;
+    private javax.swing.JLabel menuName2;
+    private javax.swing.JLabel menuName3;
     private javax.swing.JButton pictureUploadAddCashier;
+    private javax.swing.JButton pictureUploadAddCustomer;
+    private javax.swing.JPanel productMenu;
+    private javax.swing.JButton productMenuNavLeft;
+    private javax.swing.JButton productMenuNavRight;
+    private javax.swing.JLabel productMenuProduct1;
+    private javax.swing.JLabel productMenuProduct1Info;
+    private javax.swing.JLabel productMenuProduct1Pic;
+    private javax.swing.JLabel productMenuProduct2;
+    private javax.swing.JLabel productMenuProduct2Info;
+    private javax.swing.JLabel productMenuProduct2Pic;
+    private javax.swing.JLabel productMenuProduct3;
+    private javax.swing.JLabel productMenuProduct3Info;
+    private javax.swing.JLabel productMenuProduct3Pic;
+    private javax.swing.JLabel productMenuProduct4;
+    private javax.swing.JLabel productMenuProduct4Info;
+    private javax.swing.JLabel productMenuProduct4Pic;
+    private javax.swing.JButton productMenuViewProduct1;
+    private javax.swing.JButton productMenuViewProduct2;
+    private javax.swing.JButton productMenuViewProduct3;
+    private javax.swing.JButton productMenuViewProduct4;
     private javax.swing.JButton submitAddCashier;
+    private javax.swing.JButton submitAddCashier1;
+    private javax.swing.JButton submitAddCashier2;
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JTabbedPane tabbedPreview;
+    private javax.swing.JButton uploadAddProductPic;
     // End of variables declaration//GEN-END:variables
 
     private void fillCashierMenu(ResultSet data){
@@ -978,7 +2065,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             if(data.next()){
                 cashierMenuCashier1.setText(data.getString("firstname")+" "+data.getString("lastname"));
                 cashierMenuCashier1Info.setText("soon!");
-                cashierMenuCashier1Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier1Pic.getWidth(),cashierMenuCashier1Pic.getHeight(),Image.SCALE_SMOOTH)));
+                cashierMenuCashier1Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier1Pic.getWidth(),cashierMenuCashier1Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 cashierMenuViewCashier1.setVisible(true);
                 cashierMenuNavRight.setEnabled(true);
             }else{
@@ -992,7 +2079,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             if(data.next()){
                 cashierMenuCashier2.setText(data.getString("firstname")+" "+data.getString("lastname"));
                 cashierMenuCashier2Info.setText("soon!");
-                cashierMenuCashier2Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier2Pic.getWidth(),cashierMenuCashier2Pic.getHeight(),Image.SCALE_DEFAULT)));
+                cashierMenuCashier2Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier2Pic.getWidth(),cashierMenuCashier2Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 cashierMenuViewCashier2.setVisible(true);
                 cashierMenuNavRight.setEnabled(true);
             }else{
@@ -1006,7 +2093,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             if(data.next()){
                 cashierMenuCashier3.setText(data.getString("firstname")+" "+data.getString("lastname"));
                 cashierMenuCashier3Info.setText("soon!");
-                cashierMenuCashier3Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier3Pic.getWidth(),cashierMenuCashier3Pic.getHeight(),Image.SCALE_DEFAULT)));
+                cashierMenuCashier3Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier3Pic.getWidth(),cashierMenuCashier3Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 cashierMenuViewCashier3.setVisible(true);
                 cashierMenuNavRight.setEnabled(true);
             }else{
@@ -1020,7 +2107,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             if(data.next()){
                 cashierMenuCashier4.setText(data.getString("firstname")+" "+data.getString("lastname"));
                 cashierMenuCashier4Info.setText("soon!");
-                cashierMenuCashier4Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier4Pic.getWidth(),cashierMenuCashier4Pic.getHeight(),Image.SCALE_DEFAULT)));
+                cashierMenuCashier4Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(cashierMenuCashier4Pic.getWidth(),cashierMenuCashier4Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 cashierMenuViewCashier4.setVisible(true);
                 cashierMenuNavRight.setEnabled(true);
             }else{
@@ -1040,4 +2127,133 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adminMenuLastName.setText(admin.lastname);
         adminMenuPosition.setText(admin.position);
     }
+    
+    
+    
+    private void fillProductMenu(ResultSet data){
+        try{
+            if(data.next()){
+                productMenuProduct1.setText(data.getString("name"));
+                productMenuProduct1Info.setText(data.getString("quantity")+" in stock");
+                productMenuProduct1Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct1Pic.getWidth(),productMenuProduct1Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                productMenuViewProduct1.setVisible(true);
+                productMenuNavRight.setEnabled(true);
+            }else{
+                productMenuProduct1.setText("");
+                productMenuProduct1Info.setText("");
+                productMenuViewProduct1.setVisible(false);
+                productMenuNavRight.setEnabled(false);
+                productMenuProduct1Pic.setIcon(null);
+            }
+
+            if(data.next()){
+                productMenuProduct2.setText(data.getString("name"));
+                productMenuProduct2Info.setText(data.getString("quantity")+" in stock");
+                productMenuProduct2Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct2Pic.getWidth(),productMenuProduct2Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                productMenuViewProduct2.setVisible(true);
+                productMenuNavRight.setEnabled(true);
+            }else{
+                productMenuProduct2.setText("");
+                productMenuProduct2Info.setText("");
+                productMenuViewProduct2.setVisible(false);
+                productMenuNavRight.setEnabled(false);
+                productMenuProduct2Pic.setIcon(null);
+            }
+
+            if(data.next()){
+                productMenuProduct3.setText(data.getString("name"));
+                productMenuProduct3Info.setText(data.getString("quantity")+" in stock");
+                productMenuProduct3Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct3Pic.getWidth(),productMenuProduct3Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                productMenuViewProduct3.setVisible(true);
+                productMenuNavRight.setEnabled(true);
+            }else{
+                productMenuProduct3.setText("");
+                productMenuProduct3Info.setText("");
+                productMenuViewProduct3.setVisible(false);
+                productMenuNavRight.setEnabled(false);
+                productMenuProduct3Pic.setIcon(null);
+            }
+
+            if(data.next()){
+                productMenuProduct4.setText(data.getString("name"));
+                productMenuProduct4Info.setText(data.getString("quantity")+" in stock");
+                productMenuProduct4Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct4Pic.getWidth(),productMenuProduct4Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                productMenuViewProduct4.setVisible(true);
+                productMenuNavRight.setEnabled(true);
+            }else{
+                productMenuProduct4.setText("");
+                productMenuProduct4Info.setText("");
+                productMenuViewProduct4.setVisible(false);
+                productMenuNavRight.setEnabled(false);
+                productMenuProduct4Pic.setIcon(null);
+            }
+        }catch(SQLException ex){
+
+        }
+    }
+    
+    
+    
+    private void fillCustomerMenu(ResultSet data){
+        try{
+            if(data.next()){
+                customerMenuCustomer1.setText(data.getString("firstname")+" "+data.getString("lastname"));
+                customerMenuCustomer1Info.setText("soon!");
+                customerMenuCustomer1Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(customerMenuCustomer1Pic.getWidth(),customerMenuCustomer1Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                customerMenuViewCustomer1.setVisible(true);
+                customerMenuNavRight.setEnabled(true);
+            }else{
+                customerMenuCustomer1.setText("");
+                customerMenuCustomer1Info.setText("");
+                customerMenuViewCustomer1.setVisible(false);
+                customerMenuNavRight.setEnabled(false);
+                customerMenuCustomer1Pic.setIcon(null);
+            }
+
+            if(data.next()){
+                customerMenuCustomer2.setText(data.getString("firstname")+" "+data.getString("lastname"));
+                customerMenuCustomer2Info.setText("soon!");
+                customerMenuCustomer2Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(customerMenuCustomer2Pic.getWidth(),customerMenuCustomer2Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                customerMenuViewCustomer2.setVisible(true);
+                customerMenuNavRight.setEnabled(true);
+            }else{
+                customerMenuCustomer2.setText("");
+                customerMenuCustomer2Info.setText("");
+                customerMenuViewCustomer2.setVisible(false);
+                customerMenuNavRight.setEnabled(false);
+                customerMenuCustomer2Pic.setIcon(null);
+            }
+
+            if(data.next()){
+                customerMenuCustomer3.setText(data.getString("firstname")+" "+data.getString("lastname"));
+                customerMenuCustomer3Info.setText("soon!");
+                customerMenuCustomer3Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(customerMenuCustomer3Pic.getWidth(),customerMenuCustomer3Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                customerMenuViewCustomer3.setVisible(true);
+                customerMenuNavRight.setEnabled(true);
+            }else{
+                customerMenuCustomer3.setText("");
+                customerMenuCustomer3Info.setText("");
+                customerMenuViewCustomer3.setVisible(false);
+                customerMenuNavRight.setEnabled(false);
+                customerMenuCustomer3Pic.setIcon(null);
+            }
+
+            if(data.next()){
+                customerMenuCustomer4.setText(data.getString("firstname")+" "+data.getString("lastname"));
+                customerMenuCustomer4Info.setText("soon!");
+                customerMenuCustomer4Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(customerMenuCustomer4Pic.getWidth(),customerMenuCustomer4Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                customerMenuViewCustomer4.setVisible(true);
+                customerMenuNavRight.setEnabled(true);
+            }else{
+                customerMenuCustomer4.setText("");
+                customerMenuCustomer4Info.setText("");
+                customerMenuViewCustomer4.setVisible(false);
+                customerMenuNavRight.setEnabled(false);
+                customerMenuCustomer4Pic.setIcon(null);
+            }
+        }catch(SQLException ex){
+
+        }
+    }
+
 }
