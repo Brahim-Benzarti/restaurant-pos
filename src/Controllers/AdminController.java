@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Models.CustomerModel;
 import java.sql.Connection;
 import java.sql.SQLException;
 import java.sql.PreparedStatement;
@@ -13,6 +14,10 @@ import java.sql.Date;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.category.DefaultCategoryDataset;
+
+import org.jfree.data.general.DefaultPieDataset;
 
 /**
  *
@@ -125,5 +130,50 @@ public class AdminController {
         stmt.setString(7, picture);
         stmt.setDate(8, new java.sql.Date(new java.util.Date().getTime()));
         stmt.executeUpdate();
+    }
+    
+    public DefaultPieDataset defaultPieChart() throws SQLException{
+        DefaultPieDataset respie = new DefaultPieDataset();
+        respie.setValue("Test",50);
+        respie.setValue("Test",50);
+        PreparedStatement stmt = this.con.prepareStatement(
+            "SELECT products.category, COUNT(orders.quantity) AS sold "+
+            "FROM products, orders, carts " +
+            "WHERE products.id=orders.productid " +
+            "AND orders.cartid=carts.id " +
+            "AND UPPER(carts.status)='PAID' " +
+            "GROUP BY products.category"
+        );
+        ResultSet res= stmt.executeQuery();
+        while(res.next()){
+            respie.setValue(res.getString("category"),res.getInt("sold"));
+        }
+        return respie;
+    }
+    
+    public int getTopCustomer() throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT customerid FROM carts WHERE UPPER(status)='PAID' GROUP BY customerid ORDER BY SUM(total) DESC FETCH FIRST ROW ONLY");
+        ResultSet res= stmt.executeQuery();
+        res.next();
+        return res.getInt("customerid");
+    }
+    
+    public CustomerModel getCustomer(int id) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM customers WHERE id=?");
+        stmt.setInt(1, id);
+        return new CustomerModel(stmt.executeQuery());
+    }
+    
+    public CategoryDataset defaultLineChart() throws SQLException{
+        DefaultCategoryDataset dataset = new DefaultCategoryDataset();
+        dataset.addValue(212.0D, "Classes", "JDK 1.0");
+        dataset.addValue(504.0D, "Classes", "JDK 1.1");
+        dataset.addValue(1520.0D, "Classes", "JDK 1.2");
+        PreparedStatement stmt = this.con.prepareStatement("SELECT creationdate, SUM(total) AS ttotal FROM carts GROUP BY creationdate ORDER BY creationdate DESC fetch first 30 rows only");
+        ResultSet res= stmt.executeQuery();
+        while(res.next()){
+            dataset.addValue(res.getDouble("ttotal"),"",res.getString("creationdate"));
+        }
+        return dataset;
     }
 }

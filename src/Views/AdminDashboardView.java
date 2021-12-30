@@ -17,6 +17,8 @@ import javax.swing.JFileChooser;
 import Controllers.AdminController;
 import Controllers.GlobalController;
 import Models.AdminModel;
+import Models.CustomerModel;
+import java.awt.Dimension;
 import java.awt.Image;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
@@ -24,7 +26,18 @@ import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.util.Date;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JOptionPane;
+import org.jfree.chart.ChartFactory;
+import org.jfree.chart.ChartPanel;
+import org.jfree.chart.JFreeChart;
+import org.jfree.chart.plot.CategoryPlot;
+import org.jfree.chart.plot.PiePlot3D;
+import org.jfree.chart.plot.PlotOrientation;
+import org.jfree.data.category.CategoryDataset;
+import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.util.Rotation;
 
 
 /**
@@ -57,6 +70,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         }
         setVisible(true);
         updateAdminMenu(admin);
+        defaultPanelFill();
     }
 
     /**
@@ -156,6 +170,17 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jPanel3 = new javax.swing.JPanel();
         tabbedPreview = new javax.swing.JTabbedPane();
         jPanel6 = new javax.swing.JPanel();
+        kGradientPanel7 = new com.k33ptoo.components.KGradientPanel();
+        totalSalesChartDisplay = new javax.swing.JPanel();
+        kGradientPanel8 = new com.k33ptoo.components.KGradientPanel();
+        defaultTopCustomerPic = new javax.swing.JLabel();
+        jLabel20 = new javax.swing.JLabel();
+        defaultTopCustomerName = new javax.swing.JLabel();
+        defaultTopCustomerPhone = new javax.swing.JLabel();
+        defaultTopCustomerEmail = new javax.swing.JLabel();
+        mainPieChart = new com.k33ptoo.components.KGradientPanel();
+        mainPieChartPreview = new javax.swing.JPanel();
+        jLabel18 = new javax.swing.JLabel();
         addCashier = new javax.swing.JPanel();
         jLabel1 = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
@@ -871,15 +896,144 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         jPanel6.setBackground(new java.awt.Color(30, 32, 44));
 
+        kGradientPanel7.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel7.setkBorderRadius(50);
+        kGradientPanel7.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel7.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        totalSalesChartDisplay.setBackground(new java.awt.Color(41, 43, 55));
+
+        javax.swing.GroupLayout totalSalesChartDisplayLayout = new javax.swing.GroupLayout(totalSalesChartDisplay);
+        totalSalesChartDisplay.setLayout(totalSalesChartDisplayLayout);
+        totalSalesChartDisplayLayout.setHorizontalGroup(
+            totalSalesChartDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 339, Short.MAX_VALUE)
+        );
+        totalSalesChartDisplayLayout.setVerticalGroup(
+            totalSalesChartDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 236, Short.MAX_VALUE)
+        );
+
+        javax.swing.GroupLayout kGradientPanel7Layout = new javax.swing.GroupLayout(kGradientPanel7);
+        kGradientPanel7.setLayout(kGradientPanel7Layout);
+        kGradientPanel7Layout.setHorizontalGroup(
+            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel7Layout.createSequentialGroup()
+                .addGap(24, 24, 24)
+                .addComponent(totalSalesChartDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+        kGradientPanel7Layout.setVerticalGroup(
+            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addComponent(totalSalesChartDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+        );
+
+        kGradientPanel8.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel8.setkBorderRadius(50);
+        kGradientPanel8.setkEndColor(new java.awt.Color(227, 179, 77));
+        kGradientPanel8.setkGradientFocus(0);
+        kGradientPanel8.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        defaultTopCustomerPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel20.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel20.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/crown.png"))); // NOI18N
+
+        defaultTopCustomerName.setBackground(new java.awt.Color(30, 32, 44));
+        defaultTopCustomerName.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        defaultTopCustomerName.setText("Full Name");
+
+        defaultTopCustomerPhone.setText("jLabel22");
+
+        defaultTopCustomerEmail.setText("jLabel22");
+
+        javax.swing.GroupLayout kGradientPanel8Layout = new javax.swing.GroupLayout(kGradientPanel8);
+        kGradientPanel8.setLayout(kGradientPanel8Layout);
+        kGradientPanel8Layout.setHorizontalGroup(
+            kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel8Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(defaultTopCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                        .addComponent(defaultTopCustomerPic, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(defaultTopCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(defaultTopCustomerEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
+        );
+        kGradientPanel8Layout.setVerticalGroup(
+            kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(defaultTopCustomerPic, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel8Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel20, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(defaultTopCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(defaultTopCustomerPhone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(defaultTopCustomerEmail)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        mainPieChart.setBackground(new java.awt.Color(30, 32, 44));
+        mainPieChart.setkBorderRadius(50);
+        mainPieChart.setkEndColor(new java.awt.Color(41, 43, 55));
+        mainPieChart.setkStartColor(new java.awt.Color(41, 43, 55));
+        mainPieChart.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        mainPieChartPreview.setBackground(new java.awt.Color(30, 32, 44));
+
+        javax.swing.GroupLayout mainPieChartPreviewLayout = new javax.swing.GroupLayout(mainPieChartPreview);
+        mainPieChartPreview.setLayout(mainPieChartPreviewLayout);
+        mainPieChartPreviewLayout.setHorizontalGroup(
+            mainPieChartPreviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 640, Short.MAX_VALUE)
+        );
+        mainPieChartPreviewLayout.setVerticalGroup(
+            mainPieChartPreviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 320, Short.MAX_VALUE)
+        );
+
+        mainPieChart.add(mainPieChartPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 640, 320));
+
+        jLabel18.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel18.setText("Statistics");
+
         javax.swing.GroupLayout jPanel6Layout = new javax.swing.GroupLayout(jPanel6);
         jPanel6.setLayout(jPanel6Layout);
         jPanel6Layout.setHorizontalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 868, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel18, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(mainPieChart, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(jPanel6Layout.createSequentialGroup()
+                        .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 784, Short.MAX_VALUE)
+            .addGroup(jPanel6Layout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(mainPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(91, Short.MAX_VALUE))
         );
 
         tabbedPreview.addTab("tab2", jPanel6);
@@ -1568,6 +1722,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         tabbedMenu.setSelectedIndex(0);
+        tabbedPreview.setSelectedIndex(0);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void submitAddCashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashierActionPerformed
@@ -1942,6 +2097,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton customerMenuViewCustomer3;
     private javax.swing.JButton customerMenuViewCustomer4;
     private javax.swing.JButton cutomerAdd;
+    private javax.swing.JLabel defaultTopCustomerEmail;
+    private javax.swing.JLabel defaultTopCustomerName;
+    private javax.swing.JLabel defaultTopCustomerPhone;
+    private javax.swing.JLabel defaultTopCustomerPic;
     private javax.swing.JLabel displayAddProductPic;
     private javax.swing.JLabel flashAddCashier;
     private javax.swing.JLabel flashAddCustomer;
@@ -1989,7 +2148,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
+    private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2027,6 +2188,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
     private com.k33ptoo.components.KGradientPanel kGradientPanel5;
     private com.k33ptoo.components.KGradientPanel kGradientPanel6;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel7;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel8;
+    private com.k33ptoo.components.KGradientPanel mainPieChart;
+    private javax.swing.JPanel mainPieChartPreview;
     private javax.swing.JLabel menuName;
     private javax.swing.JLabel menuName1;
     private javax.swing.JLabel menuName2;
@@ -2057,6 +2222,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton submitAddCashier2;
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JTabbedPane tabbedPreview;
+    private javax.swing.JPanel totalSalesChartDisplay;
     private javax.swing.JButton uploadAddProductPic;
     // End of variables declaration//GEN-END:variables
 
@@ -2255,5 +2421,63 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         }
     }
-
+    
+    
+    public void defaultPieChartDisplay(DefaultPieDataset data){
+        JFreeChart chart = ChartFactory.createPieChart3D(null, data, false, false, false);
+        PiePlot3D plot = (PiePlot3D)chart.getPlot();
+        plot.setStartAngle(270.0D);
+        plot.setDirection(Rotation.ANTICLOCKWISE);
+        plot.setBackgroundPaint(new Color(41,43,55));
+        plot.setBaseSectionOutlinePaint(new Color(41,43,55));
+        plot.setBaseSectionPaint(new Color(41,43,55));
+        plot.setLabelBackgroundPaint(Color.WHITE);
+        plot.setLabelLinkPaint(Color.WHITE);
+        plot.setOutlinePaint(new Color(41,43,55));
+        ChartPanel chartpan = new ChartPanel(chart);
+        chartpan.setSize(mainPieChartPreview.getWidth(),mainPieChartPreview.getHeight());
+        chartpan.setBackground(new Color(41,43,55));
+        chartpan.setVisible(true);
+        mainPieChartPreview.removeAll();
+        mainPieChartPreview.add(chartpan);
+        mainPieChartPreview.updateUI();
+        mainPieChartPreview.setBackground(new Color(41,43,55));
+    }
+    
+    public void defaultTopCustomerDisplay(CustomerModel customer){
+        defaultTopCustomerName.setText(customer.firstname+" "+customer.lastname);
+        defaultTopCustomerPhone.setText(customer.phonenumber);
+        defaultTopCustomerEmail.setText(customer.email);
+        defaultTopCustomerPic.setIcon(new ImageIcon(new ImageIcon(customer.pictureurl).getImage().getScaledInstance(defaultTopCustomerPic.getWidth(),defaultTopCustomerPic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+    }
+    
+    public void defaultLineChartDisplay(CategoryDataset data){
+        JFreeChart chart = ChartFactory.createLineChart3D(null,null,null,data,PlotOrientation.VERTICAL, false, true, false);
+        CategoryPlot plot = (CategoryPlot)chart.getPlot();
+        plot.setRangeGridlinesVisible(false);
+        plot.setBackgroundPaint(new Color(41,43,55));
+        plot.setOutlinePaint(new Color(41,43,55));
+        ChartPanel chartpan = new ChartPanel(chart);
+        chartpan.setSize(totalSalesChartDisplay.getWidth(),totalSalesChartDisplay.getHeight());
+        chartpan.setBackground(new Color(41,43,55));
+        chartpan.setVisible(true);
+        totalSalesChartDisplay.removeAll();
+        totalSalesChartDisplay.add(chartpan);
+        totalSalesChartDisplay.updateUI();
+        totalSalesChartDisplay.setBackground(new Color(41,43,55));
+    }
+    
+    public void defaultPanelFill(){
+        AdminController ac = new AdminController(this.con);
+        try {
+            defaultTopCustomerDisplay(ac.getCustomer(ac.getTopCustomer()));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            defaultPieChartDisplay(new AdminController(this.con).defaultPieChart());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
 }
