@@ -40,8 +40,8 @@ public class CashierModel {
         sex=rs.getString("sex").charAt(0);
         creationdate=rs.getDate("creationdate");
         totalworkedtime=rs.getInt("totalworkedtime");
-        PreparedStatement stmt = con.prepareStatement("SELECT * FROM contracts where id=?");
-        stmt.setInt(1,rs.getInt("contractid"));
+        PreparedStatement stmt = con.prepareStatement("SELECT * FROM contracts where cashierid=?");
+        stmt.setInt(1,rs.getInt("id"));
         contract=new Models.ContractModel(stmt.executeQuery());
     }
     

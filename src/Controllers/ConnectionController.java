@@ -7,6 +7,7 @@ package Controllers;
 import Views.AdminDashboardView;
 
 import Models.AdminModel;
+import Models.CashierModel;
 
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -60,10 +61,10 @@ public class ConnectionController {
         return res.getInt("id");
     }
     
-    public AdminModel getCashier(int id, String password) throws SQLException{
+    public CashierModel getCashier(int id, String password) throws SQLException{
         PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM cashiers WHERE id=? AND PASSWORD=?");
         stmt.setInt(1, id);
         stmt.setString(2, password);
-        return new AdminModel(stmt.executeQuery());
+        return new CashierModel(this.con,stmt.executeQuery());
     }
 }

@@ -78,10 +78,12 @@ public class AdminController {
         stmt.executeUpdate();
     }
     
-    public Object[] getProductCategories(){
+    public Object[] getProductCategories(boolean cashier){
         ArrayList<String> fetchedproducts = new ArrayList<String>();
         PreparedStatement stmt;
-        fetchedproducts.add("New");
+        if(!cashier){
+            fetchedproducts.add("New");
+        }
         try {
             stmt = this.con.prepareStatement("SELECT category FROM products GROUP BY category");
              ResultSet res= stmt.executeQuery();
@@ -94,7 +96,7 @@ public class AdminController {
         return fetchedproducts.toArray();
     }
     
-    public Object[] getProductSubCategories(String cat){
+    public Object[] getProductSubCategories(String cat, boolean cashier){
         ArrayList<String> fetchedproducts = new ArrayList<String>();
         PreparedStatement stmt;
         try {
@@ -107,7 +109,9 @@ public class AdminController {
         } catch (SQLException ex) {
             Logger.getLogger(AdminController.class.getName()).log(Level.SEVERE, null, ex);
         }
-        fetchedproducts.add("New");
+        if(!cashier){
+            fetchedproducts.add("New");
+        }
         return fetchedproducts.toArray();
     }
     
@@ -134,8 +138,6 @@ public class AdminController {
     
     public DefaultPieDataset defaultPieChart() throws SQLException{
         DefaultPieDataset respie = new DefaultPieDataset();
-        respie.setValue("Test",50);
-        respie.setValue("Test",50);
         PreparedStatement stmt = this.con.prepareStatement(
             "SELECT products.category, COUNT(orders.quantity) AS sold "+
             "FROM products, orders, carts " +

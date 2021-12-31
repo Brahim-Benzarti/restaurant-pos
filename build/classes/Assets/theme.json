@@ -717,9 +717,9 @@
     },
     "Space.Review.diffAnchorBackground": "second",
     "Spinner": {
-      "background": "bg",
+      "background": "white",
       "border": "3,3,3,3",
-      "foreground": "fg",
+      "foreground": "black",
       "selectionForeground": "activeFg"
     },
     "SplitPane": {

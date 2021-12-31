@@ -1323,7 +1323,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         displayAddProductPic.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/picture.png"))); // NOI18N
         kGradientPanel5.add(displayAddProductPic, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 280, 140));
 
-        inputAddProductCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductCategories()));
+        inputAddProductCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductCategories(false)));
         inputAddProductCategory.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputAddProductCategoryActionPerformed(evt);
@@ -1897,7 +1897,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here: 
         if(!inputAddProductCategory.getSelectedItem().toString().equals("New")){
             inputAddProductNewCategory.setEditable(false);
-            inputAddProductSubCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductSubCategories(inputAddProductCategory.getSelectedItem().toString())));
+            inputAddProductSubCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductSubCategories(inputAddProductCategory.getSelectedItem().toString(),false)));
         }else{
             inputAddProductNewCategory.setEditable(true);
         }

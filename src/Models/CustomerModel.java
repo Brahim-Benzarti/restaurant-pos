@@ -14,7 +14,7 @@ import java.util.Date;
  * @author benza
  */
 public class CustomerModel {
-    private int id;
+    public int id;
     public String firstname;
     public String lastname;
     public String email;

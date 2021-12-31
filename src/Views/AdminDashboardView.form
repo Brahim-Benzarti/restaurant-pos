@@ -2273,7 +2273,7 @@
                             <Component class="javax.swing.JComboBox" name="inputAddProductCategory">
                               <Properties>
                                 <Property name="model" type="javax.swing.ComboBoxModel" editor="org.netbeans.modules.form.RADConnectionPropertyEditor">
-                                  <Connection code="new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductCategories())" type="code"/>
+                                  <Connection code="new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductCategories(false))" type="code"/>
                                 </Property>
                               </Properties>
                               <Events>

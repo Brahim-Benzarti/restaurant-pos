@@ -22,8 +22,8 @@ public class ContractModel {
     public ContractModel(ResultSet rs) throws SQLException{
         rs.next();
         id=rs.getInt("id");
-        startdate=rs.getDate("firstname");
-        enddate=rs.getDate("lastname");
+        startdate=rs.getDate("startdate");
+        enddate=rs.getDate("enddate");
         salary=rs.getInt("salary");
     }
 }
