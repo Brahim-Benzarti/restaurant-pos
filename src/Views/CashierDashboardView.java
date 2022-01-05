@@ -22,8 +22,12 @@ import Models.AdminModel;
 import Models.CashierModel;
 import Models.CustomerModel;
 import Models.ProductModel;
+import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.Image;
+import java.awt.Window;
+import java.awt.event.WindowAdapter;
+import java.awt.event.WindowEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
@@ -32,8 +36,11 @@ import java.sql.SQLException;
 import java.util.Date;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import javax.swing.JDialog;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 import javax.swing.SpinnerNumberModel;
+import javax.swing.SwingUtilities;
 import org.jfree.chart.ChartFactory;
 import org.jfree.chart.ChartPanel;
 import org.jfree.chart.JFreeChart;
@@ -65,6 +72,10 @@ public class CashierDashboardView extends javax.swing.JFrame {
     
     private CashierController controller;
     
+    private JDialog paymentPane;
+    private PaymentView paymentInstance;
+    private static final Dimension PAYMENT_PANEL_SIZE = new Dimension(514, 544);
+    
     /**
      * Creates new form LoginView
      */
@@ -80,7 +91,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         }
         setVisible(true);
         updateCashierMenu(cashier);
-        //defaultPanelFill();
+        defaultPanelFill();
         customLookAndFeel();
     }
 
@@ -190,6 +201,8 @@ public class CashierDashboardView extends javax.swing.JFrame {
         defaultTopCustomerPhone = new javax.swing.JLabel();
         defaultTopCustomerEmail = new javax.swing.JLabel();
         mainPieChart = new com.k33ptoo.components.KGradientPanel();
+        mainPieChartPreview2 = new javax.swing.JPanel();
+        mainPieChartPreview1 = new javax.swing.JPanel();
         mainPieChartPreview = new javax.swing.JPanel();
         jLabel18 = new javax.swing.JLabel();
         addCashier = new javax.swing.JPanel();
@@ -1010,20 +1023,50 @@ public class CashierDashboardView extends javax.swing.JFrame {
         mainPieChart.setkStartColor(new java.awt.Color(41, 43, 55));
         mainPieChart.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        mainPieChartPreview.setBackground(new java.awt.Color(30, 32, 44));
+        mainPieChartPreview2.setBackground(new java.awt.Color(41, 43, 55));
+
+        javax.swing.GroupLayout mainPieChartPreview2Layout = new javax.swing.GroupLayout(mainPieChartPreview2);
+        mainPieChartPreview2.setLayout(mainPieChartPreview2Layout);
+        mainPieChartPreview2Layout.setHorizontalGroup(
+            mainPieChartPreview2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+        mainPieChartPreview2Layout.setVerticalGroup(
+            mainPieChartPreview2Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 370, Short.MAX_VALUE)
+        );
+
+        mainPieChart.add(mainPieChartPreview2, new org.netbeans.lib.awtextra.AbsoluteConstraints(630, 0, 40, 370));
+
+        mainPieChartPreview1.setBackground(new java.awt.Color(41, 43, 55));
+
+        javax.swing.GroupLayout mainPieChartPreview1Layout = new javax.swing.GroupLayout(mainPieChartPreview1);
+        mainPieChartPreview1.setLayout(mainPieChartPreview1Layout);
+        mainPieChartPreview1Layout.setHorizontalGroup(
+            mainPieChartPreview1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 40, Short.MAX_VALUE)
+        );
+        mainPieChartPreview1Layout.setVerticalGroup(
+            mainPieChartPreview1Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 390, Short.MAX_VALUE)
+        );
+
+        mainPieChart.add(mainPieChartPreview1, new org.netbeans.lib.awtextra.AbsoluteConstraints(20, 0, 40, 390));
+
+        mainPieChartPreview.setBackground(new java.awt.Color(41, 43, 55));
 
         javax.swing.GroupLayout mainPieChartPreviewLayout = new javax.swing.GroupLayout(mainPieChartPreview);
         mainPieChartPreview.setLayout(mainPieChartPreviewLayout);
         mainPieChartPreviewLayout.setHorizontalGroup(
             mainPieChartPreviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 620, Short.MAX_VALUE)
         );
         mainPieChartPreviewLayout.setVerticalGroup(
             mainPieChartPreviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 320, Short.MAX_VALUE)
+            .addGap(0, 370, Short.MAX_VALUE)
         );
 
-        mainPieChart.add(mainPieChartPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 640, 320));
+        mainPieChart.add(mainPieChartPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 620, 370));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1370,6 +1413,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
         inputAddOrderPlaceOrder.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         inputAddOrderPlaceOrder.setText("SAVE");
+        inputAddOrderPlaceOrder.setEnabled(false);
         inputAddOrderPlaceOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputAddOrderPlaceOrderActionPerformed(evt);
@@ -1383,6 +1427,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
         inputAddOrderOrder.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         inputAddOrderOrder.setText("ADD");
+        inputAddOrderOrder.setEnabled(false);
         inputAddOrderOrder.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 inputAddOrderOrderActionPerformed(evt);
@@ -1460,12 +1505,10 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kGradientPanel9.add(displayAddProductPic1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 310, 190));
 
         kGradientPanel2.add(kGradientPanel9, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 120, 310, 190));
-
-        inputAddOrderPhone.setText("phone");
         kGradientPanel2.add(inputAddOrderPhone, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 370, 140, -1));
 
         inputAddOrderCustomerName.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        inputAddOrderCustomerName.setText("Full Name");
+        inputAddOrderCustomerName.setText("Customer");
         kGradientPanel2.add(inputAddOrderCustomerName, new org.netbeans.lib.awtextra.AbsoluteConstraints(490, 330, 150, 20));
 
         inputAddOrderQuantity.setEnabled(false);
@@ -1774,6 +1817,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabbedMenu.setSelectedIndex(0);
         tabbedPreview.setSelectedIndex(0);
+        defaultPanelFill();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void submitAddCashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashierActionPerformed
@@ -2045,8 +2089,47 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
     private void inputAddOrderPlaceOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddOrderPlaceOrderActionPerformed
         // TODO add your handling code here:
+        if (paymentPane == null || paymentInstance.isPaid() || paymentInstance.saved) {
+            try {
+                KeyValue p= (KeyValue)inputAddOrderCustomer.getSelectedItem();
+                CustomerModel customer= new AdminController(this.con).getCustomer(0);
+                if(p!=null){
+                    try {
+                        CustomerModel selected= new AdminController(this.con).getCustomer(p.key);
+                        customer=selected;
+                    } catch (SQLException ex) {
+                        Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                    }
+                }
+                Window topWindow = SwingUtilities.getWindowAncestor(jPanel2);
+                paymentPane = new JDialog(topWindow, "Modal Dialog", Dialog.ModalityType.APPLICATION_MODAL);
+                paymentInstance=new PaymentView(controller,paymentPane,currentCartPrice,customer);
+                paymentPane.getContentPane().add(paymentInstance.getMainPanel());
+                paymentPane.addWindowListener(new WindowAdapter(){
+                    public void windowClosed(WindowEvent e){
+                        //closed..
+                        System.out.println("payment pane closed");
+                        saveOrder(paymentInstance.pType,paymentInstance.paid?"paid":"pending");
+                    }
+                    public void windowClosing(WindowEvent e){
+                        //closing
+                        System.out.println("payment pane closing");
+                        saveOrder(paymentInstance.pType,paymentInstance.paid?"paid":"pending");
+                    }
+                });
+                paymentPane.pack();
+                paymentPane.setLocationRelativeTo(topWindow);
+                paymentPane.setMaximumSize(PAYMENT_PANEL_SIZE);
+                paymentPane.setResizable(false);
+                paymentPane.setVisible(true);
+            } catch (SQLException ex) {
+                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        } else {
+            paymentPane.setVisible(true);
+        }
     }//GEN-LAST:event_inputAddOrderPlaceOrderActionPerformed
-
+ 
     private void inputAddOrderOrderActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_inputAddOrderOrderActionPerformed
         try {
             // TODO add your handling code here:
@@ -2054,6 +2137,11 @@ public class CashierDashboardView extends javax.swing.JFrame {
             inputAddOrderOrderNumber.setText(String.valueOf(currentCart.size()));
             currentCartPrice+=controller.getProduct(inputAddOrderProduct.getSelectedItem().toString()).price*Integer.parseInt(inputAddOrderQuantity.getValue().toString());
             inputAddOrderTotalPrice.setText(String.valueOf(currentCartPrice));
+            if(currentCart.size()>0){
+                inputAddOrderPlaceOrder.setEnabled(true);
+            }else{
+                inputAddOrderPlaceOrder.setEnabled(false);
+            }
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2076,6 +2164,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         try {
             inputAddOrderCustomer.setModel(new javax.swing.DefaultComboBoxModel(controller.getCustomersList(inputAddOrderFindCustomer.getText())));
             customerPreview();
+            
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2238,6 +2327,8 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel kGradientPanel9;
     private com.k33ptoo.components.KGradientPanel mainPieChart;
     private javax.swing.JPanel mainPieChartPreview;
+    private javax.swing.JPanel mainPieChartPreview1;
+    private javax.swing.JPanel mainPieChartPreview2;
     private javax.swing.JLabel menuName;
     private javax.swing.JLabel menuName1;
     private javax.swing.JLabel menuName2;
@@ -2349,10 +2440,13 @@ public class CashierDashboardView extends javax.swing.JFrame {
     
     private void fillOrderMenu(ResultSet data){
         try{
+            AdminController admin=new Controllers.AdminController(this.con);
             if(data.next()){
-                productMenuProduct1.setText(data.getString("name"));
-                productMenuProduct1Info.setText(data.getString("quantity")+" in stock");
-                productMenuProduct1Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct1Pic.getWidth(),productMenuProduct1Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                System.out.println(data.getInt("id"));
+                Models.CustomerModel customer=customer=admin.getCustomer(data.getInt("customerid"));
+                productMenuProduct1.setText(customer.getFullName());
+                productMenuProduct1Info.setText(data.getString("status"));
+                productMenuProduct1Pic.setIcon(new ImageIcon(new ImageIcon(customer.pictureurl).getImage().getScaledInstance(productMenuProduct1Pic.getWidth(),productMenuProduct1Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 productMenuViewProduct1.setVisible(true);
                 productMenuNavRight.setEnabled(true);
             }else{
@@ -2364,9 +2458,11 @@ public class CashierDashboardView extends javax.swing.JFrame {
             }
 
             if(data.next()){
-                productMenuProduct2.setText(data.getString("name"));
-                productMenuProduct2Info.setText(data.getString("quantity")+" in stock");
-                productMenuProduct2Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct2Pic.getWidth(),productMenuProduct2Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                System.out.println(data.getInt("id"));
+                Models.CustomerModel customer=customer=admin.getCustomer(data.getInt("customerid"));
+                productMenuProduct2.setText(customer.getFullName());
+                productMenuProduct2Info.setText(data.getString("status"));
+                productMenuProduct2Pic.setIcon(new ImageIcon(new ImageIcon(customer.pictureurl).getImage().getScaledInstance(productMenuProduct2Pic.getWidth(),productMenuProduct2Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 productMenuViewProduct2.setVisible(true);
                 productMenuNavRight.setEnabled(true);
             }else{
@@ -2378,9 +2474,11 @@ public class CashierDashboardView extends javax.swing.JFrame {
             }
 
             if(data.next()){
-                productMenuProduct3.setText(data.getString("name"));
-                productMenuProduct3Info.setText(data.getString("quantity")+" in stock");
-                productMenuProduct3Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct3Pic.getWidth(),productMenuProduct3Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                System.out.println(data.getInt("id"));
+                Models.CustomerModel customer=customer=admin.getCustomer(data.getInt("customerid"));
+                productMenuProduct3.setText(customer.getFullName());
+                productMenuProduct3Info.setText(data.getString("status"));
+                productMenuProduct3Pic.setIcon(new ImageIcon(new ImageIcon(customer.pictureurl).getImage().getScaledInstance(productMenuProduct3Pic.getWidth(),productMenuProduct3Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 productMenuViewProduct3.setVisible(true);
                 productMenuNavRight.setEnabled(true);
             }else{
@@ -2392,9 +2490,11 @@ public class CashierDashboardView extends javax.swing.JFrame {
             }
 
             if(data.next()){
-                productMenuProduct4.setText(data.getString("name"));
-                productMenuProduct4Info.setText(data.getString("quantity")+" in stock");
-                productMenuProduct4Pic.setIcon(new ImageIcon(new ImageIcon(data.getString("pictureurl")).getImage().getScaledInstance(productMenuProduct4Pic.getWidth(),productMenuProduct4Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+                System.out.println(data.getInt("id"));
+                Models.CustomerModel customer=customer=admin.getCustomer(data.getInt("customerid"));
+                productMenuProduct4.setText(customer.getFullName());
+                productMenuProduct4Info.setText(data.getString("status"));
+                productMenuProduct4Pic.setIcon(new ImageIcon(new ImageIcon(customer.pictureurl).getImage().getScaledInstance(productMenuProduct4Pic.getWidth(),productMenuProduct4Pic.getHeight(),Image.SCALE_AREA_AVERAGING)));
                 productMenuViewProduct4.setVisible(true);
                 productMenuNavRight.setEnabled(true);
             }else{
@@ -2405,7 +2505,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                 productMenuProduct4Pic.setIcon(null);
             }
         }catch(SQLException ex){
-
+            System.out.println(ex.getMessage());
         }
     }
     
@@ -2488,6 +2588,8 @@ public class CashierDashboardView extends javax.swing.JFrame {
         ChartPanel chartpan = new ChartPanel(chart);
         chartpan.setSize(mainPieChartPreview.getWidth(),mainPieChartPreview.getHeight());
         chartpan.setBackground(new Color(41,43,55));
+        chartpan.setForeground(new Color(41,43,55));
+        chartpan.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         chartpan.setVisible(true);
         mainPieChartPreview.removeAll();
         mainPieChartPreview.add(chartpan);
@@ -2538,12 +2640,14 @@ public class CashierDashboardView extends javax.swing.JFrame {
             displayAddProductPic1.setIcon(new ImageIcon(new ImageIcon(selected.pictureurl).getImage().getScaledInstance(displayAddProductPic1.getWidth(),displayAddProductPic1.getHeight(),Image.SCALE_AREA_AVERAGING)));
             if(selected.isAvailable()){
                 inputAddOrderQuantity.setEnabled(true);
+                inputAddOrderOrder.setEnabled(true);
                 inputAddOrderQuantity.setModel(new SpinnerNumberModel(1,1,selected.quantity,1));
                 inputAddOrderQuantity.updateUI();
                 outputAddOrderInStock.setText(String.valueOf(selected.quantity)+" in Stock");
                 kGradientPanel10.setkEndColor(Color.green);
             }else{
                 inputAddOrderQuantity.setEnabled(false);
+                inputAddOrderOrder.setEnabled(false);
                 outputAddOrderInStock.setText("Out of stock");
                 kGradientPanel10.setkEndColor(Color.red);
             }
@@ -2566,6 +2670,23 @@ public class CashierDashboardView extends javax.swing.JFrame {
             inputAddOrderPhone.setText(selected.phonenumber);
             inputAddOrderCustomerStars.setText(controller.getCustomerStars(selected.id));
             
+        } catch (SQLException ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void saveOrder(String pType, String pStatus){
+        try {
+            int ci=0;
+            if(inputAddOrderCustomer.getSelectedItem()!=null){
+                KeyValue p= (KeyValue)inputAddOrderCustomer.getSelectedItem();
+                ci=p.key;
+            }
+            controller.saveOrder(currentCart, pType, currentCartPrice, pStatus, ci);
+            currentCart= new ArrayList<int[]>();
+            currentCartPrice=0;
+            prefixProductMenu=0;
+            fillOrderMenu(controller.getOrders(prefixProductMenu));
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }

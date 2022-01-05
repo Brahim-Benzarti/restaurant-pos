@@ -1723,6 +1723,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
         tabbedMenu.setSelectedIndex(0);
         tabbedPreview.setSelectedIndex(0);
+        defaultPanelFill();
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void submitAddCashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashierActionPerformed
@@ -1899,6 +1900,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
             inputAddProductNewCategory.setEditable(false);
             inputAddProductSubCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductSubCategories(inputAddProductCategory.getSelectedItem().toString(),false)));
         }else{
+            inputAddProductSubCategory.setModel(new javax.swing.DefaultComboBoxModel<>(new String[] { "None", "New" }));
             inputAddProductNewCategory.setEditable(true);
         }
     }//GEN-LAST:event_inputAddProductCategoryActionPerformed
@@ -1919,7 +1921,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         textfields.add(inputAddCustomerLastName);
         textfields.add(inputAddCustomerEmail);
         textfields.add(inputAddCustomerAdress);
-        textfields.add(inputAddCustomerPhone);
         ArrayList intfields= new ArrayList();
         intfields.add(inputAddCustomerPhone);
         ArrayList filefields= new ArrayList();
@@ -1952,7 +1953,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                         flashAddCustomer.setText("File upload Error!");
                     }
                 }else{
-                    flashAddCustomer.setText("All fields required!");
+                    flashAddCustomer.setText("Fields malformed!");
                 }
             }catch(NullPointerException ex){
                 flashAddCustomer.setText("All fields required!");

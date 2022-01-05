@@ -3,9 +3,13 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
+            <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Views/PaymentView.java</file>
             <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Views/LoginView.java</file>
             <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Views/AdminDashboardView.java</file>
+            <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Controllers/AdminController.java</file>
             <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Controllers/GlobalController.java</file>
+            <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Controllers/CashierController.java</file>
+            <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/Views/CashierDashboardView.java</file>
             <file>file:/C:/Users/benza/Documents/NetBeansProjects/JavaProject/src/App/App.java</file>
         </group>
     </open-files>

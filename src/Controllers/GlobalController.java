@@ -78,6 +78,7 @@ public class GlobalController {
                             extension.equals("gif") ||
                             extension.equals("jpeg") ||
                             extension.equals("jpg") ||
+                            extension.equals("jfif") ||
                             extension.equals("png"))) {
                                 return false;
                         }
@@ -104,6 +105,7 @@ public class GlobalController {
                         extension.equals("tif") ||
                         extension.equals("gif") ||
                         extension.equals("jpeg") ||
+                        extension.equals("jfif") ||
                         extension.equals("jpg") ||
                         extension.equals("png"))) {
                             return false;

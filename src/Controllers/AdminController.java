@@ -118,7 +118,8 @@ public class AdminController {
     
     public ResultSet getCustomers(int prefix) throws SQLException{
         PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM customers offset ? rows fetch first 4 rows only");
-        stmt.setInt(1,prefix*4);
+        //the one is just because of the unregistered customer
+        stmt.setInt(1,1+prefix*4);
         return stmt.executeQuery();
     }
     
