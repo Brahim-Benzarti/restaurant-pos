@@ -2948,7 +2948,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
             ordersScroll.validate();
             ordersScroll.updateUI();
             for(Object[] product: (ArrayList<Object[]>)order.get(2)){
-                ordersScroll.add(new Components.OrderComponent((ProductModel)product[0],(int)product[1],(XYDataset)product[2]));
+                ordersScroll.add(new Components.OrderComponent((ProductModel)product[0],(int)product[1],(XYDataset)((Object[])product[2])[0],(double)((Object[])product[2])[1]));
             }
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);

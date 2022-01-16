@@ -28,8 +28,16 @@ public class OrderComponent extends javax.swing.JPanel {
     /**
      * Creates new form OrderComponent
      */
-    public OrderComponent(ProductModel product, int quantity, XYDataset trend) {
+    private char slope;
+    public OrderComponent(ProductModel product, int quantity, XYDataset trend, double slope) {
         initComponents();
+        if(slope<0){
+            this.slope='D';
+        }else if(slope>0){
+            this.slope='I';
+        }else{
+            this.slope='C';
+        }
         this.productPic.setIcon(new ImageIcon(new ImageIcon(product.pictureurl).getImage().getScaledInstance(70,69,Image.SCALE_AREA_AVERAGING)));
         this.productName.setText(product.name);
         this.productUnitPrice.setText(String.valueOf(product.price));
@@ -42,13 +50,20 @@ public class OrderComponent extends javax.swing.JPanel {
         productTrendChart.setBackground(new Color(41,43,55));
     }
     
-    private static JFreeChart createChart(XYDataset dataset) {
+    private JFreeChart createChart(XYDataset dataset) {
         JFreeChart chart = ChartFactory.createXYLineChart(null, null, null, dataset, PlotOrientation.VERTICAL, false, false, false);
         XYPlot plot = (XYPlot)chart.getPlot();
         plot.setBackgroundPaint(new Color(41,43,55));
         XYLineAndShapeRenderer renderer = (XYLineAndShapeRenderer)plot.getRenderer();
         renderer.setDefaultShapesVisible(true);
         renderer.setDefaultShapesFilled(true);
+        if(slope=='D'){
+            renderer.setSeriesPaint(0, Color.RED);
+        }else if(slope=='I'){
+            renderer.setSeriesPaint(0, Color.GREEN);
+        }else{
+            renderer.setSeriesPaint(0, Color.BLUE);
+        }
         NumberAxis rangeAxis = (NumberAxis)plot.getRangeAxis();
         rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());
         return chart;

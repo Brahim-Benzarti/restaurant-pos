@@ -14,6 +14,7 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jfree.data.statistics.Regression;
 import org.jfree.data.xy.XYDataset;
 import org.jfree.data.xy.XYSeries;
 import org.jfree.data.xy.XYSeriesCollection;
@@ -189,8 +190,7 @@ public class CashierController {
         return order;
     }
     
-    public XYDataset getProductTrend(int customerId, int productId) throws SQLException{
-        ArrayList<int[]> trend= new ArrayList<int[]>();
+    public XYDataset getProductTrendDisabled(int customerId, int productId) throws SQLException{
         XYSeries series1 = new XYSeries("First");
         XYSeriesCollection dataset = new XYSeriesCollection();
         PreparedStatement stmt= this.con.prepareStatement("SELECT quantity FROM carts, orders WHERE carts.customerid=? AND orders.productid=? AND orders.cartid=carts.id ORDER BY carts.creationdate",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
@@ -198,10 +198,24 @@ public class CashierController {
         stmt.setInt(2, productId);
         ResultSet res= stmt.executeQuery();
         while(res.next()){
-            trend.add(new int[] {res.getRow(),res.getInt("quantity")});
             series1.add(res.getRow(),res.getInt("quantity"));
         }
         dataset.addSeries(series1);
         return (XYDataset)dataset;
+    }
+    
+    public Object[] getProductTrend(int customerId, int productId) throws SQLException{
+        XYSeries series1 = new XYSeries("First");
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        PreparedStatement stmt= this.con.prepareStatement("SELECT quantity FROM carts, orders WHERE carts.customerid=? AND orders.productid=? AND orders.cartid=carts.id ORDER BY carts.creationdate",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        stmt.setInt(1, customerId);
+        stmt.setInt(2, productId);
+        ResultSet res= stmt.executeQuery();
+        while(res.next()){
+            series1.add(res.getRow(),res.getInt("quantity"));
+        }
+        dataset.addSeries(series1);
+        double[] reg = Regression.getOLSRegression((XYDataset)dataset, 0);
+        return new Object[] {(XYDataset)dataset, reg[1]};
     }
 }
