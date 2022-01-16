@@ -24,6 +24,7 @@ import Models.CustomerModel;
 import Models.ProductModel;
 import java.awt.Dialog;
 import java.awt.Dimension;
+import java.awt.GridBagConstraints;
 import java.awt.Image;
 import java.awt.Window;
 import java.awt.event.WindowAdapter;
@@ -49,6 +50,7 @@ import org.jfree.chart.plot.PiePlot3D;
 import org.jfree.chart.plot.PlotOrientation;
 import org.jfree.data.category.CategoryDataset;
 import org.jfree.data.general.DefaultPieDataset;
+import org.jfree.data.xy.XYDataset;
 import org.jfree.util.Rotation;
 
 
@@ -292,6 +294,24 @@ public class CashierDashboardView extends javax.swing.JFrame {
         flashAddCustomer = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         inputAddCustomerAdress = new javax.swing.JTextField();
+        viewOrder = new javax.swing.JPanel();
+        kGradientPanel13 = new com.k33ptoo.components.KGradientPanel();
+        jLabel21 = new javax.swing.JLabel();
+        viewOrderTotalPrice = new javax.swing.JLabel();
+        jLabel36 = new javax.swing.JLabel();
+        kGradientPanel14 = new com.k33ptoo.components.KGradientPanel();
+        defaultOrderCustomerDisplayPic = new javax.swing.JLabel();
+        jLabel34 = new javax.swing.JLabel();
+        defaultOrderCustomerDisplayName = new javax.swing.JLabel();
+        defaultOrderCustomerDisplayPhone = new javax.swing.JLabel();
+        defaultOrderCustomerDisplayEmail = new javax.swing.JLabel();
+        kGradientsomething = new com.k33ptoo.components.KGradientPanel();
+        viewOrderList = new javax.swing.JScrollPane();
+        ordersScroll = new javax.swing.JPanel();
+        jLabel23 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel41 = new javax.swing.JLabel();
+        jLabel35 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 768));
@@ -606,7 +626,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         productMenuProduct1Info.setText("jLabel5");
         orderMenu.add(productMenuProduct1Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 223, 153, -1));
 
-        productMenuViewProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenuViewProduct1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/info.png"))); // NOI18N
         productMenuViewProduct1.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 productMenuViewProduct1ActionPerformed(evt);
@@ -622,7 +642,12 @@ public class CashierDashboardView extends javax.swing.JFrame {
         productMenuProduct2Info.setText("jLabel5");
         orderMenu.add(productMenuProduct2Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 317, 153, -1));
 
-        productMenuViewProduct2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenuViewProduct2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/info.png"))); // NOI18N
+        productMenuViewProduct2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productMenuViewProduct2ActionPerformed(evt);
+            }
+        });
         orderMenu.add(productMenuViewProduct2, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 289, 38, -1));
         orderMenu.add(productMenuProduct3Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 375, 54, 52));
 
@@ -633,7 +658,12 @@ public class CashierDashboardView extends javax.swing.JFrame {
         productMenuProduct3Info.setText("jLabel5");
         orderMenu.add(productMenuProduct3Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(99, 411, 153, -1));
 
-        productMenuViewProduct3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenuViewProduct3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/info.png"))); // NOI18N
+        productMenuViewProduct3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productMenuViewProduct3ActionPerformed(evt);
+            }
+        });
         orderMenu.add(productMenuViewProduct3, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 383, 38, -1));
         orderMenu.add(productMenuProduct4Pic, new org.netbeans.lib.awtextra.AbsoluteConstraints(27, 469, 54, 50));
 
@@ -644,7 +674,12 @@ public class CashierDashboardView extends javax.swing.JFrame {
         productMenuProduct4Info.setText("jLabel5");
         orderMenu.add(productMenuProduct4Info, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 510, 147, -1));
 
-        productMenuViewProduct4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/update.png"))); // NOI18N
+        productMenuViewProduct4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/info.png"))); // NOI18N
+        productMenuViewProduct4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                productMenuViewProduct4ActionPerformed(evt);
+            }
+        });
         orderMenu.add(productMenuViewProduct4, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 480, 38, -1));
 
         tabbedMenu.addTab("tab3", orderMenu);
@@ -1098,7 +1133,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                     .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(34, 34, 34)
                 .addComponent(mainPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(21, Short.MAX_VALUE))
         );
 
         tabbedPreview.addTab("tab2", jPanel6);
@@ -1734,6 +1769,182 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
         tabbedPreview.addTab("tab1", addCustomer);
 
+        viewOrder.setBackground(new java.awt.Color(30, 32, 44));
+
+        kGradientPanel13.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel13.setkBorderRadius(50);
+        kGradientPanel13.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel13.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel21.setText("Total Price:");
+
+        viewOrderTotalPrice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        viewOrderTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewOrderTotalPrice.setText("0");
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        jLabel36.setText("DT");
+
+        javax.swing.GroupLayout kGradientPanel13Layout = new javax.swing.GroupLayout(kGradientPanel13);
+        kGradientPanel13.setLayout(kGradientPanel13Layout);
+        kGradientPanel13Layout.setHorizontalGroup(
+            kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                .addGap(25, 25, 25)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel36)
+                .addContainerGap(25, Short.MAX_VALUE))
+        );
+        kGradientPanel13Layout.setVerticalGroup(
+            kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                .addGap(30, 30, 30)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(160, Short.MAX_VALUE))
+        );
+
+        kGradientPanel14.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel14.setkBorderRadius(50);
+        kGradientPanel14.setkEndColor(new java.awt.Color(22, 123, 255));
+        kGradientPanel14.setkGradientFocus(0);
+        kGradientPanel14.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        defaultOrderCustomerDisplayPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel34.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel34.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/crown.png"))); // NOI18N
+
+        defaultOrderCustomerDisplayName.setBackground(new java.awt.Color(30, 32, 44));
+        defaultOrderCustomerDisplayName.setFont(new java.awt.Font("Dialog", 1, 20)); // NOI18N
+        defaultOrderCustomerDisplayName.setText("Full Name");
+
+        defaultOrderCustomerDisplayPhone.setText("jLabel22");
+
+        defaultOrderCustomerDisplayEmail.setText("jLabel22");
+
+        javax.swing.GroupLayout kGradientPanel14Layout = new javax.swing.GroupLayout(kGradientPanel14);
+        kGradientPanel14.setLayout(kGradientPanel14Layout);
+        kGradientPanel14Layout.setHorizontalGroup(
+            kGradientPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel14Layout.createSequentialGroup()
+                .addContainerGap(38, Short.MAX_VALUE)
+                .addGroup(kGradientPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                    .addComponent(defaultOrderCustomerDisplayName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel14Layout.createSequentialGroup()
+                        .addComponent(defaultOrderCustomerDisplayPic, javax.swing.GroupLayout.PREFERRED_SIZE, 82, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(27, 27, 27)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(defaultOrderCustomerDisplayPhone, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(defaultOrderCustomerDisplayEmail, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
+        );
+        kGradientPanel14Layout.setVerticalGroup(
+            kGradientPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel14Layout.createSequentialGroup()
+                .addGroup(kGradientPanel14Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel14Layout.createSequentialGroup()
+                        .addGap(29, 29, 29)
+                        .addComponent(defaultOrderCustomerDisplayPic, javax.swing.GroupLayout.PREFERRED_SIZE, 76, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(kGradientPanel14Layout.createSequentialGroup()
+                        .addGap(48, 48, 48)
+                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(defaultOrderCustomerDisplayName, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(defaultOrderCustomerDisplayPhone)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(defaultOrderCustomerDisplayEmail)
+                .addContainerGap(29, Short.MAX_VALUE))
+        );
+
+        kGradientsomething.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientsomething.setkBorderRadius(50);
+        kGradientsomething.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientsomething.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        viewOrderList.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
+
+        ordersScroll.setBackground(new java.awt.Color(41, 43, 55));
+        ordersScroll.setLayout(new javax.swing.BoxLayout(ordersScroll, javax.swing.BoxLayout.Y_AXIS));
+        viewOrderList.setViewportView(ordersScroll);
+
+        jLabel23.setText("Name");
+
+        jLabel37.setText("Price");
+
+        jLabel41.setText("Trend");
+
+        javax.swing.GroupLayout kGradientsomethingLayout = new javax.swing.GroupLayout(kGradientsomething);
+        kGradientsomething.setLayout(kGradientsomethingLayout);
+        kGradientsomethingLayout.setHorizontalGroup(
+            kGradientsomethingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientsomethingLayout.createSequentialGroup()
+                .addGap(0, 0, Short.MAX_VALUE)
+                .addComponent(viewOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, 687, javax.swing.GroupLayout.PREFERRED_SIZE))
+            .addGroup(kGradientsomethingLayout.createSequentialGroup()
+                .addGap(119, 119, 119)
+                .addComponent(jLabel23)
+                .addGap(140, 140, 140)
+                .addComponent(jLabel41)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(jLabel37)
+                .addGap(123, 123, 123))
+        );
+        kGradientsomethingLayout.setVerticalGroup(
+            kGradientsomethingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientsomethingLayout.createSequentialGroup()
+                .addGap(0, 13, Short.MAX_VALUE)
+                .addGroup(kGradientsomethingLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel23)
+                    .addComponent(jLabel37)
+                    .addComponent(jLabel41))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addComponent(viewOrderList, javax.swing.GroupLayout.PREFERRED_SIZE, 295, javax.swing.GroupLayout.PREFERRED_SIZE))
+        );
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel35.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel35.setText("Order Info");
+
+        javax.swing.GroupLayout viewOrderLayout = new javax.swing.GroupLayout(viewOrder);
+        viewOrder.setLayout(viewOrderLayout);
+        viewOrderLayout.setHorizontalGroup(
+            viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewOrderLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel35, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kGradientsomething, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addGroup(viewOrderLayout.createSequentialGroup()
+                        .addComponent(kGradientPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(55, 55, 55)
+                        .addComponent(kGradientPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+        viewOrderLayout.setVerticalGroup(
+            viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewOrderLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kGradientPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(34, 34, 34)
+                .addComponent(kGradientsomething, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(81, Short.MAX_VALUE))
+        );
+
+        tabbedPreview.addTab("tab2", viewOrder);
+
         jPanel3.add(tabbedPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 810));
 
         javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
@@ -2014,6 +2225,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
     private void productMenuViewProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct1ActionPerformed
         // TODO add your handling code here:
+        showOrderDetails((prefixProductMenu*4));
     }//GEN-LAST:event_productMenuViewProduct1ActionPerformed
 
     private void productMenuNavRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuNavRightActionPerformed
@@ -2170,6 +2382,21 @@ public class CashierDashboardView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_inputAddOrderFindCustomerKeyTyped
 
+    private void productMenuViewProduct2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct2ActionPerformed
+        // TODO add your handling code here:
+        showOrderDetails((prefixProductMenu*4)+1);
+    }//GEN-LAST:event_productMenuViewProduct2ActionPerformed
+
+    private void productMenuViewProduct3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct3ActionPerformed
+        // TODO add your handling code here:
+        showOrderDetails((prefixProductMenu*4)+2);
+    }//GEN-LAST:event_productMenuViewProduct3ActionPerformed
+
+    private void productMenuViewProduct4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct4ActionPerformed
+        // TODO add your handling code here:
+        showOrderDetails((prefixProductMenu*4)+3);
+    }//GEN-LAST:event_productMenuViewProduct4ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
@@ -2219,6 +2446,10 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton customerMenuViewCustomer3;
     private javax.swing.JButton customerMenuViewCustomer4;
     private javax.swing.JButton cutomerAdd;
+    private javax.swing.JLabel defaultOrderCustomerDisplayEmail;
+    private javax.swing.JLabel defaultOrderCustomerDisplayName;
+    private javax.swing.JLabel defaultOrderCustomerDisplayPhone;
+    private javax.swing.JLabel defaultOrderCustomerDisplayPic;
     private javax.swing.JLabel defaultTopCustomerEmail;
     private javax.swing.JLabel defaultTopCustomerName;
     private javax.swing.JLabel defaultTopCustomerPhone;
@@ -2281,7 +2512,9 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2293,10 +2526,15 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel40;
+    private javax.swing.JLabel jLabel41;
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
@@ -2317,6 +2555,8 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel10;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel13;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel14;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel3;
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
@@ -2325,6 +2565,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel kGradientPanel7;
     private com.k33ptoo.components.KGradientPanel kGradientPanel8;
     private com.k33ptoo.components.KGradientPanel kGradientPanel9;
+    private com.k33ptoo.components.KGradientPanel kGradientsomething;
     private com.k33ptoo.components.KGradientPanel mainPieChart;
     private javax.swing.JPanel mainPieChartPreview;
     private javax.swing.JPanel mainPieChartPreview1;
@@ -2334,6 +2575,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel menuName2;
     private javax.swing.JLabel menuName3;
     private javax.swing.JPanel orderMenu;
+    private javax.swing.JPanel ordersScroll;
     private javax.swing.JLabel outputAddOrderInStock;
     private javax.swing.JButton pictureUploadAddCashier;
     private javax.swing.JButton pictureUploadAddCustomer;
@@ -2360,6 +2602,9 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JTabbedPane tabbedPreview;
     private javax.swing.JPanel totalSalesChartDisplay;
+    private javax.swing.JPanel viewOrder;
+    private javax.swing.JScrollPane viewOrderList;
+    private javax.swing.JLabel viewOrderTotalPrice;
     // End of variables declaration//GEN-END:variables
 
     private void fillCashierMenu(ResultSet data){
@@ -2592,6 +2837,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         chartpan.setBorder(javax.swing.BorderFactory.createEmptyBorder());
         chartpan.setVisible(true);
         mainPieChartPreview.removeAll();
+        mainPieChartPreview.updateUI();
         mainPieChartPreview.add(chartpan);
         mainPieChartPreview.updateUI();
         mainPieChartPreview.setBackground(new Color(41,43,55));
@@ -2688,6 +2934,37 @@ public class CashierDashboardView extends javax.swing.JFrame {
             prefixProductMenu=0;
             fillOrderMenu(controller.getOrders(prefixProductMenu));
         } catch (SQLException ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void showOrderDetails(int index){
+        tabbedPreview.setSelectedIndex(4);
+        try {
+            ArrayList<Object> order = controller.getOrderInfo(index);
+            defaultOrderCustomerDisplay((CustomerModel)order.get(1));
+            viewOrderTotalPrice.setText(String.valueOf((double)((Object[])order.get(0))[1]));
+            ordersScroll.removeAll();
+            ordersScroll.validate();
+            ordersScroll.updateUI();
+            for(Object[] product: (ArrayList<Object[]>)order.get(2)){
+                ordersScroll.add(new Components.OrderComponent((ProductModel)product[0],(int)product[1],(XYDataset)product[2]));
+            }
+        } catch (SQLException ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void defaultOrderCustomerDisplay(CustomerModel customer){
+        defaultOrderCustomerDisplayName.setText(customer.firstname+" "+customer.lastname);
+        defaultOrderCustomerDisplayPhone.setText(customer.phonenumber);
+        defaultOrderCustomerDisplayEmail.setText(customer.email);
+        defaultOrderCustomerDisplayPic.setIcon(new ImageIcon(new ImageIcon(customer.pictureurl).getImage().getScaledInstance(defaultTopCustomerPic.getWidth(),defaultTopCustomerPic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+        try {
+            int[] accentColor=new Utils.ImageTester(customer.pictureurl).getDominantColor();
+            kGradientPanel14.setkEndColor(new Color(accentColor[0],accentColor[1],accentColor[2]));
+            kGradientPanel14.updateUI();
+        } catch (Exception ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
     }

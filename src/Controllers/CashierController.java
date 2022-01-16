@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Models.CustomerModel;
 import Models.ProductModel;
 import java.sql.Connection;
 import java.sql.PreparedStatement;
@@ -13,6 +14,9 @@ import java.sql.SQLException;
 import java.util.ArrayList;
 import java.util.logging.Level;
 import java.util.logging.Logger;
+import org.jfree.data.xy.XYDataset;
+import org.jfree.data.xy.XYSeries;
+import org.jfree.data.xy.XYSeriesCollection;
 
 /**
  *
@@ -61,6 +65,12 @@ public class CashierController {
         return new ProductModel(stmt.executeQuery());
     }
     
+    public ProductModel getProduct(int id) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM products WHERE id=?");
+        stmt.setInt(1, id);
+        return new ProductModel(stmt.executeQuery());
+    }
+    
     public Object[] getCustomersList(String like) throws SQLException{
         ArrayList<KeyValue> elm = new ArrayList<KeyValue>();
         like="%"+like.toUpperCase()+"%";
@@ -91,10 +101,11 @@ public class CashierController {
     }
     
     public int getCustomerCart(int customer_id) throws SQLException{
-        PreparedStatement stmt = this.con.prepareStatement("SELECT id FROM carts WHERE customerid=? AND UPPER(status)='PENDING'");
+        PreparedStatement stmt = this.con.prepareStatement("SELECT id FROM carts WHERE customerid=? AND UPPER(status)='PENDING'",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
         stmt.setInt(1, customer_id);
         ResultSet res= stmt.executeQuery();
         if(res.next()){
+            res.last();
             return res.getInt("id");
         }
         return 0;
@@ -104,7 +115,7 @@ public class CashierController {
         PreparedStatement stmt = this.con.prepareStatement("SELECT id FROM carts WHERE creationdate=?");
         stmt.setDate(1, date);
         ResultSet res= stmt.executeQuery();
-        res.next();
+        res.last();
         return res.getInt("id");
     }
     
@@ -117,7 +128,6 @@ public class CashierController {
             stmt.setString(3,pStatus);
             stmt.setInt(4, getCustomerCart(customer_id));
             stmt.executeUpdate();
-            referenceCart=getCustomerCart(customer_id);
         }else{
             java.sql.Date cd=new java.sql.Date(new java.util.Date().getTime());
             PreparedStatement stmt = this.con.prepareStatement("INSERT INTO carts (paymenttype,creationdate,total,status,customerid) VALUES (?,?,?,?,?)");
@@ -127,8 +137,8 @@ public class CashierController {
             stmt.setString(4,pStatus);
             stmt.setInt(5, customer_id);
             stmt.executeUpdate();
-            referenceCart=getCartByTime(cd);
         }
+        referenceCart=getCustomerCart(customer_id);
         PreparedStatement stmt2 = this.con.prepareStatement("INSERT INTO orders (quantity,productid,cartid) VALUES (?,?,?)");
         PreparedStatement stmt3 = this.con.prepareStatement("UPDATE products SET quantity=quantity-? WHERE id=?");
         for(int[] order: orders){
@@ -150,5 +160,48 @@ public class CashierController {
             return res.getInt("total");
         }
         return 0;
+    }
+    
+    public CustomerModel getCustomer(int id) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM customers WHERE id=?");
+        stmt.setInt(1, id);
+        return new CustomerModel(stmt.executeQuery());
+    }
+    
+    public ArrayList<Object> getOrderInfo(int index) throws SQLException{
+        ArrayList<Object> order= new ArrayList<Object>();
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM carts WHERE UPPER(status)='PENDING' offset ? rows fetch first row only");
+        stmt.setInt(1, index);
+        ResultSet res=  stmt.executeQuery();
+        if(res.next()){
+            order.add(new Object[] {res.getDate("creationdate"), res.getDouble("total")});
+            order.add(getCustomer(res.getInt("customerid")));
+            PreparedStatement stmt2= this.con.prepareStatement("SELECT * FROM orders WHERE cartid=?");
+            stmt2.setInt(1,res.getInt("id"));
+            ResultSet res2= stmt2.executeQuery();
+            ArrayList<Object[]> products= new ArrayList<Object[]>();
+            while(res2.next()){
+                System.out.println("adding");
+                products.add(new Object[] {getProduct(res2.getInt("productid")),res2.getInt("quantity"), getProductTrend(res.getInt("customerid"),res2.getInt("productid"))});
+            }
+            order.add(products);
+        }
+        return order;
+    }
+    
+    public XYDataset getProductTrend(int customerId, int productId) throws SQLException{
+        ArrayList<int[]> trend= new ArrayList<int[]>();
+        XYSeries series1 = new XYSeries("First");
+        XYSeriesCollection dataset = new XYSeriesCollection();
+        PreparedStatement stmt= this.con.prepareStatement("SELECT quantity FROM carts, orders WHERE carts.customerid=? AND orders.productid=? AND orders.cartid=carts.id ORDER BY carts.creationdate",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        stmt.setInt(1, customerId);
+        stmt.setInt(2, productId);
+        ResultSet res= stmt.executeQuery();
+        while(res.next()){
+            trend.add(new int[] {res.getRow(),res.getInt("quantity")});
+            series1.add(res.getRow(),res.getInt("quantity"));
+        }
+        dataset.addSeries(series1);
+        return (XYDataset)dataset;
     }
 }
