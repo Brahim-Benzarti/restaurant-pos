@@ -29,16 +29,21 @@ public class PaymentView extends javax.swing.JFrame {
     public String pType;
     public boolean saved;
     public CustomerModel customer;
+    private boolean pending;
+    private int cartId;
+    CashierController cont;
     public PaymentView(CashierController cont, JDialog ref,double total,CustomerModel customer) {
         this.ref=ref;
         this.total=total;
         this.customer=customer;
+        this.cont=cont;
         initComponents();
         totalPrice.setText(String.valueOf(this.total));
         if(customer.id==0){
             ccCustomerName.setEditable(true);
         }else{
             ccCustomerName.setText(customer.getFullName());
+            ccCustomerName.setEditable(false);
             try {
                 old.setText("(old) "+String.valueOf(cont.getPendingCartTotal(customer.id))+" + "+String.valueOf(this.total));
                 totalPrice.setText(String.valueOf(this.total+cont.getPendingCartTotal(customer.id)));
@@ -46,6 +51,13 @@ public class PaymentView extends javax.swing.JFrame {
                 Logger.getLogger(PaymentView.class.getName()).log(Level.SEVERE, null, ex);
             }
         }
+    }
+    
+    public PaymentView(CashierController cont, JDialog ref,double total,CustomerModel customer, int cartId) {
+        this(cont,ref,total,customer);
+        this.pending=true;
+        this.cartId=cartId;
+        jTabbedPane1.setSelectedIndex(1);
     }
 
     /**
@@ -561,6 +573,14 @@ public class PaymentView extends javax.swing.JFrame {
         jTabbedPane1.setSelectedIndex(3);
         this.pType="cash";
         this.paid=true;
+        if(pending){
+            try {
+                this.cont.savePendingOrder(this.cartId,this.pType);
+            } catch (SQLException ex) {
+                System.out.println("okay");
+                Logger.getLogger(PaymentView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+        }
     }//GEN-LAST:event_jButton2ActionPerformed
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed

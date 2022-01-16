@@ -153,6 +153,13 @@ public class CashierController {
         }
     }
     
+    public void savePendingOrder(int cartId, String pType) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("UPDATE carts SET paymenttype=? , status='paid' WHERE id=?");
+        stmt.setString(1, pType);
+        stmt.setInt(2, cartId);
+        stmt.executeUpdate();
+    }
+    
     public double getPendingCartTotal(int id) throws SQLException{
         PreparedStatement stmt = this.con.prepareStatement("SELECT total FROM carts WHERE customerid=? AND UPPER(status)='PENDING'");
         stmt.setInt(1, id);
@@ -190,24 +197,10 @@ public class CashierController {
         return order;
     }
     
-    public XYDataset getProductTrendDisabled(int customerId, int productId) throws SQLException{
-        XYSeries series1 = new XYSeries("First");
-        XYSeriesCollection dataset = new XYSeriesCollection();
-        PreparedStatement stmt= this.con.prepareStatement("SELECT quantity FROM carts, orders WHERE carts.customerid=? AND orders.productid=? AND orders.cartid=carts.id ORDER BY carts.creationdate",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
-        stmt.setInt(1, customerId);
-        stmt.setInt(2, productId);
-        ResultSet res= stmt.executeQuery();
-        while(res.next()){
-            series1.add(res.getRow(),res.getInt("quantity"));
-        }
-        dataset.addSeries(series1);
-        return (XYDataset)dataset;
-    }
-    
     public Object[] getProductTrend(int customerId, int productId) throws SQLException{
         XYSeries series1 = new XYSeries("First");
         XYSeriesCollection dataset = new XYSeriesCollection();
-        PreparedStatement stmt= this.con.prepareStatement("SELECT quantity FROM carts, orders WHERE carts.customerid=? AND orders.productid=? AND orders.cartid=carts.id ORDER BY carts.creationdate",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
+        PreparedStatement stmt= this.con.prepareStatement("SELECT quantity FROM carts, orders WHERE carts.customerid=? AND orders.productid=? AND orders.cartid=carts.id ORDER BY orders.id ASC",ResultSet.TYPE_SCROLL_INSENSITIVE,ResultSet.CONCUR_READ_ONLY);
         stmt.setInt(1, customerId);
         stmt.setInt(2, productId);
         ResultSet res= stmt.executeQuery();
@@ -215,7 +208,11 @@ public class CashierController {
             series1.add(res.getRow(),res.getInt("quantity"));
         }
         dataset.addSeries(series1);
-        double[] reg = Regression.getOLSRegression((XYDataset)dataset, 0);
+        res.last();
+        double[] reg=new double[2];
+        if(res.getRow()>1){
+            reg=Regression.getOLSRegression((XYDataset)dataset, 0);
+        }
         return new Object[] {(XYDataset)dataset, reg[1]};
     }
 }

@@ -62,7 +62,7 @@ public class OrderComponent extends javax.swing.JPanel {
         }else if(slope=='I'){
             renderer.setSeriesPaint(0, Color.GREEN);
         }else{
-            renderer.setSeriesPaint(0, Color.BLUE);
+            renderer.setSeriesPaint(0, Color.WHITE);
         }
         NumberAxis rangeAxis = (NumberAxis)plot.getRangeAxis();
         rangeAxis.setStandardTickUnits(NumberAxis.createIntegerTickUnits());

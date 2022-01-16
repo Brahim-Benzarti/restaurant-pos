@@ -71,6 +71,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private int prefixCustomerMenu;
     private ArrayList<int[]> currentCart;
     private double currentCartPrice;
+    private int currentOrderCart;
     
     private CashierController controller;
     
@@ -299,6 +300,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         jLabel21 = new javax.swing.JLabel();
         viewOrderTotalPrice = new javax.swing.JLabel();
         jLabel36 = new javax.swing.JLabel();
+        kButton2 = new com.k33ptoo.components.KButton();
         kGradientPanel14 = new com.k33ptoo.components.KGradientPanel();
         defaultOrderCustomerDisplayPic = new javax.swing.JLabel();
         jLabel34 = new javax.swing.JLabel();
@@ -1777,7 +1779,8 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kGradientPanel13.setkStartColor(new java.awt.Color(41, 43, 55));
 
         jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel21.setText("Total Price:");
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setText("Total Price");
 
         viewOrderTotalPrice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
         viewOrderTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1787,28 +1790,54 @@ public class CashierDashboardView extends javax.swing.JFrame {
         jLabel36.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
         jLabel36.setText("DT");
 
+        kButton2.setText("Pay");
+        kButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        kButton2.setkBackGroundColor(new java.awt.Color(41, 43, 55));
+        kButton2.setkBorderRadius(30);
+        kButton2.setkEndColor(new java.awt.Color(41, 43, 55));
+        kButton2.setkHoverEndColor(new java.awt.Color(0, 0, 153));
+        kButton2.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kButton2.setkHoverStartColor(new java.awt.Color(41, 43, 55));
+        kButton2.setkSelectedColor(new java.awt.Color(41, 43, 55));
+        kButton2.setkStartColor(new java.awt.Color(41, 43, 55));
+        kButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton2ActionPerformed(evt);
+            }
+        });
+
         javax.swing.GroupLayout kGradientPanel13Layout = new javax.swing.GroupLayout(kGradientPanel13);
         kGradientPanel13.setLayout(kGradientPanel13Layout);
         kGradientPanel13Layout.setHorizontalGroup(
             kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel13Layout.createSequentialGroup()
-                .addGap(25, 25, 25)
-                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 152, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 122, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(18, 18, 18)
-                .addComponent(jLabel36)
-                .addContainerGap(25, Short.MAX_VALUE))
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                            .addGap(25, 25, 25)
+                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel13Layout.createSequentialGroup()
+                            .addContainerGap()
+                            .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGap(18, 18, 18)
+                            .addComponent(jLabel36)))
+                    .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                        .addGap(102, 102, 102)
+                        .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addContainerGap(31, Short.MAX_VALUE))
         );
         kGradientPanel13Layout.setVerticalGroup(
             kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel13Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
                 .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addContainerGap(160, Short.MAX_VALUE))
+                    .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         kGradientPanel14.setBackground(new java.awt.Color(30, 32, 44));
@@ -1935,10 +1964,10 @@ public class CashierDashboardView extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kGradientPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kGradientPanel14, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
-                .addGap(34, 34, 34)
+                .addGroup(viewOrderLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(kGradientPanel14, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(53, 53, 53)
                 .addComponent(kGradientsomething, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(81, Short.MAX_VALUE))
         );
@@ -2397,6 +2426,48 @@ public class CashierDashboardView extends javax.swing.JFrame {
         showOrderDetails((prefixProductMenu*4)+3);
     }//GEN-LAST:event_productMenuViewProduct4ActionPerformed
 
+    private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
+        // TODO add your handling code here:
+        try {
+            CustomerModel customer= new AdminController(this.con).getCustomer(0);
+            try {
+                CustomerModel selected= new AdminController(this.con).getCustomer(currentOrderCart);
+                customer=selected;
+            } catch (SQLException ex) {
+                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+            }
+            Window topWindow = SwingUtilities.getWindowAncestor(jPanel2);
+            paymentPane = new JDialog(topWindow, "Modal Dialog", Dialog.ModalityType.APPLICATION_MODAL);
+            paymentInstance=new PaymentView(controller,paymentPane,0,customer,currentOrderCart);
+            paymentPane.getContentPane().add(paymentInstance.getMainPanel());
+            paymentPane.addWindowListener(new WindowAdapter(){
+                public void windowClosed(WindowEvent e){
+                    //closed..
+                    try{
+                        fillOrderMenu(controller.getOrders(prefixProductMenu));
+                    }catch(SQLException ex){
+
+                    }
+                }
+                public void windowClosing(WindowEvent e){
+                    //closing
+                    try{
+                        fillOrderMenu(controller.getOrders(prefixProductMenu));
+                    }catch(SQLException ex){
+
+                    }
+                }
+            });
+            paymentPane.pack();
+            paymentPane.setLocationRelativeTo(topWindow);
+            paymentPane.setMaximumSize(PAYMENT_PANEL_SIZE);
+            paymentPane.setResizable(false);
+            paymentPane.setVisible(true);
+        } catch (SQLException ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
@@ -2553,6 +2624,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel10;
     private com.k33ptoo.components.KGradientPanel kGradientPanel13;
@@ -2942,6 +3014,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         tabbedPreview.setSelectedIndex(4);
         try {
             ArrayList<Object> order = controller.getOrderInfo(index);
+            currentOrderCart=controller.getCustomerCart(((CustomerModel)order.get(1)).id);
             defaultOrderCustomerDisplay((CustomerModel)order.get(1));
             viewOrderTotalPrice.setText(String.valueOf((double)((Object[])order.get(0))[1]));
             ordersScroll.removeAll();
