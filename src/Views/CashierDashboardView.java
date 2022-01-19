@@ -22,6 +22,7 @@ import Models.AdminModel;
 import Models.CashierModel;
 import Models.CustomerModel;
 import Models.ProductModel;
+import com.itextpdf.text.DocumentException;
 import java.awt.Dialog;
 import java.awt.Dimension;
 import java.awt.GridBagConstraints;
@@ -31,6 +32,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.io.ByteArrayOutputStream;
 import java.io.FileInputStream;
+import java.io.FileNotFoundException;
 import java.io.FileOutputStream;
 import java.sql.ResultSet;
 import java.sql.SQLException;
@@ -72,6 +74,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private ArrayList<int[]> currentCart;
     private double currentCartPrice;
     private int currentOrderCart;
+    private CustomerModel currentOrderCustomer;
     
     private CashierController controller;
     
@@ -79,12 +82,15 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private PaymentView paymentInstance;
     private static final Dimension PAYMENT_PANEL_SIZE = new Dimension(514, 544);
     
+    private CashierModel cashier;
+    
     /**
      * Creates new form LoginView
      */
     public CashierDashboardView(Connection con, CashierModel cashier) {
         this.con = con;
         this.controller= new CashierController(this.con);
+        this.cashier= cashier;
         initComponents();
         setTitle("POS");
         setLocationRelativeTo(null);
@@ -93,7 +99,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
             setIconImage(new ImageIcon(iconURL).getImage());
         }
         setVisible(true);
-        updateCashierMenu(cashier);
+        updateCashierMenu(this.cashier);
         defaultPanelFill();
         customLookAndFeel();
     }
@@ -1778,12 +1784,12 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kGradientPanel13.setkEndColor(new java.awt.Color(41, 43, 55));
         kGradientPanel13.setkStartColor(new java.awt.Color(41, 43, 55));
 
-        jLabel21.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel21.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         jLabel21.setText("Total Price");
 
         viewOrderTotalPrice.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
-        viewOrderTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        viewOrderTotalPrice.setHorizontalAlignment(javax.swing.SwingConstants.LEFT);
         viewOrderTotalPrice.setText("0");
 
         jLabel36.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
@@ -1794,7 +1800,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         kButton2.setkBackGroundColor(new java.awt.Color(41, 43, 55));
         kButton2.setkBorderRadius(30);
-        kButton2.setkEndColor(new java.awt.Color(41, 43, 55));
+        kButton2.setkEndColor(new java.awt.Color(41, 49, 96));
         kButton2.setkHoverEndColor(new java.awt.Color(0, 0, 153));
         kButton2.setkHoverForeGround(new java.awt.Color(255, 255, 255));
         kButton2.setkHoverStartColor(new java.awt.Color(41, 43, 55));
@@ -1811,19 +1817,15 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kGradientPanel13Layout.setHorizontalGroup(
             kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(kGradientPanel13Layout.createSequentialGroup()
-                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(kGradientPanel13Layout.createSequentialGroup()
-                            .addGap(25, 25, 25)
-                            .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(25, 25, 25)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                         .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel13Layout.createSequentialGroup()
-                            .addContainerGap()
-                            .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.PREFERRED_SIZE, 236, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewOrderTotalPrice, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                             .addGap(18, 18, 18)
-                            .addComponent(jLabel36)))
-                    .addGroup(kGradientPanel13Layout.createSequentialGroup()
-                        .addGap(102, 102, 102)
-                        .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                            .addComponent(jLabel36))
+                        .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 336, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(31, Short.MAX_VALUE))
         );
         kGradientPanel13Layout.setVerticalGroup(
@@ -1969,7 +1971,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                     .addComponent(kGradientPanel13, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(53, 53, 53)
                 .addComponent(kGradientsomething, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(81, Short.MAX_VALUE))
+                .addContainerGap(62, Short.MAX_VALUE))
         );
 
         tabbedPreview.addTab("tab2", viewOrder);
@@ -2351,11 +2353,33 @@ public class CashierDashboardView extends javax.swing.JFrame {
                         //closed..
                         System.out.println("payment pane closed");
                         saveOrder(paymentInstance.pType,paymentInstance.paid?"paid":"pending");
+                        if(paymentInstance.paid){
+                            try {
+                                printReceipt();
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (DocumentException ex) {
+                                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                     }
                     public void windowClosing(WindowEvent e){
                         //closing
                         System.out.println("payment pane closing");
                         saveOrder(paymentInstance.pType,paymentInstance.paid?"paid":"pending");
+                        if(paymentInstance.paid){
+                            try {
+                                printReceipt();
+                            } catch (FileNotFoundException ex) {
+                                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (SQLException ex) {
+                                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                            } catch (DocumentException ex) {
+                                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                            }
+                        }
                     }
                 });
                 paymentPane.pack();
@@ -2428,44 +2452,43 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
     private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
         // TODO add your handling code here:
-        try {
-            CustomerModel customer= new AdminController(this.con).getCustomer(0);
-            try {
-                CustomerModel selected= new AdminController(this.con).getCustomer(currentOrderCart);
-                customer=selected;
-            } catch (SQLException ex) {
-                Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        Window topWindow = SwingUtilities.getWindowAncestor(jPanel2);
+        paymentPane = new JDialog(topWindow, "Modal Dialog", Dialog.ModalityType.APPLICATION_MODAL);
+        paymentInstance=new PaymentView(controller,paymentPane,0,currentOrderCustomer,currentOrderCart);
+        paymentPane.getContentPane().add(paymentInstance.getMainPanel());
+        paymentPane.addWindowListener(new WindowAdapter(){
+            public void windowClosed(WindowEvent e){
+                //closed..
+                try{
+                    fillOrderMenu(controller.getOrders(prefixProductMenu));
+                    printReceipt();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (DocumentException ex) {
+                    Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
-            Window topWindow = SwingUtilities.getWindowAncestor(jPanel2);
-            paymentPane = new JDialog(topWindow, "Modal Dialog", Dialog.ModalityType.APPLICATION_MODAL);
-            paymentInstance=new PaymentView(controller,paymentPane,0,customer,currentOrderCart);
-            paymentPane.getContentPane().add(paymentInstance.getMainPanel());
-            paymentPane.addWindowListener(new WindowAdapter(){
-                public void windowClosed(WindowEvent e){
-                    //closed..
-                    try{
-                        fillOrderMenu(controller.getOrders(prefixProductMenu));
-                    }catch(SQLException ex){
-
-                    }
+            public void windowClosing(WindowEvent e){
+                //closing
+                try{
+                    fillOrderMenu(controller.getOrders(prefixProductMenu));
+                    printReceipt();
+                } catch (FileNotFoundException ex) {
+                    Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (SQLException ex) {
+                    Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+                } catch (DocumentException ex) {
+                    Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
                 }
-                public void windowClosing(WindowEvent e){
-                    //closing
-                    try{
-                        fillOrderMenu(controller.getOrders(prefixProductMenu));
-                    }catch(SQLException ex){
-
-                    }
-                }
-            });
-            paymentPane.pack();
-            paymentPane.setLocationRelativeTo(topWindow);
-            paymentPane.setMaximumSize(PAYMENT_PANEL_SIZE);
-            paymentPane.setResizable(false);
-            paymentPane.setVisible(true);
-        } catch (SQLException ex) {
-            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
-        }
+            }
+        });
+        paymentPane.pack();
+        paymentPane.setLocationRelativeTo(topWindow);
+        paymentPane.setMaximumSize(PAYMENT_PANEL_SIZE);
+        paymentPane.setResizable(false);
+        paymentPane.setVisible(true);
     }//GEN-LAST:event_kButton2ActionPerformed
 
 
@@ -3015,6 +3038,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         try {
             ArrayList<Object> order = controller.getOrderInfo(index);
             currentOrderCart=controller.getCustomerCart(((CustomerModel)order.get(1)).id);
+            currentOrderCustomer=(CustomerModel)order.get(1);
             defaultOrderCustomerDisplay((CustomerModel)order.get(1));
             viewOrderTotalPrice.setText(String.valueOf((double)((Object[])order.get(0))[1]));
             ordersScroll.removeAll();
@@ -3040,5 +3064,9 @@ public class CashierDashboardView extends javax.swing.JFrame {
         } catch (Exception ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
+    }
+    
+    public void printReceipt() throws FileNotFoundException, SQLException, SQLException, DocumentException{
+        this.controller.printInvoice(this.controller.getLastPaidCart(),this.cashier);
     }
 }

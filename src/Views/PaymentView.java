@@ -6,6 +6,7 @@
 package Views;
 
 import Controllers.CashierController;
+import Controllers.ConnectionController;
 import Models.CustomerModel;
 import java.sql.SQLException;
 import java.util.logging.Level;
@@ -596,7 +597,7 @@ public class PaymentView extends javax.swing.JFrame {
     public boolean isPaid(){
         return this.paid;
     }
-
+    
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextField ccCardNumber;
     private javax.swing.JTextField ccCustomerName;
