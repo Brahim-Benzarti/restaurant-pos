@@ -193,7 +193,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
         jPanel4 = new javax.swing.JPanel();
         kGradientPanel4 = new com.k33ptoo.components.KGradientPanel();
         jButton1 = new javax.swing.JButton();
-        jButton2 = new javax.swing.JButton();
         jButton3 = new javax.swing.JButton();
         jButton4 = new javax.swing.JButton();
         jButton5 = new javax.swing.JButton();
@@ -902,14 +901,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
             }
         });
 
-        jButton2.setBackground(new java.awt.Color(30, 32, 44));
-        jButton2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/cashier.png"))); // NOI18N
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
-            }
-        });
-
         jButton3.setBackground(new java.awt.Color(30, 32, 44));
         jButton3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/product.png"))); // NOI18N
         jButton3.addActionListener(new java.awt.event.ActionListener() {
@@ -941,13 +932,11 @@ public class CashierDashboardView extends javax.swing.JFrame {
             .addGroup(kGradientPanel4Layout.createSequentialGroup()
                 .addGap(30, 30, 30)
                 .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jButton2, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addComponent(jButton3, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(33, 33, 33)
                 .addComponent(jButton4, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGap(32, 32, 32)
                 .addComponent(jButton5, javax.swing.GroupLayout.PREFERRED_SIZE, 49, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(35, Short.MAX_VALUE))
         );
@@ -956,7 +945,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
             .addGroup(kGradientPanel4Layout.createSequentialGroup()
                 .addContainerGap()
                 .addGroup(kGradientPanel4Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(jButton2, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton3, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addComponent(jButton4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
@@ -2044,17 +2032,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        // TODO add your handling code here:
-        tabbedMenu.setSelectedIndex(1);
-        prefixCashierMenu=0;
-        try{
-            fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
-        }catch(SQLException ex){
-            
-        }
-    }//GEN-LAST:event_jButton2ActionPerformed
-
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
         tabbedMenu.setSelectedIndex(0);
@@ -2121,44 +2098,11 @@ public class CashierDashboardView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_submitAddCashierActionPerformed
 
-    private void itemAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAdd1ActionPerformed
-        // TODO add your handling code here:
-        tabbedPreview.setSelectedIndex(1);
-    }//GEN-LAST:event_itemAdd1ActionPerformed
-
-    private void cashierMenuViewCashier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier1ActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_cashierMenuViewCashier1ActionPerformed
-
     private void pictureUploadAddCashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureUploadAddCashierActionPerformed
         // TODO add your handling code here:
         newCashierPic = new JFileChooser();
         newCashierPic.showOpenDialog(null);
     }//GEN-LAST:event_pictureUploadAddCashierActionPerformed
-
-    private void cashierMenuNavRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuNavRightActionPerformed
-        // TODO add your handling code here:
-        cashierMenuNavLeft.setEnabled(true);
-        prefixCashierMenu++;
-        try{
-            fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-    }//GEN-LAST:event_cashierMenuNavRightActionPerformed
-
-    private void cashierMenuNavLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuNavLeftActionPerformed
-        // TODO add your handling code here:
-        prefixCashierMenu--;
-        try{
-            fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
-        }catch(SQLException ex){
-            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
-        }
-        if(prefixCashierMenu==0){
-            cashierMenuNavLeft.setEnabled(false);
-        }
-    }//GEN-LAST:event_cashierMenuNavLeftActionPerformed
 
     private void jButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton3ActionPerformed
         // TODO add your handling code here:
@@ -2251,7 +2195,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        tabbedPreview.setSelectedIndex(4);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void productMenuViewProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct1ActionPerformed
@@ -2491,6 +2434,39 @@ public class CashierDashboardView extends javax.swing.JFrame {
         paymentPane.setVisible(true);
     }//GEN-LAST:event_kButton2ActionPerformed
 
+    private void cashierMenuViewCashier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_cashierMenuViewCashier1ActionPerformed
+
+    private void cashierMenuNavRightActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuNavRightActionPerformed
+        // TODO add your handling code here:
+        cashierMenuNavLeft.setEnabled(true);
+        prefixCashierMenu++;
+        try{
+            fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+    }//GEN-LAST:event_cashierMenuNavRightActionPerformed
+
+    private void cashierMenuNavLeftActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuNavLeftActionPerformed
+        // TODO add your handling code here:
+        prefixCashierMenu--;
+        try{
+            fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
+        }catch(SQLException ex){
+            JOptionPane.showMessageDialog(null, "Please fill all the fields", "Error", JOptionPane.ERROR_MESSAGE);
+        }
+        if(prefixCashierMenu==0){
+            cashierMenuNavLeft.setEnabled(false);
+        }
+    }//GEN-LAST:event_cashierMenuNavLeftActionPerformed
+
+    private void itemAdd1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_itemAdd1ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(1);
+    }//GEN-LAST:event_itemAdd1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
@@ -2589,7 +2565,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton itemAdd1;
     private javax.swing.JButton itemAdd2;
     private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JButton jButton3;
     private javax.swing.JButton jButton4;
     private javax.swing.JButton jButton5;

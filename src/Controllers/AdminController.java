@@ -5,6 +5,7 @@
  */
 package Controllers;
 
+import Models.CashierModel;
 import Models.CustomerModel;
 import java.sql.Connection;
 import java.sql.SQLException;
@@ -58,6 +59,35 @@ public class AdminController {
         stmt.executeUpdate();
     }
     
+    public void updateCashier(int id, String firstname, String lastname, String email, String phonenumber, String sex, String picture, Date ed, int salary) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("UPDATE cashiers SET firstname=?, lastname=?, email=?, phonenumber=?, sex=?, pictureurl=? WHERE id=?");
+        stmt.setString(1,firstname);
+        stmt.setString(2,lastname);
+        stmt.setString(3, email);
+        stmt.setString(4,phonenumber);
+        stmt.setString(5,sex);
+        stmt.setString(6, picture);
+        stmt.setInt(7, id);
+        stmt.executeUpdate();
+        updateContract(ed,salary,id);
+    }
+    
+    private void updateContract(Date ed, int salary, int ci) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("UPDATE contracts SET enddate=?, salary=? WHERE cashierid=?");
+        stmt.setDate(1,ed);
+        stmt.setInt(2,salary);
+        stmt.setInt(3,ci);
+        stmt.executeUpdate();
+    }
+    
+    public void removeCashier(int cashierid) throws SQLException{
+        PreparedStatement stmt0 = this.con.prepareStatement("DELETE FROM contracts WHERE cashierid=?");
+        stmt0.setInt(1,cashierid);
+        stmt0.executeUpdate();
+        PreparedStatement stmt = this.con.prepareStatement("DELETE FROM cashiers WHERE id=?");
+        stmt.setInt(1,cashierid);
+        stmt.executeUpdate();
+    }
     
     public ResultSet getProducts(int prefix) throws SQLException{
         PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM products offset ? rows fetch first 4 rows only");
@@ -178,5 +208,19 @@ public class AdminController {
             dataset.addValue(res.getDouble("ttotal"),"",res.getString("creationdate"));
         }
         return dataset;
+    }
+    
+    public CashierModel getCashierByIndex(int prefix) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM cashiers offset ? rows fetch first row only");
+        stmt.setInt(1,prefix);
+        return new CashierModel(this.con, stmt.executeQuery());
+    }
+    
+    public Object[] getCashierContruct(int cashierid) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM contracts WHERE id=?");
+        stmt.setInt(1,cashierid);
+        ResultSet res = stmt.executeQuery();
+        res.next();
+        return new Object[] {res.getDate("enddate"),res.getInt("salary"), res.getDate("startdate")};
     }
 }

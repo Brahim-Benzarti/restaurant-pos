@@ -17,6 +17,7 @@ import javax.swing.JFileChooser;
 import Controllers.AdminController;
 import Controllers.GlobalController;
 import Models.AdminModel;
+import Models.CashierModel;
 import Models.CustomerModel;
 import java.awt.Dimension;
 import java.awt.Image;
@@ -55,6 +56,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private int prefixCashierMenu;
     private int prefixProductMenu;
     private int prefixCustomerMenu;
+    
+    private CashierModel currentCashierInPreview;
     
     /**
      * Creates new form LoginView
@@ -256,6 +259,48 @@ public class AdminDashboardView extends javax.swing.JFrame {
         flashAddCustomer = new javax.swing.JLabel();
         jLabel44 = new javax.swing.JLabel();
         inputAddCustomerAdress = new javax.swing.JTextField();
+        updateCashier = new javax.swing.JPanel();
+        jLabel19 = new javax.swing.JLabel();
+        jLabel21 = new javax.swing.JLabel();
+        kGradientPanel9 = new com.k33ptoo.components.KGradientPanel();
+        jLabel22 = new javax.swing.JLabel();
+        jLabel23 = new javax.swing.JLabel();
+        updateCashierLastName = new javax.swing.JTextField();
+        updateCashierName = new javax.swing.JTextField();
+        jLabel34 = new javax.swing.JLabel();
+        updateCashierEmail = new javax.swing.JTextField();
+        jLabel35 = new javax.swing.JLabel();
+        updateCashierPhone = new javax.swing.JTextField();
+        jLabel36 = new javax.swing.JLabel();
+        jLabel37 = new javax.swing.JLabel();
+        jLabel45 = new javax.swing.JLabel();
+        submitAddCashier3 = new javax.swing.JButton();
+        updateCashierNewSalary = new javax.swing.JTextField();
+        jLabel47 = new javax.swing.JLabel();
+        jLabel48 = new javax.swing.JLabel();
+        updateCashierMale = new javax.swing.JRadioButton();
+        updateCashierFemale = new javax.swing.JRadioButton();
+        updateCashierPic = new javax.swing.JButton();
+        flashUpdateCashier = new javax.swing.JLabel();
+        updateCashierNewDate = new com.toedter.calendar.JDateChooser();
+        viewCashier = new javax.swing.JPanel();
+        kGradientPanel11 = new com.k33ptoo.components.KGradientPanel();
+        viewCashierCashierPicture = new javax.swing.JLabel();
+        viewCashierCashierName = new javax.swing.JLabel();
+        viewCashierCashierEmail = new javax.swing.JLabel();
+        viewCashierCashierLastName = new javax.swing.JLabel();
+        viewCashierCashierPhone = new javax.swing.JLabel();
+        defaultTopCustomerPhone3 = new javax.swing.JLabel();
+        defaultTopCustomerPhone4 = new javax.swing.JLabel();
+        defaultTopCustomerPhone5 = new javax.swing.JLabel();
+        viewCashierCashierSD = new javax.swing.JLabel();
+        viewCashierCashierFD = new javax.swing.JLabel();
+        kButton1 = new com.k33ptoo.components.KButton();
+        kButton2 = new com.k33ptoo.components.KButton();
+        defaultTopCustomerPhone6 = new javax.swing.JLabel();
+        viewCashierCashierSalary = new javax.swing.JLabel();
+        viewCashierCashierFD2 = new javax.swing.JLabel();
+        jLabel51 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 768));
@@ -391,6 +436,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         cashierMenuCashier2Info.setText("jLabel5");
 
         cashierMenuViewCashier2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        cashierMenuViewCashier2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashierMenuViewCashier2ActionPerformed(evt);
+            }
+        });
 
         cashierMenuCashier3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cashierMenuCashier3.setText("jLabel4");
@@ -398,6 +448,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         cashierMenuCashier3Info.setText("jLabel5");
 
         cashierMenuViewCashier3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        cashierMenuViewCashier3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashierMenuViewCashier3ActionPerformed(evt);
+            }
+        });
 
         cashierMenuCashier4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         cashierMenuCashier4.setText("jLabel4");
@@ -405,6 +460,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         cashierMenuCashier4Info.setText("jLabel5");
 
         cashierMenuViewCashier4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        cashierMenuViewCashier4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                cashierMenuViewCashier4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout cashierMenuLayout = new javax.swing.GroupLayout(cashierMenu);
         cashierMenu.setLayout(cashierMenuLayout);
@@ -1639,6 +1699,384 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
         tabbedPreview.addTab("tab1", addCustomer);
 
+        updateCashier.setBackground(new java.awt.Color(30, 32, 44));
+
+        jLabel19.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel19.setText("Modify Cashier");
+
+        jLabel21.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel21.setText("Cashier into");
+
+        kGradientPanel9.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel9.setkBorderRadius(100);
+        kGradientPanel9.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel9.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        jLabel22.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel22.setText("First Name");
+
+        jLabel23.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel23.setText("Last Name");
+
+        jLabel34.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel34.setText("Email");
+
+        jLabel35.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel35.setText("Phone");
+
+        jLabel36.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel36.setText("Picture");
+
+        jLabel37.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel37.setText("New Date");
+
+        jLabel45.setText("Extend Contract");
+
+        submitAddCashier3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        submitAddCashier3.setText("UPDATE");
+        submitAddCashier3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitAddCashier3ActionPerformed(evt);
+            }
+        });
+
+        jLabel47.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel47.setText("New Salary");
+
+        jLabel48.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel48.setText("Sex");
+
+        inputAddCashierSex.add(updateCashierMale);
+        updateCashierMale.setText("Male");
+
+        inputAddCashierSex.add(updateCashierFemale);
+        updateCashierFemale.setText("Female");
+
+        updateCashierPic.setText("Select");
+        updateCashierPic.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateCashierPicActionPerformed(evt);
+            }
+        });
+
+        flashUpdateCashier.setForeground(new java.awt.Color(255, 0, 51));
+        flashUpdateCashier.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        updateCashierNewDate.setForeground(new java.awt.Color(255, 255, 255));
+        updateCashierNewDate.setToolTipText("");
+        updateCashierNewDate.setDateFormatString("yyyy-MM-dd");
+
+        javax.swing.GroupLayout kGradientPanel9Layout = new javax.swing.GroupLayout(kGradientPanel9);
+        kGradientPanel9.setLayout(kGradientPanel9Layout);
+        kGradientPanel9Layout.setHorizontalGroup(
+            kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                        .addComponent(jLabel48, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCashierMale)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCashierFemale)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel9Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel9Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                                        .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(updateCashierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                                        .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(updateCashierPhone)))
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateCashierPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(flashUpdateCashier, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(53, 53, 53)
+                                .addComponent(submitAddCashier3, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addComponent(jLabel45, javax.swing.GroupLayout.Alignment.LEADING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel9Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel9Layout.createSequentialGroup()
+                                        .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(updateCashierName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(33, 33, 33)
+                                        .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(updateCashierLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel9Layout.createSequentialGroup()
+                                            .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                            .addComponent(updateCashierNewSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                        .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel9Layout.createSequentialGroup()
+                                            .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                            .addGap(95, 95, 95)
+                                            .addComponent(updateCashierNewDate, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(55, 55, 55))))
+        );
+        kGradientPanel9Layout.setVerticalGroup(
+            kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel22, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel23, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCashierLastName, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(updateCashierName, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel34, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateCashierEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateCashierPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
+                    .addGroup(kGradientPanel9Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(updateCashierPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(updateCashierMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateCashierFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(58, 58, 58)
+                .addComponent(jLabel45)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(jLabel37, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCashierNewDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel47, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCashierNewSalary, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(29, 29, 29)
+                .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitAddCashier3, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(flashUpdateCashier, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(33, 33, 33))
+        );
+
+        javax.swing.GroupLayout updateCashierLayout = new javax.swing.GroupLayout(updateCashier);
+        updateCashier.setLayout(updateCashierLayout);
+        updateCashierLayout.setHorizontalGroup(
+            updateCashierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateCashierLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(updateCashierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 409, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        updateCashierLayout.setVerticalGroup(
+            updateCashierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateCashierLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel19, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel21, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kGradientPanel9, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(97, Short.MAX_VALUE))
+        );
+
+        tabbedPreview.addTab("tab1", updateCashier);
+
+        viewCashier.setBackground(new java.awt.Color(30, 32, 44));
+
+        kGradientPanel11.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel11.setkBorderRadius(50);
+        kGradientPanel11.setkEndColor(new java.awt.Color(227, 179, 77));
+        kGradientPanel11.setkGradientFocus(0);
+        kGradientPanel11.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        viewCashierCashierPicture.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        viewCashierCashierName.setBackground(new java.awt.Color(30, 32, 44));
+        viewCashierCashierName.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        viewCashierCashierName.setText("First Name");
+
+        viewCashierCashierEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCashierCashierEmail.setText("Email Adress");
+
+        viewCashierCashierLastName.setBackground(new java.awt.Color(30, 32, 44));
+        viewCashierCashierLastName.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        viewCashierCashierLastName.setText("Last Name");
+
+        viewCashierCashierPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCashierCashierPhone.setText("Phone Number");
+
+        defaultTopCustomerPhone3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        defaultTopCustomerPhone3.setText("Start date:");
+
+        defaultTopCustomerPhone4.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        defaultTopCustomerPhone4.setText("Contract Information:");
+
+        defaultTopCustomerPhone5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        defaultTopCustomerPhone5.setText("Finish date:");
+
+        viewCashierCashierSD.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        viewCashierCashierFD.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+
+        kButton1.setText("Update");
+        kButton1.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        kButton1.setkBackGroundColor(new java.awt.Color(30, 32, 44));
+        kButton1.setkEndColor(new java.awt.Color(30, 32, 44));
+        kButton1.setkHoverEndColor(new java.awt.Color(30, 32, 44));
+        kButton1.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kButton1.setkHoverStartColor(new java.awt.Color(30, 32, 44));
+        kButton1.setkSelectedColor(new java.awt.Color(30, 32, 44));
+        kButton1.setkStartColor(new java.awt.Color(30, 32, 44));
+        kButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton1ActionPerformed(evt);
+            }
+        });
+
+        kButton2.setText("Delete");
+        kButton2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        kButton2.setkBackGroundColor(new java.awt.Color(30, 32, 44));
+        kButton2.setkEndColor(new java.awt.Color(30, 32, 44));
+        kButton2.setkHoverEndColor(new java.awt.Color(255, 0, 0));
+        kButton2.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kButton2.setkHoverStartColor(new java.awt.Color(30, 32, 44));
+        kButton2.setkSelectedColor(new java.awt.Color(30, 32, 44));
+        kButton2.setkStartColor(new java.awt.Color(255, 51, 51));
+        kButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton2ActionPerformed(evt);
+            }
+        });
+
+        defaultTopCustomerPhone6.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        defaultTopCustomerPhone6.setText("Salary");
+
+        viewCashierCashierSalary.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCashierCashierSalary.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        viewCashierCashierFD2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCashierCashierFD2.setText("DT");
+
+        javax.swing.GroupLayout kGradientPanel11Layout = new javax.swing.GroupLayout(kGradientPanel11);
+        kGradientPanel11.setLayout(kGradientPanel11Layout);
+        kGradientPanel11Layout.setHorizontalGroup(
+            kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
+            .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                        .addComponent(defaultTopCustomerPhone6, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                        .addComponent(viewCashierCashierSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(viewCashierCashierFD2, javax.swing.GroupLayout.PREFERRED_SIZE, 138, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                    .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                                .addComponent(viewCashierCashierPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(52, 52, 52)
+                                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(viewCashierCashierName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(viewCashierCashierLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addComponent(viewCashierCashierEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(viewCashierCashierPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addComponent(defaultTopCustomerPhone4, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                            .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                                .addComponent(defaultTopCustomerPhone3, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(viewCashierCashierSD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                                .addComponent(defaultTopCustomerPhone5, javax.swing.GroupLayout.PREFERRED_SIZE, 182, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(viewCashierCashierFD, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                        .addGap(33, 33, 33))))
+        );
+        kGradientPanel11Layout.setVerticalGroup(
+            kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewCashierCashierPicture, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel11Layout.createSequentialGroup()
+                        .addComponent(viewCashierCashierName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(viewCashierCashierLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                .addGap(18, 18, 18)
+                .addComponent(viewCashierCashierEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(viewCashierCashierPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(30, 30, 30)
+                .addComponent(defaultTopCustomerPhone4, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(defaultTopCustomerPhone3, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewCashierCashierSD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(defaultTopCustomerPhone5, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewCashierCashierFD, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(defaultTopCustomerPhone6, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewCashierCashierSalary, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(viewCashierCashierFD2, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 54, Short.MAX_VALUE)
+                .addGroup(kGradientPanel11Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kButton1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kButton2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77))
+        );
+
+        jLabel51.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel51.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel51.setText("Cashier Information");
+
+        javax.swing.GroupLayout viewCashierLayout = new javax.swing.GroupLayout(viewCashier);
+        viewCashier.setLayout(viewCashierLayout);
+        viewCashierLayout.setHorizontalGroup(
+            viewCashierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewCashierLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(viewCashierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+        viewCashierLayout.setVerticalGroup(
+            viewCashierLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewCashierLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel51, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kGradientPanel11, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+
+        tabbedPreview.addTab("tab2", viewCashier);
+
         jPanel3.add(tabbedPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 810));
 
         javax.swing.GroupLayout kGradientPanel3Layout = new javax.swing.GroupLayout(kGradientPanel3);
@@ -1791,6 +2229,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     private void cashierMenuViewCashier1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier1ActionPerformed
         // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(5);
+        try {
+            showCashierInfo(prefixCashierMenu*4);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_cashierMenuViewCashier1ActionPerformed
 
     private void pictureUploadAddCashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureUploadAddCashierActionPerformed
@@ -2048,6 +2492,66 @@ public class AdminDashboardView extends javax.swing.JFrame {
         // TODO add your handling code here:
     }//GEN-LAST:event_customerMenuViewCustomer1ActionPerformed
 
+    private void submitAddCashier3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashier3ActionPerformed
+        // TODO add your handling code here:
+        updateCashier();
+    }//GEN-LAST:event_submitAddCashier3ActionPerformed
+
+    private void updateCashierPicActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateCashierPicActionPerformed
+        // TODO add your handling code here:
+        newCashierPic = new JFileChooser();
+        newCashierPic.showOpenDialog(null);
+    }//GEN-LAST:event_updateCashierPicActionPerformed
+
+    private void cashierMenuViewCashier2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier2ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(5);
+        try {
+            showCashierInfo((prefixCashierMenu*4)+1);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cashierMenuViewCashier2ActionPerformed
+
+    private void cashierMenuViewCashier3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier3ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(5);
+        try {
+            showCashierInfo((prefixCashierMenu*4)+2);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cashierMenuViewCashier3ActionPerformed
+
+    private void cashierMenuViewCashier4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_cashierMenuViewCashier4ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(5);
+        try {
+            showCashierInfo((prefixCashierMenu*4)+3);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_cashierMenuViewCashier4ActionPerformed
+
+    private void kButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton1ActionPerformed
+        try {
+            // TODO add your handling code here:
+            showCashierUpdateMenu();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton1ActionPerformed
+
+    private void kButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton2ActionPerformed
+        // TODO add your handling code here:
+        AdminController ac = new AdminController(this.con);
+        try {
+            ac.removeCashier(currentCashierInPreview.id);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton2ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
@@ -2100,11 +2604,16 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel defaultTopCustomerEmail;
     private javax.swing.JLabel defaultTopCustomerName;
     private javax.swing.JLabel defaultTopCustomerPhone;
+    private javax.swing.JLabel defaultTopCustomerPhone3;
+    private javax.swing.JLabel defaultTopCustomerPhone4;
+    private javax.swing.JLabel defaultTopCustomerPhone5;
+    private javax.swing.JLabel defaultTopCustomerPhone6;
     private javax.swing.JLabel defaultTopCustomerPic;
     private javax.swing.JLabel displayAddProductPic;
     private javax.swing.JLabel flashAddCashier;
     private javax.swing.JLabel flashAddCustomer;
     private javax.swing.JLabel flashAddProduct;
+    private javax.swing.JLabel flashUpdateCashier;
     private javax.swing.JTextField inputAddCashierEmail;
     private com.toedter.calendar.JDateChooser inputAddCashierEndDate;
     private javax.swing.JRadioButton inputAddCashierFemale;
@@ -2149,8 +2658,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel16;
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
+    private javax.swing.JLabel jLabel19;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
+    private javax.swing.JLabel jLabel21;
+    private javax.swing.JLabel jLabel22;
+    private javax.swing.JLabel jLabel23;
     private javax.swing.JLabel jLabel24;
     private javax.swing.JLabel jLabel25;
     private javax.swing.JLabel jLabel26;
@@ -2162,6 +2675,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
     private javax.swing.JLabel jLabel33;
+    private javax.swing.JLabel jLabel34;
+    private javax.swing.JLabel jLabel35;
+    private javax.swing.JLabel jLabel36;
+    private javax.swing.JLabel jLabel37;
     private javax.swing.JLabel jLabel38;
     private javax.swing.JLabel jLabel39;
     private javax.swing.JLabel jLabel4;
@@ -2170,7 +2687,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel42;
     private javax.swing.JLabel jLabel43;
     private javax.swing.JLabel jLabel44;
+    private javax.swing.JLabel jLabel45;
+    private javax.swing.JLabel jLabel47;
+    private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
+    private javax.swing.JLabel jLabel51;
     private javax.swing.JLabel jLabel6;
     private javax.swing.JLabel jLabel7;
     private javax.swing.JLabel jLabel8;
@@ -2182,7 +2703,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
     private javax.swing.JTextArea jTextArea1;
+    private com.k33ptoo.components.KButton kButton1;
+    private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel11;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel3;
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
@@ -2190,6 +2714,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private com.k33ptoo.components.KGradientPanel kGradientPanel6;
     private com.k33ptoo.components.KGradientPanel kGradientPanel7;
     private com.k33ptoo.components.KGradientPanel kGradientPanel8;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel9;
     private com.k33ptoo.components.KGradientPanel mainPieChart;
     private javax.swing.JPanel mainPieChartPreview;
     private javax.swing.JLabel menuName;
@@ -2220,10 +2745,31 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton submitAddCashier;
     private javax.swing.JButton submitAddCashier1;
     private javax.swing.JButton submitAddCashier2;
+    private javax.swing.JButton submitAddCashier3;
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JTabbedPane tabbedPreview;
     private javax.swing.JPanel totalSalesChartDisplay;
+    private javax.swing.JPanel updateCashier;
+    private javax.swing.JTextField updateCashierEmail;
+    private javax.swing.JRadioButton updateCashierFemale;
+    private javax.swing.JTextField updateCashierLastName;
+    private javax.swing.JRadioButton updateCashierMale;
+    private javax.swing.JTextField updateCashierName;
+    private com.toedter.calendar.JDateChooser updateCashierNewDate;
+    private javax.swing.JTextField updateCashierNewSalary;
+    private javax.swing.JTextField updateCashierPhone;
+    private javax.swing.JButton updateCashierPic;
     private javax.swing.JButton uploadAddProductPic;
+    private javax.swing.JPanel viewCashier;
+    private javax.swing.JLabel viewCashierCashierEmail;
+    private javax.swing.JLabel viewCashierCashierFD;
+    private javax.swing.JLabel viewCashierCashierFD2;
+    private javax.swing.JLabel viewCashierCashierLastName;
+    private javax.swing.JLabel viewCashierCashierName;
+    private javax.swing.JLabel viewCashierCashierPhone;
+    private javax.swing.JLabel viewCashierCashierPicture;
+    private javax.swing.JLabel viewCashierCashierSD;
+    private javax.swing.JLabel viewCashierCashierSalary;
     // End of variables declaration//GEN-END:variables
 
     private void fillCashierMenu(ResultSet data){
@@ -2478,6 +3024,93 @@ public class AdminDashboardView extends javax.swing.JFrame {
             defaultPieChartDisplay(new AdminController(this.con).defaultPieChart());
         } catch (SQLException ex) {
             Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void showCashierInfo(int index) throws SQLException{
+        AdminController ac = new AdminController(this.con);
+        currentCashierInPreview= ac.getCashierByIndex(index);
+        viewCashierCashierName.setText(currentCashierInPreview.firstname);
+        viewCashierCashierLastName.setText(currentCashierInPreview.lastname);
+        viewCashierCashierEmail.setText(currentCashierInPreview.email);
+        viewCashierCashierPhone.setText(currentCashierInPreview.phonenumber);
+        Object[] contract = ac.getCashierContruct(currentCashierInPreview.id);
+        viewCashierCashierSD.setText(((Date)contract[2]).toString());
+        viewCashierCashierFD.setText(((Date)contract[0]).toString());
+        viewCashierCashierSalary.setText(String.valueOf(((int)contract[1])));
+        viewCashierCashierPicture.setIcon(new ImageIcon(new ImageIcon(currentCashierInPreview.pictureurl).getImage().getScaledInstance(viewCashierCashierPicture.getWidth(),viewCashierCashierPicture.getHeight(),Image.SCALE_AREA_AVERAGING)));
+        try {
+            int[] accentColor=new Utils.ImageTester(currentCashierInPreview.pictureurl).getDominantColor();
+            kGradientPanel11.setkEndColor(new Color(accentColor[0],accentColor[1],accentColor[2]));
+            kGradientPanel11.updateUI();
+        } catch (Exception ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void showCashierUpdateMenu() throws SQLException{
+        tabbedPreview.setSelectedIndex(4);
+        updateCashierName.setText(currentCashierInPreview.firstname);
+        updateCashierLastName.setText(currentCashierInPreview.lastname);
+        updateCashierEmail.setText(currentCashierInPreview.email);
+        updateCashierPhone.setText(currentCashierInPreview.phonenumber);
+        AdminController ac = new AdminController(this.con);
+        Object[] res = ac.getCashierContruct(currentCashierInPreview.id);
+        updateCashierNewDate.setDate((Date)res[0]);
+        updateCashierNewSalary.setText(String.valueOf((int)res[1]));
+    }
+    
+    public void updateCashier(){
+        System.out.println("Updating cashier");
+        ArrayList textfields= new ArrayList();
+        textfields.add(updateCashierName);
+        textfields.add(updateCashierLastName);
+        textfields.add(updateCashierEmail);
+        ArrayList intfields= new ArrayList();
+        textfields.add(updateCashierPhone);
+        intfields.add(updateCashierNewSalary);
+        ArrayList datefields= new ArrayList();
+        datefields.add(updateCashierNewDate.getDate());
+        ArrayList filefields= new ArrayList();
+        filefields.add(newCashierPic);
+        java.sql.Date sd,ed;
+        String sex="";
+        if(updateCashierMale.isSelected()){
+            sex="M";
+        }else if(updateCashierFemale.isSelected()){
+            sex="F";
+        }
+        if(!sex.isEmpty()){
+            try{
+                if(GlobalController.checkInputFields(textfields) && GlobalController.checkInputFieldsNumeric(intfields) && GlobalController.checkInputFieldsDate(datefields) && GlobalController.checkinputFieldsPicture(filefields)){
+                    try{
+                        String filename="cashiers\\"+updateCashierEmail.getText().trim()+"."+GlobalController.getExtension(newCashierPic.getSelectedFile());
+                        GlobalController.saveFile(newCashierPic.getSelectedFile(), filename);
+                        ed = new java.sql.Date(updateCashierNewDate.getDate().getTime());
+                        new AdminController(this.con).updateCashier(
+                                currentCashierInPreview.id,
+                                updateCashierName.getText().trim(),
+                                updateCashierLastName.getText().trim(),
+                                updateCashierEmail.getText().trim(),
+                                updateCashierPhone.getText().trim(),
+                                sex,
+                                filename,
+                                ed,
+                                Integer.parseInt(updateCashierNewSalary.getText()));
+                        flashUpdateCashier.setText("Cashier Registered.");
+                        fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
+                    }catch(SQLException ex){
+                        flashUpdateCashier.setText(ex.getMessage());
+                        System.out.println(ex.getMessage());
+                    }catch(Exception e){
+                        flashUpdateCashier.setText("File upload Error!");
+                    }
+                }else{
+                    flashUpdateCashier.setText("All fields required!");
+                }
+            }catch(NullPointerException ex){
+                flashUpdateCashier.setText("All fields required!");
+            }
         }
     }
 }
