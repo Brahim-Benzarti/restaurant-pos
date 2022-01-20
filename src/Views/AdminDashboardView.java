@@ -2567,6 +2567,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }catch(NullPointerException ex){
                 flashAddCashier.setText("All fields required!");
             }
+        }else{
+            flashAddCashier.setText("All fields required!");
         }
     }//GEN-LAST:event_submitAddCashierActionPerformed
 
@@ -2749,6 +2751,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }catch(NullPointerException ex){
                 flashAddCustomer.setText("All fields required!");
             }
+        }else{
+            flashAddCustomer.setText("All fields required!");
         }
     }//GEN-LAST:event_submitAddCashier2ActionPerformed
 
@@ -3568,6 +3572,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }catch(NullPointerException ex){
                 flashUpdateCashier.setText("All fields required!");
             }
+        }else{
+            flashUpdateCashier.setText("All fields required!");
         }
     }
     
@@ -3649,6 +3655,8 @@ public class AdminDashboardView extends javax.swing.JFrame {
             }catch(NullPointerException ex){
                 flashUpdateCustomer.setText("All fields required!");
             }
+        }else{
+            flashUpdateCustomer.setText("All fields required!");
         }
     }
 }
