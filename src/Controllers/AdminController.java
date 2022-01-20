@@ -185,7 +185,7 @@ public class AdminController {
     }
     
     public int getTopCustomer() throws SQLException{
-        PreparedStatement stmt = this.con.prepareStatement("SELECT customerid FROM carts WHERE UPPER(status)='PAID' GROUP BY customerid ORDER BY SUM(total) DESC FETCH FIRST ROW ONLY");
+        PreparedStatement stmt = this.con.prepareStatement("SELECT customerid FROM carts WHERE UPPER(status)='PAID' AND customerid<>0 GROUP BY customerid ORDER BY SUM(total) DESC FETCH FIRST ROW ONLY");
         ResultSet res= stmt.executeQuery();
         res.next();
         return res.getInt("customerid");
@@ -199,9 +199,6 @@ public class AdminController {
     
     public CategoryDataset defaultLineChart() throws SQLException{
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        dataset.addValue(212.0D, "Classes", "JDK 1.0");
-        dataset.addValue(504.0D, "Classes", "JDK 1.1");
-        dataset.addValue(1520.0D, "Classes", "JDK 1.2");
         PreparedStatement stmt = this.con.prepareStatement("SELECT creationdate, SUM(total) AS ttotal FROM carts GROUP BY creationdate ORDER BY creationdate DESC fetch first 30 rows only");
         ResultSet res= stmt.executeQuery();
         while(res.next()){

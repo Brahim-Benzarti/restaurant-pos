@@ -535,7 +535,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                         .addComponent(menuName1, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                         .addComponent(itemAdd1, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(42, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
         cashierMenuLayout.setVerticalGroup(
             cashierMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -588,7 +588,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                     .addGroup(cashierMenuLayout.createSequentialGroup()
                         .addComponent(cashierMenuViewCashier4)
                         .addGap(11, 11, 11)))
-                .addContainerGap(73, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("tab3", cashierMenu);
@@ -966,6 +966,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kGradientPanel7.setkBorderRadius(50);
         kGradientPanel7.setkEndColor(new java.awt.Color(41, 43, 55));
         kGradientPanel7.setkStartColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         totalSalesChartDisplay.setBackground(new java.awt.Color(41, 43, 55));
 
@@ -973,26 +974,14 @@ public class CashierDashboardView extends javax.swing.JFrame {
         totalSalesChartDisplay.setLayout(totalSalesChartDisplayLayout);
         totalSalesChartDisplayLayout.setHorizontalGroup(
             totalSalesChartDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGap(0, 400, Short.MAX_VALUE)
         );
         totalSalesChartDisplayLayout.setVerticalGroup(
             totalSalesChartDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 236, Short.MAX_VALUE)
+            .addGap(0, 240, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout kGradientPanel7Layout = new javax.swing.GroupLayout(kGradientPanel7);
-        kGradientPanel7.setLayout(kGradientPanel7Layout);
-        kGradientPanel7Layout.setHorizontalGroup(
-            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel7Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(totalSalesChartDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        kGradientPanel7Layout.setVerticalGroup(
-            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(totalSalesChartDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        kGradientPanel7.add(totalSalesChartDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(-60, -4, 400, 240));
 
         kGradientPanel8.setBackground(new java.awt.Color(30, 32, 44));
         kGradientPanel8.setkBorderRadius(50);
@@ -1018,7 +1007,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         kGradientPanel8Layout.setHorizontalGroup(
             kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel8Layout.createSequentialGroup()
-                .addContainerGap(38, Short.MAX_VALUE)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                 .addGroup(kGradientPanel8Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addComponent(defaultTopCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                     .addGroup(kGradientPanel8Layout.createSequentialGroup()
@@ -1045,7 +1034,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                 .addComponent(defaultTopCustomerPhone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(defaultTopCustomerEmail)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPieChart.setBackground(new java.awt.Color(30, 32, 44));
@@ -1115,8 +1104,8 @@ public class CashierDashboardView extends javax.swing.JFrame {
                     .addGroup(jPanel6Layout.createSequentialGroup()
                         .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
-                        .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                        .addComponent(kGradientPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addContainerGap(119, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1124,9 +1113,9 @@ public class CashierDashboardView extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(kGradientPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addComponent(mainPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(21, Short.MAX_VALUE))
@@ -2037,6 +2026,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
         tabbedMenu.setSelectedIndex(0);
         tabbedPreview.setSelectedIndex(0);
         defaultPanelFill();
+        updateCashierMenu(this.cashier);
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void submitAddCashierActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashierActionPerformed
@@ -2921,14 +2911,17 @@ public class CashierDashboardView extends javax.swing.JFrame {
     }
     
     public void defaultLineChartDisplay(CategoryDataset data){
-        JFreeChart chart = ChartFactory.createLineChart3D(null,null,null,data,PlotOrientation.VERTICAL, false, true, false);
+        JFreeChart chart = ChartFactory.createLineChart(null,null,null,data,PlotOrientation.VERTICAL, false, false, false);
         CategoryPlot plot = (CategoryPlot)chart.getPlot();
         plot.setRangeGridlinesVisible(false);
         plot.setBackgroundPaint(new Color(41,43,55));
         plot.setOutlinePaint(new Color(41,43,55));
+        plot.setRangeCrosshairPaint(Color.WHITE);
+        plot.setDomainGridlinePaint(Color.white);
         ChartPanel chartpan = new ChartPanel(chart);
-        chartpan.setSize(totalSalesChartDisplay.getWidth(),totalSalesChartDisplay.getHeight());
+        chartpan.setSize(totalSalesChartDisplay.getWidth()+15,totalSalesChartDisplay.getHeight()+22);
         chartpan.setBackground(new Color(41,43,55));
+        chartpan.setForeground(Color.white);
         chartpan.setVisible(true);
         totalSalesChartDisplay.removeAll();
         totalSalesChartDisplay.add(chartpan);
@@ -2948,6 +2941,12 @@ public class CashierDashboardView extends javax.swing.JFrame {
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
+        try {
+            defaultLineChartDisplay(ac.defaultLineChart());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
     }
     
     public void checkProduct(){

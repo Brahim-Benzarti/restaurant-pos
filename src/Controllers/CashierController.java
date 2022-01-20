@@ -57,7 +57,7 @@ public class CashierController {
     }
     
     public int getTotalPendingOrders() throws SQLException{
-        PreparedStatement stmt= this.con.prepareStatement("SELECT COUNT(*) AS total FROM carts WHERE UPPER(status)='FENDING'");
+        PreparedStatement stmt= this.con.prepareStatement("SELECT COUNT(*) AS total FROM carts WHERE UPPER(status)='PENDING'");
         ResultSet res= stmt.executeQuery();
         res.next();
         return res.getInt("total");

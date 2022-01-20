@@ -959,6 +959,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         kGradientPanel7.setkBorderRadius(50);
         kGradientPanel7.setkEndColor(new java.awt.Color(41, 43, 55));
         kGradientPanel7.setkStartColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel7.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         totalSalesChartDisplay.setBackground(new java.awt.Color(41, 43, 55));
 
@@ -966,26 +967,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
         totalSalesChartDisplay.setLayout(totalSalesChartDisplayLayout);
         totalSalesChartDisplayLayout.setHorizontalGroup(
             totalSalesChartDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 339, Short.MAX_VALUE)
+            .addGap(0, 420, Short.MAX_VALUE)
         );
         totalSalesChartDisplayLayout.setVerticalGroup(
             totalSalesChartDisplayLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 236, Short.MAX_VALUE)
+            .addGap(0, 0, Short.MAX_VALUE)
         );
 
-        javax.swing.GroupLayout kGradientPanel7Layout = new javax.swing.GroupLayout(kGradientPanel7);
-        kGradientPanel7.setLayout(kGradientPanel7Layout);
-        kGradientPanel7Layout.setHorizontalGroup(
-            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(kGradientPanel7Layout.createSequentialGroup()
-                .addGap(24, 24, 24)
-                .addComponent(totalSalesChartDisplay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(29, Short.MAX_VALUE))
-        );
-        kGradientPanel7Layout.setVerticalGroup(
-            kGradientPanel7Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addComponent(totalSalesChartDisplay, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-        );
+        kGradientPanel7.add(totalSalesChartDisplay, new org.netbeans.lib.awtextra.AbsoluteConstraints(-40, -10, 420, 290));
 
         kGradientPanel8.setBackground(new java.awt.Color(30, 32, 44));
         kGradientPanel8.setkBorderRadius(50);
@@ -1038,7 +1027,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addComponent(defaultTopCustomerPhone)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
                 .addComponent(defaultTopCustomerEmail)
-                .addContainerGap(29, Short.MAX_VALUE))
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         mainPieChart.setBackground(new java.awt.Color(30, 32, 44));
@@ -1053,14 +1042,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
         mainPieChartPreview.setLayout(mainPieChartPreviewLayout);
         mainPieChartPreviewLayout.setHorizontalGroup(
             mainPieChartPreviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 640, Short.MAX_VALUE)
+            .addGap(0, 680, Short.MAX_VALUE)
         );
         mainPieChartPreviewLayout.setVerticalGroup(
             mainPieChartPreviewLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGap(0, 320, Short.MAX_VALUE)
         );
 
-        mainPieChart.add(mainPieChartPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 0, 640, 320));
+        mainPieChart.add(mainPieChartPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(-10, 0, 680, 320));
 
         jLabel18.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
         jLabel18.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
@@ -1079,7 +1068,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                         .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(86, Short.MAX_VALUE))
+                .addContainerGap(115, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1087,9 +1076,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addGap(38, 38, 38)
                 .addComponent(jLabel18, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
-                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                    .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGroup(jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(kGradientPanel7, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(kGradientPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addComponent(mainPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(91, Short.MAX_VALUE))
@@ -2423,7 +2412,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     private void jButton5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton5ActionPerformed
         // TODO add your handling code here:
-        tabbedPreview.setSelectedIndex(4);
     }//GEN-LAST:event_jButton5ActionPerformed
 
     private void productMenuViewProduct1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_productMenuViewProduct1ActionPerformed
@@ -2547,6 +2535,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         AdminController ac = new AdminController(this.con);
         try {
             ac.removeCashier(currentCashierInPreview.id);
+            fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
         } catch (SQLException ex) {
             Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -2981,7 +2970,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         plot.setLabelLinkPaint(Color.WHITE);
         plot.setOutlinePaint(new Color(41,43,55));
         ChartPanel chartpan = new ChartPanel(chart);
-        chartpan.setSize(mainPieChartPreview.getWidth(),mainPieChartPreview.getHeight());
+        chartpan.setSize(mainPieChartPreview.getWidth()+5,mainPieChartPreview.getHeight()+5);
         chartpan.setBackground(new Color(41,43,55));
         chartpan.setVisible(true);
         mainPieChartPreview.removeAll();
@@ -2998,14 +2987,17 @@ public class AdminDashboardView extends javax.swing.JFrame {
     }
     
     public void defaultLineChartDisplay(CategoryDataset data){
-        JFreeChart chart = ChartFactory.createLineChart3D(null,null,null,data,PlotOrientation.VERTICAL, false, true, false);
+        JFreeChart chart = ChartFactory.createLineChart(null,null,null,data,PlotOrientation.VERTICAL, false, false, false);
         CategoryPlot plot = (CategoryPlot)chart.getPlot();
         plot.setRangeGridlinesVisible(false);
         plot.setBackgroundPaint(new Color(41,43,55));
         plot.setOutlinePaint(new Color(41,43,55));
+        plot.setRangeCrosshairPaint(Color.WHITE);
+        plot.setDomainGridlinePaint(Color.white);
         ChartPanel chartpan = new ChartPanel(chart);
-        chartpan.setSize(totalSalesChartDisplay.getWidth(),totalSalesChartDisplay.getHeight());
+        chartpan.setSize(totalSalesChartDisplay.getWidth()+15,totalSalesChartDisplay.getHeight()+22);
         chartpan.setBackground(new Color(41,43,55));
+        chartpan.setForeground(Color.white);
         chartpan.setVisible(true);
         totalSalesChartDisplay.removeAll();
         totalSalesChartDisplay.add(chartpan);
@@ -3022,6 +3014,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         }
         try {
             defaultPieChartDisplay(new AdminController(this.con).defaultPieChart());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        try {
+            defaultLineChartDisplay(ac.defaultLineChart());
         } catch (SQLException ex) {
             Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3097,7 +3094,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                                 filename,
                                 ed,
                                 Integer.parseInt(updateCashierNewSalary.getText()));
-                        flashUpdateCashier.setText("Cashier Registered.");
+                        flashUpdateCashier.setText("Cashier Updated.");
                         fillCashierMenu(new AdminController(this.con).getCashiers(prefixCashierMenu));
                     }catch(SQLException ex){
                         flashUpdateCashier.setText(ex.getMessage());
