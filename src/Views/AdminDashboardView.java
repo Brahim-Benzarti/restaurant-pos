@@ -3307,6 +3307,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adminMenuFirstName.setText(admin.firstname);
         adminMenuLastName.setText(admin.lastname);
         adminMenuPosition.setText(admin.position);
+        adminMenuPic.setIcon(new ImageIcon(new ImageIcon(admin.pictureurl).getImage().getScaledInstance(adminMenuPic.getWidth(),adminMenuPic.getHeight(),Image.SCALE_AREA_AVERAGING)));
     }
     
     
