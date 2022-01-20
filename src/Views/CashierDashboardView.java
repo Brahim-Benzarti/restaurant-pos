@@ -3447,7 +3447,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
             inputAddOrderPhone.setText("");
             inputAddOrderCustomer.setModel(new javax.swing.DefaultComboBoxModel());
             inputAddOrderOrder.setEnabled(false);
-            
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }

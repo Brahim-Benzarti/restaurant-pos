@@ -221,7 +221,7 @@ public class AdminController {
     
     public CategoryDataset defaultLineChart() throws SQLException{
         DefaultCategoryDataset dataset = new DefaultCategoryDataset();
-        PreparedStatement stmt = this.con.prepareStatement("SELECT creationdate, SUM(total) AS ttotal FROM carts GROUP BY creationdate ORDER BY creationdate DESC fetch first 30 rows only");
+        PreparedStatement stmt = this.con.prepareStatement("SELECT creationdate, SUM(total) AS ttotal FROM carts GROUP BY creationdate ORDER BY creationdate fetch first 30 rows only");
         ResultSet res= stmt.executeQuery();
         while(res.next()){
             dataset.addValue(res.getDouble("ttotal"),"",res.getString("creationdate"));
