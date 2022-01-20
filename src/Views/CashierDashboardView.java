@@ -2709,7 +2709,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
         try {
             inputAddOrderCustomer.setModel(new javax.swing.DefaultComboBoxModel(controller.getCustomersList(inputAddOrderFindCustomer.getText())));
             customerPreview();
-            
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
@@ -3432,6 +3431,23 @@ public class CashierDashboardView extends javax.swing.JFrame {
             currentCartPrice=0;
             prefixProductMenu=0;
             fillOrderMenu(controller.getOrders(prefixProductMenu));
+            //cleaning
+            inputAddOrderCategory.setModel(new javax.swing.DefaultComboBoxModel(new AdminController(this.con).getProductCategories(true)));
+            inputAddOrderQuantity.setValue(1);
+            inputAddOrderOrderNumber.setText("0");
+            inputAddOrderFindCustomer.setText("");
+            displayAddProductPic1.setIcon(null);
+            inputAddOrderCustomerPic.setIcon(null);
+            inputAddOrderCustomerName.setText("");
+            inputAddOrderCustomerStars.setText("");
+            inputAddOrderTotalPrice.setText("0");
+            inputAddOrderPlaceOrder.setEnabled(false);
+            outputAddOrderInStock.setText("");
+            kGradientPanel10.setkEndColor(new Color(41,43,55));
+            inputAddOrderPhone.setText("");
+            inputAddOrderCustomer.setModel(new javax.swing.DefaultComboBoxModel());
+            inputAddOrderOrder.setEnabled(false);
+            
         } catch (SQLException ex) {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
