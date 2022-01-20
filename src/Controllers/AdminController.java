@@ -248,4 +248,12 @@ public class AdminController {
         res.next();
         return new Object[] {res.getDate("enddate"),res.getInt("salary"), res.getDate("startdate")};
     }
+    
+    public void publishMessage(String message, String author) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("INSERT INTO adminmessages(message,author,creationdate) VALUES (?,?,?)");
+        stmt.setString(1,message);
+        stmt.setString(2,author);
+        stmt.setDate(3, new java.sql.Date(new java.util.Date().getTime()));
+        stmt.executeUpdate();
+    }
 }

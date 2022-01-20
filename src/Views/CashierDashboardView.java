@@ -126,9 +126,9 @@ public class CashierDashboardView extends javax.swing.JFrame {
         cashierMenuLastName = new javax.swing.JLabel();
         cashierMenuFirstName = new javax.swing.JLabel();
         cashierMenuPending = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
+        author = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        message = new javax.swing.JTextArea();
         cashierMenu = new javax.swing.JPanel();
         menuName1 = new javax.swing.JLabel();
         itemAdd1 = new javax.swing.JButton();
@@ -376,20 +376,20 @@ public class CashierDashboardView extends javax.swing.JFrame {
         cashierMenuPending.setText("999 Pending Orders");
         cashierMenuPending.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("― Roy T. Bennett, The Light in the Heart");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        author.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
+        author.setText("― Roy T. Bennett, The Light in the Heart");
+        author.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”");
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        message.setColumns(20);
+        message.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        message.setLineWrap(true);
+        message.setRows(5);
+        message.setText("“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”");
+        message.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(message);
 
         javax.swing.GroupLayout adminMenuLayout = new javax.swing.GroupLayout(adminMenu);
         adminMenu.setLayout(adminMenuLayout);
@@ -399,7 +399,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                 .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(adminMenuLayout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(author, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(javax.swing.GroupLayout.Alignment.LEADING, adminMenuLayout.createSequentialGroup()
                         .addGap(35, 35, 35)
                         .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -437,7 +437,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(author, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(95, Short.MAX_VALUE))
         );
 
@@ -1699,29 +1699,28 @@ public class CashierDashboardView extends javax.swing.JFrame {
                                 .addComponent(flashAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
                                 .addGap(29, 29, 29)
                                 .addComponent(submitAddCashier2, javax.swing.GroupLayout.PREFERRED_SIZE, 115, javax.swing.GroupLayout.PREFERRED_SIZE))
-                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createSequentialGroup()
-                                    .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addGroup(kGradientPanel6Layout.createSequentialGroup()
-                                            .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(inputAddCustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
-                                        .addGroup(kGradientPanel6Layout.createSequentialGroup()
-                                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                            .addGap(18, 18, 18)
-                                            .addComponent(inputAddCustomerPhone)))
-                                    .addGap(33, 33, 33)
-                                    .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                                    .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createSequentialGroup()
-                                    .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(inputAddCustomerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(33, 33, 33)
-                                    .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addComponent(inputAddCustomerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(inputAddCustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                        .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(inputAddCustomerPhone)))
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                                .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel6Layout.createSequentialGroup()
+                                .addComponent(jLabel15, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddCustomerFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel16, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(inputAddCustomerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)))
                         .addGap(55, 55, 55))))
         );
         kGradientPanel6Layout.setVerticalGroup(
@@ -2861,6 +2860,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel addCustomer;
     private javax.swing.JPanel addOrder;
     private javax.swing.JPanel adminMenu;
+    private javax.swing.JLabel author;
     private javax.swing.JPanel cashierMenu;
     private javax.swing.JLabel cashierMenuCashier1;
     private javax.swing.JLabel cashierMenuCashier1Info;
@@ -2967,7 +2967,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3019,7 +3018,6 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
@@ -3045,6 +3043,7 @@ public class CashierDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel menuName1;
     private javax.swing.JLabel menuName2;
     private javax.swing.JLabel menuName3;
+    private javax.swing.JTextArea message;
     private javax.swing.JPanel orderMenu;
     private javax.swing.JPanel ordersScroll;
     private javax.swing.JLabel outputAddOrderInStock;
@@ -3168,6 +3167,14 @@ public class CashierDashboardView extends javax.swing.JFrame {
             Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
         }
         cashierMenuPic.setIcon(new ImageIcon(new ImageIcon(cashier.pictureurl).getImage().getScaledInstance(cashierMenuPic.getWidth(),cashierMenuPic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+        
+        try {
+            String[] adminmessage= this.controller.getAdminMessage();
+            message.setText(adminmessage[0]);
+            author.setText("―"+adminmessage[1]);
+        } catch (SQLException ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
     
     

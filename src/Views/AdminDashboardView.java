@@ -98,9 +98,10 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adminMenuLastName = new javax.swing.JLabel();
         adminMenuFirstName = new javax.swing.JLabel();
         adminMenuPosition = new javax.swing.JLabel();
-        jLabel2 = new javax.swing.JLabel();
         jScrollPane1 = new javax.swing.JScrollPane();
-        jTextArea1 = new javax.swing.JTextArea();
+        message = new javax.swing.JTextArea();
+        author = new javax.swing.JTextField();
+        updateMessage = new javax.swing.JButton();
         cashierMenu = new javax.swing.JPanel();
         menuName1 = new javax.swing.JLabel();
         itemAdd1 = new javax.swing.JButton();
@@ -359,46 +360,51 @@ public class AdminDashboardView extends javax.swing.JFrame {
         adminMenuPosition.setText("Position");
         adminMenuPosition.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
-        jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel2.setText("― Roy T. Bennett, The Light in the Heart");
-        jLabel2.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
-
         jScrollPane1.setHorizontalScrollBarPolicy(javax.swing.ScrollPaneConstants.HORIZONTAL_SCROLLBAR_NEVER);
         jScrollPane1.setVerticalScrollBarPolicy(javax.swing.ScrollPaneConstants.VERTICAL_SCROLLBAR_NEVER);
 
-        jTextArea1.setColumns(20);
-        jTextArea1.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
-        jTextArea1.setLineWrap(true);
-        jTextArea1.setRows(5);
-        jTextArea1.setText("“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”");
-        jTextArea1.setWrapStyleWord(true);
-        jScrollPane1.setViewportView(jTextArea1);
+        message.setColumns(20);
+        message.setFont(new java.awt.Font("Dialog", 0, 18)); // NOI18N
+        message.setLineWrap(true);
+        message.setRows(5);
+        message.setText("“Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.”");
+        message.setWrapStyleWord(true);
+        jScrollPane1.setViewportView(message);
+
+        author.setText("Author");
+
+        updateMessage.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/edit.png"))); // NOI18N
+        updateMessage.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                updateMessageActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout adminMenuLayout = new javax.swing.GroupLayout(adminMenu);
         adminMenu.setLayout(adminMenuLayout);
         adminMenuLayout.setHorizontalGroup(
             adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(adminMenuLayout.createSequentialGroup()
-                .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                .addGap(35, 35, 35)
+                .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING, false)
                     .addGroup(adminMenuLayout.createSequentialGroup()
-                        .addContainerGap()
-                        .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 273, javax.swing.GroupLayout.PREFERRED_SIZE))
-                    .addGroup(javax.swing.GroupLayout.Alignment.LEADING, adminMenuLayout.createSequentialGroup()
-                        .addGap(35, 35, 35)
-                        .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                            .addComponent(adminMenuPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                .addGroup(adminMenuLayout.createSequentialGroup()
-                                    .addComponent(adminMenuPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addGap(18, 18, 18)
-                                    .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                        .addComponent(adminMenuLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                        .addComponent(adminMenuFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                                .addGroup(adminMenuLayout.createSequentialGroup()
-                                    .addComponent(menuName, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                    .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
-                                    .addComponent(itemAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                            .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                        .addComponent(updateMessage, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(author, javax.swing.GroupLayout.PREFERRED_SIZE, 193, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addComponent(adminMenuPosition, javax.swing.GroupLayout.PREFERRED_SIZE, 281, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addGroup(adminMenuLayout.createSequentialGroup()
+                                .addComponent(adminMenuPic, javax.swing.GroupLayout.PREFERRED_SIZE, 100, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                    .addComponent(adminMenuLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                    .addComponent(adminMenuFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(adminMenuLayout.createSequentialGroup()
+                                .addComponent(menuName, javax.swing.GroupLayout.PREFERRED_SIZE, 217, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(itemAdd, javax.swing.GroupLayout.PREFERRED_SIZE, 58, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(40, Short.MAX_VALUE))
         );
         adminMenuLayout.setVerticalGroup(
@@ -419,9 +425,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
                         .addComponent(adminMenuFirstName, javax.swing.GroupLayout.PREFERRED_SIZE, 43, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addGap(53, 53, 53)
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 89, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
-                .addComponent(jLabel2, javax.swing.GroupLayout.PREFERRED_SIZE, 27, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(80, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(adminMenuLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(author)
+                    .addComponent(updateMessage, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addContainerGap(65, Short.MAX_VALUE))
         );
 
         tabbedMenu.addTab("tab3", adminMenu);
@@ -1870,11 +1878,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
                         .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                             .addComponent(jLabel35, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
                             .addComponent(updateCashierPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)))
-                    .addGroup(kGradientPanel9Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(updateCashierPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                        .addGap(0, 0, Short.MAX_VALUE)))
+                    .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(jLabel36, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addComponent(updateCashierPic, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel9Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
                     .addComponent(jLabel48, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
@@ -2973,6 +2979,15 @@ public class AdminDashboardView extends javax.swing.JFrame {
         newCustomerPic.showOpenDialog(null);
     }//GEN-LAST:event_pictureUploadAddCustomer1ActionPerformed
 
+    private void updateMessageActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_updateMessageActionPerformed
+        try {
+            // TODO add your handling code here:
+            new AdminController(this.con).publishMessage(message.getText(),author.getText());
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_updateMessageActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
@@ -2983,6 +2998,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel adminMenuLastName;
     private javax.swing.JLabel adminMenuPic;
     private javax.swing.JLabel adminMenuPosition;
+    private javax.swing.JTextField author;
     private javax.swing.JPanel cashierMenu;
     private javax.swing.JLabel cashierMenuCashier1;
     private javax.swing.JLabel cashierMenuCashier1Info;
@@ -3080,7 +3096,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel17;
     private javax.swing.JLabel jLabel18;
     private javax.swing.JLabel jLabel19;
-    private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel20;
     private javax.swing.JLabel jLabel21;
     private javax.swing.JLabel jLabel22;
@@ -3133,7 +3148,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JPanel jPanel4;
     private javax.swing.JPanel jPanel6;
     private javax.swing.JScrollPane jScrollPane1;
-    private javax.swing.JTextArea jTextArea1;
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
     private com.k33ptoo.components.KButton kButton3;
@@ -3156,6 +3170,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel menuName1;
     private javax.swing.JLabel menuName2;
     private javax.swing.JLabel menuName3;
+    private javax.swing.JTextArea message;
     private javax.swing.JButton pictureUploadAddCashier;
     private javax.swing.JButton pictureUploadAddCustomer;
     private javax.swing.JButton pictureUploadAddCustomer1;
@@ -3204,6 +3219,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField updateCustomerLname;
     private javax.swing.JRadioButton updateCustomerMale;
     private javax.swing.JTextField updateCustomerPhone;
+    private javax.swing.JButton updateMessage;
     private javax.swing.JButton uploadAddProductPic;
     private javax.swing.JPanel viewCashier;
     private javax.swing.JLabel viewCashierCashierEmail;

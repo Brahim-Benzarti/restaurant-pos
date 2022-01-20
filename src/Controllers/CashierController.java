@@ -310,4 +310,13 @@ public class CashierController {
         }
         return order;
     }
+    
+    public String[] getAdminMessage() throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM adminmessages ORDER BY id DESC");
+        ResultSet res= stmt.executeQuery();
+        if(res.next()){
+            return new String[] {res.getString("message"),res.getString("author")};
+        }
+        return new String[] {"Don't be pushed around by the fears in your mind. Be led by the dreams in your heart.","Brahim Benzarri"};
+    } 
 }
