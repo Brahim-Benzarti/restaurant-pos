@@ -15,6 +15,7 @@ import javax.swing.ImageIcon;
 import javax.swing.JFileChooser;
 
 import Controllers.AdminController;
+import Controllers.CashierController;
 import Controllers.GlobalController;
 import Models.AdminModel;
 import Models.CashierModel;
@@ -58,6 +59,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private int prefixCustomerMenu;
     
     private CashierModel currentCashierInPreview;
+    private CustomerModel currentCustomerInPreview;
     
     /**
      * Creates new form LoginView
@@ -248,8 +250,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         inputAddCustomerEmail = new javax.swing.JTextField();
         jLabel32 = new javax.swing.JLabel();
         inputAddCustomerPhone = new javax.swing.JTextField();
-        jLabel33 = new javax.swing.JLabel();
-        inputAddCustomerPassword = new javax.swing.JPasswordField();
         submitAddCashier2 = new javax.swing.JButton();
         jLabel38 = new javax.swing.JLabel();
         inputAddCustomerMale = new javax.swing.JRadioButton();
@@ -301,6 +301,40 @@ public class AdminDashboardView extends javax.swing.JFrame {
         viewCashierCashierSalary = new javax.swing.JLabel();
         viewCashierCashierFD2 = new javax.swing.JLabel();
         jLabel51 = new javax.swing.JLabel();
+        viewCustomer = new javax.swing.JPanel();
+        kGradientPanel12 = new com.k33ptoo.components.KGradientPanel();
+        viewCustomerPic = new javax.swing.JLabel();
+        viewCustomerName = new javax.swing.JLabel();
+        viewCustomerEmail = new javax.swing.JLabel();
+        viewCustomerLastName = new javax.swing.JLabel();
+        viewCustomerPhone = new javax.swing.JLabel();
+        kButton3 = new com.k33ptoo.components.KButton();
+        kButton4 = new com.k33ptoo.components.KButton();
+        viewCustomerStreet = new javax.swing.JLabel();
+        viewCustomerStars = new javax.swing.JLabel();
+        jLabel61 = new javax.swing.JLabel();
+        jLabel52 = new javax.swing.JLabel();
+        updateCustomer = new javax.swing.JPanel();
+        jLabel62 = new javax.swing.JLabel();
+        jLabel63 = new javax.swing.JLabel();
+        kGradientPanel13 = new com.k33ptoo.components.KGradientPanel();
+        jLabel64 = new javax.swing.JLabel();
+        jLabel65 = new javax.swing.JLabel();
+        updateCustomerLname = new javax.swing.JTextField();
+        updateCustomerFname = new javax.swing.JTextField();
+        jLabel66 = new javax.swing.JLabel();
+        updateCustomerEmail = new javax.swing.JTextField();
+        jLabel67 = new javax.swing.JLabel();
+        updateCustomerPhone = new javax.swing.JTextField();
+        submitAddCashier5 = new javax.swing.JButton();
+        jLabel68 = new javax.swing.JLabel();
+        updateCustomerMale = new javax.swing.JRadioButton();
+        updateCustomerFemale = new javax.swing.JRadioButton();
+        jLabel69 = new javax.swing.JLabel();
+        pictureUploadAddCustomer1 = new javax.swing.JButton();
+        flashUpdateCustomer = new javax.swing.JLabel();
+        jLabel70 = new javax.swing.JLabel();
+        updateCustomerAdress = new javax.swing.JTextField();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setMinimumSize(new java.awt.Dimension(1024, 768));
@@ -717,6 +751,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         customerMenuCustomer2Info.setText("jLabel5");
 
         customerMenuViewCustomer2.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        customerMenuViewCustomer2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuViewCustomer2ActionPerformed(evt);
+            }
+        });
 
         customerMenuCustomer3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         customerMenuCustomer3.setText("jLabel4");
@@ -724,6 +763,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         customerMenuCustomer3Info.setText("jLabel5");
 
         customerMenuViewCustomer3.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        customerMenuViewCustomer3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuViewCustomer3ActionPerformed(evt);
+            }
+        });
 
         customerMenuCustomer4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         customerMenuCustomer4.setText("jLabel4");
@@ -731,6 +775,11 @@ public class AdminDashboardView extends javax.swing.JFrame {
         customerMenuCustomer4Info.setText("jLabel5");
 
         customerMenuViewCustomer4.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/manage.png"))); // NOI18N
+        customerMenuViewCustomer4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                customerMenuViewCustomer4ActionPerformed(evt);
+            }
+        });
 
         javax.swing.GroupLayout customerMenuLayout = new javax.swing.GroupLayout(customerMenu);
         customerMenu.setLayout(customerMenuLayout);
@@ -1068,7 +1117,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                         .addComponent(kGradientPanel7, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(55, 55, 55)
                         .addComponent(kGradientPanel8, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                .addContainerGap(115, Short.MAX_VALUE))
+                .addContainerGap(98, Short.MAX_VALUE))
         );
         jPanel6Layout.setVerticalGroup(
             jPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -1081,7 +1130,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                     .addComponent(kGradientPanel8, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(34, 34, 34)
                 .addComponent(mainPieChart, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(91, Short.MAX_VALUE))
+                .addContainerGap(47, Short.MAX_VALUE))
         );
 
         tabbedPreview.addTab("tab2", jPanel6);
@@ -1527,9 +1576,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
         jLabel32.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         jLabel32.setText("Phone");
 
-        jLabel33.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
-        jLabel33.setText("Password");
-
         submitAddCashier2.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
         submitAddCashier2.setText("SAVE");
         submitAddCashier2.addActionListener(new java.awt.event.ActionListener() {
@@ -1594,15 +1640,9 @@ public class AdminDashboardView extends javax.swing.JFrame {
                                         .addGap(18, 18, 18)
                                         .addComponent(inputAddCustomerPhone)))
                                 .addGap(33, 33, 33)
-                                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
-                                        .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-                                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
-                                        .addComponent(jLabel33, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addGap(18, 18, 18)
-                                        .addComponent(inputAddCustomerPassword))))
+                                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                             .addGroup(kGradientPanel6Layout.createSequentialGroup()
                                 .addGap(0, 0, Short.MAX_VALUE)
                                 .addComponent(flashAddCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1630,21 +1670,19 @@ public class AdminDashboardView extends javax.swing.JFrame {
                     .addComponent(inputAddCustomerFirstName, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(inputAddCustomerEmail, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addGroup(kGradientPanel6Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                             .addComponent(jLabel17, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputAddCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
-                        .addGap(18, 18, 18)
-                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                            .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
-                            .addComponent(inputAddCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
-                            .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
-                    .addGroup(kGradientPanel6Layout.createSequentialGroup()
-                        .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                            .addComponent(jLabel33, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                            .addComponent(inputAddCustomerPassword, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE))
-                        .addGap(18, 18, 18)
-                        .addComponent(pictureUploadAddCustomer, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                            .addGroup(kGradientPanel6Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel43, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel32, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(inputAddCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
                 .addGap(18, 18, 18)
                 .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel44, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -1655,7 +1693,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                     .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                         .addComponent(inputAddCustomerMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
                         .addComponent(inputAddCustomerFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
-                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 143, Short.MAX_VALUE)
+                .addGap(137, 137, 137)
                 .addGroup(kGradientPanel6Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(submitAddCashier2, javax.swing.GroupLayout.Alignment.TRAILING)
                     .addComponent(flashAddCustomer, javax.swing.GroupLayout.Alignment.TRAILING))
@@ -1683,7 +1721,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 .addComponent(jLabel14, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(18, 18, 18)
                 .addComponent(kGradientPanel6, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addContainerGap(97, Short.MAX_VALUE))
+                .addContainerGap(103, Short.MAX_VALUE))
         );
 
         tabbedPreview.addTab("tab1", addCustomer);
@@ -2065,6 +2103,327 @@ public class AdminDashboardView extends javax.swing.JFrame {
         );
 
         tabbedPreview.addTab("tab2", viewCashier);
+
+        viewCustomer.setBackground(new java.awt.Color(30, 32, 44));
+
+        kGradientPanel12.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel12.setkBorderRadius(50);
+        kGradientPanel12.setkEndColor(new java.awt.Color(227, 179, 77));
+        kGradientPanel12.setkGradientFocus(0);
+        kGradientPanel12.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        viewCustomerPic.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        viewCustomerName.setBackground(new java.awt.Color(30, 32, 44));
+        viewCustomerName.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        viewCustomerName.setText("First Name");
+
+        viewCustomerEmail.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCustomerEmail.setText("Email Adress");
+
+        viewCustomerLastName.setBackground(new java.awt.Color(30, 32, 44));
+        viewCustomerLastName.setFont(new java.awt.Font("Dialog", 1, 24)); // NOI18N
+        viewCustomerLastName.setText("Last Name");
+
+        viewCustomerPhone.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCustomerPhone.setText("Phone Number");
+
+        kButton3.setText("Update");
+        kButton3.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        kButton3.setkBackGroundColor(new java.awt.Color(30, 32, 44));
+        kButton3.setkEndColor(new java.awt.Color(30, 32, 44));
+        kButton3.setkHoverEndColor(new java.awt.Color(30, 32, 44));
+        kButton3.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kButton3.setkHoverStartColor(new java.awt.Color(30, 32, 44));
+        kButton3.setkSelectedColor(new java.awt.Color(30, 32, 44));
+        kButton3.setkStartColor(new java.awt.Color(30, 32, 44));
+        kButton3.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton3ActionPerformed(evt);
+            }
+        });
+
+        kButton4.setText("Delete");
+        kButton4.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        kButton4.setkBackGroundColor(new java.awt.Color(30, 32, 44));
+        kButton4.setkEndColor(new java.awt.Color(30, 32, 44));
+        kButton4.setkHoverEndColor(new java.awt.Color(255, 0, 0));
+        kButton4.setkHoverForeGround(new java.awt.Color(255, 255, 255));
+        kButton4.setkHoverStartColor(new java.awt.Color(30, 32, 44));
+        kButton4.setkSelectedColor(new java.awt.Color(30, 32, 44));
+        kButton4.setkStartColor(new java.awt.Color(255, 51, 51));
+        kButton4.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                kButton4ActionPerformed(evt);
+            }
+        });
+
+        viewCustomerStreet.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCustomerStreet.setText("Street Adress");
+
+        viewCustomerStars.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        viewCustomerStars.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel61.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel61.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Assets/star.png"))); // NOI18N
+
+        javax.swing.GroupLayout kGradientPanel12Layout = new javax.swing.GroupLayout(kGradientPanel12);
+        kGradientPanel12.setLayout(kGradientPanel12Layout);
+        kGradientPanel12Layout.setHorizontalGroup(
+            kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel12Layout.createSequentialGroup()
+                .addGap(153, 153, 153)
+                .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(162, Short.MAX_VALUE))
+            .addGroup(kGradientPanel12Layout.createSequentialGroup()
+                .addGap(44, 44, 44)
+                .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel12Layout.createSequentialGroup()
+                        .addComponent(viewCustomerPic, javax.swing.GroupLayout.PREFERRED_SIZE, 135, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(52, 52, 52)
+                        .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                            .addComponent(viewCustomerName, javax.swing.GroupLayout.DEFAULT_SIZE, 282, Short.MAX_VALUE)
+                            .addComponent(viewCustomerLastName, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                        .addGap(70, 70, 70)
+                        .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewCustomerStars, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addComponent(viewCustomerEmail, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewCustomerPhone, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(viewCustomerStreet, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                .addGap(33, 33, 33))
+        );
+        kGradientPanel12Layout.setVerticalGroup(
+            kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel12Layout.createSequentialGroup()
+                .addGap(29, 29, 29)
+                .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(viewCustomerPic, javax.swing.GroupLayout.PREFERRED_SIZE, 114, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addGroup(kGradientPanel12Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addComponent(jLabel61, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewCustomerName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addGap(18, 18, 18)
+                        .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(viewCustomerStars, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addComponent(viewCustomerLastName, javax.swing.GroupLayout.PREFERRED_SIZE, 48, javax.swing.GroupLayout.PREFERRED_SIZE))))
+                .addGap(18, 18, 18)
+                .addComponent(viewCustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(viewCustomerPhone, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
+                .addComponent(viewCustomerStreet, javax.swing.GroupLayout.PREFERRED_SIZE, 32, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 216, Short.MAX_VALUE)
+                .addGroup(kGradientPanel12Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(kButton3, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(kButton4, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addGap(77, 77, 77))
+        );
+
+        jLabel52.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel52.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        jLabel52.setText("Customer Information");
+
+        javax.swing.GroupLayout viewCustomerLayout = new javax.swing.GroupLayout(viewCustomer);
+        viewCustomer.setLayout(viewCustomerLayout);
+        viewCustomerLayout.setHorizontalGroup(
+            viewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewCustomerLayout.createSequentialGroup()
+                .addGap(79, 79, 79)
+                .addGroup(viewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 703, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(86, Short.MAX_VALUE))
+        );
+        viewCustomerLayout.setVerticalGroup(
+            viewCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(viewCustomerLayout.createSequentialGroup()
+                .addGap(38, 38, 38)
+                .addComponent(jLabel52, javax.swing.GroupLayout.PREFERRED_SIZE, 47, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kGradientPanel12, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(62, Short.MAX_VALUE))
+        );
+
+        tabbedPreview.addTab("tab2", viewCustomer);
+
+        updateCustomer.setBackground(new java.awt.Color(30, 32, 44));
+
+        jLabel62.setFont(new java.awt.Font("Dialog", 1, 36)); // NOI18N
+        jLabel62.setText("Update Customer");
+
+        jLabel63.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel63.setText("Customer into");
+
+        kGradientPanel13.setBackground(new java.awt.Color(30, 32, 44));
+        kGradientPanel13.setkBorderRadius(100);
+        kGradientPanel13.setkEndColor(new java.awt.Color(41, 43, 55));
+        kGradientPanel13.setkStartColor(new java.awt.Color(41, 43, 55));
+
+        jLabel64.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel64.setText("First Name");
+
+        jLabel65.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel65.setText("Last Name");
+
+        jLabel66.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel66.setText("Email");
+
+        jLabel67.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel67.setText("Phone");
+
+        submitAddCashier5.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        submitAddCashier5.setText("UPDATE");
+        submitAddCashier5.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                submitAddCashier5ActionPerformed(evt);
+            }
+        });
+
+        jLabel68.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel68.setText("Sex");
+
+        inputAddCashierSex.add(updateCustomerMale);
+        updateCustomerMale.setText("Male");
+
+        inputAddCashierSex.add(updateCustomerFemale);
+        updateCustomerFemale.setText("Female");
+
+        jLabel69.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel69.setText("Picture");
+
+        pictureUploadAddCustomer1.setText("Select");
+        pictureUploadAddCustomer1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                pictureUploadAddCustomer1ActionPerformed(evt);
+            }
+        });
+
+        flashUpdateCustomer.setForeground(new java.awt.Color(255, 0, 51));
+        flashUpdateCustomer.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+
+        jLabel70.setFont(new java.awt.Font("Dialog", 1, 18)); // NOI18N
+        jLabel70.setText("Adress");
+
+        javax.swing.GroupLayout kGradientPanel13Layout = new javax.swing.GroupLayout(kGradientPanel13);
+        kGradientPanel13.setLayout(kGradientPanel13Layout);
+        kGradientPanel13Layout.setHorizontalGroup(
+            kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                .addGap(55, 55, 55)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                        .addComponent(jLabel68, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCustomerMale)
+                        .addGap(18, 18, 18)
+                        .addComponent(updateCustomerFemale)
+                        .addGap(0, 0, Short.MAX_VALUE))
+                    .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, kGradientPanel13Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateCustomerAdress))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel13Layout.createSequentialGroup()
+                                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                                    .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                                        .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(updateCustomerEmail, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                    .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                                        .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addGap(18, 18, 18)
+                                        .addComponent(updateCustomerPhone)))
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(pictureUploadAddCustomer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
+                            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                                .addGap(0, 0, Short.MAX_VALUE)
+                                .addComponent(flashUpdateCustomer, javax.swing.GroupLayout.PREFERRED_SIZE, 347, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
+                                .addComponent(submitAddCashier5, javax.swing.GroupLayout.PREFERRED_SIZE, 146, javax.swing.GroupLayout.PREFERRED_SIZE))
+                            .addGroup(javax.swing.GroupLayout.Alignment.LEADING, kGradientPanel13Layout.createSequentialGroup()
+                                .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateCustomerFname, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(33, 33, 33)
+                                .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 103, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addComponent(updateCustomerLname, javax.swing.GroupLayout.PREFERRED_SIZE, 189, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(0, 0, Short.MAX_VALUE)))
+                        .addGap(55, 55, 55))))
+        );
+        kGradientPanel13Layout.setVerticalGroup(
+            kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                .addGap(54, 54, 54)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel64, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel65, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomerLname, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addComponent(updateCustomerFname, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(pictureUploadAddCustomer1, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                    .addComponent(updateCustomerEmail, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                        .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                            .addComponent(jLabel66, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                            .addGroup(kGradientPanel13Layout.createSequentialGroup()
+                                .addGap(2, 2, 2)
+                                .addComponent(jLabel69, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        .addGap(0, 0, Short.MAX_VALUE)))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel67, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomerPhone, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                    .addComponent(jLabel70, javax.swing.GroupLayout.PREFERRED_SIZE, 34, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(updateCustomerAdress, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE))
+                .addGap(18, 18, 18)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
+                    .addComponent(jLabel68, javax.swing.GroupLayout.DEFAULT_SIZE, 34, Short.MAX_VALUE)
+                    .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                        .addComponent(updateCustomerMale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                        .addComponent(updateCustomerFemale, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)))
+                .addGap(137, 137, 137)
+                .addGroup(kGradientPanel13Layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(submitAddCashier5, javax.swing.GroupLayout.Alignment.TRAILING)
+                    .addComponent(flashUpdateCustomer, javax.swing.GroupLayout.Alignment.TRAILING))
+                .addGap(33, 33, 33))
+        );
+
+        javax.swing.GroupLayout updateCustomerLayout = new javax.swing.GroupLayout(updateCustomer);
+        updateCustomer.setLayout(updateCustomerLayout);
+        updateCustomerLayout.setHorizontalGroup(
+            updateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateCustomerLayout.createSequentialGroup()
+                .addGap(46, 46, 46)
+                .addGroup(updateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                    .addComponent(kGradientPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 156, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 495, javax.swing.GroupLayout.PREFERRED_SIZE))
+                .addContainerGap(59, Short.MAX_VALUE))
+        );
+        updateCustomerLayout.setVerticalGroup(
+            updateCustomerLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGroup(updateCustomerLayout.createSequentialGroup()
+                .addGap(45, 45, 45)
+                .addComponent(jLabel62, javax.swing.GroupLayout.PREFERRED_SIZE, 55, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(jLabel63, javax.swing.GroupLayout.PREFERRED_SIZE, 31, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(18, 18, 18)
+                .addComponent(kGradientPanel13, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(103, Short.MAX_VALUE))
+        );
+
+        tabbedPreview.addTab("tab1", updateCustomer);
 
         jPanel3.add(tabbedPreview, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 870, 810));
 
@@ -2478,6 +2837,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
 
     private void customerMenuViewCustomer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuViewCustomer1ActionPerformed
         // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(6);
+        try {
+            showCustomerInfo(prefixCustomerMenu*4);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }//GEN-LAST:event_customerMenuViewCustomer1ActionPerformed
 
     private void submitAddCashier3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashier3ActionPerformed
@@ -2541,6 +2906,69 @@ public class AdminDashboardView extends javax.swing.JFrame {
         }
     }//GEN-LAST:event_kButton2ActionPerformed
 
+    private void kButton3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton3ActionPerformed
+        // TODO add your handling code here:
+        try {
+            // TODO add your handling code here:
+            showCustomerUpdateMenu();
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+        
+    }//GEN-LAST:event_kButton3ActionPerformed
+
+    private void kButton4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_kButton4ActionPerformed
+        // TODO add your handling code here:
+        AdminController ac = new AdminController(this.con);
+        try {
+            ac.removeCustomer(currentCustomerInPreview.id);
+            fillCustomerMenu(new AdminController(this.con).getCustomers(prefixCustomerMenu));
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_kButton4ActionPerformed
+
+    private void customerMenuViewCustomer2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuViewCustomer2ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(6);
+        try {
+            showCustomerInfo((prefixCustomerMenu*4)+1);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_customerMenuViewCustomer2ActionPerformed
+
+    private void customerMenuViewCustomer3ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuViewCustomer3ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(6);
+        try {
+            showCustomerInfo((prefixCustomerMenu*4)+2);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_customerMenuViewCustomer3ActionPerformed
+
+    private void customerMenuViewCustomer4ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_customerMenuViewCustomer4ActionPerformed
+        // TODO add your handling code here:
+        tabbedPreview.setSelectedIndex(6);
+        try {
+            showCustomerInfo((prefixCustomerMenu*4)+3);
+        } catch (SQLException ex) {
+            Logger.getLogger(AdminDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }//GEN-LAST:event_customerMenuViewCustomer4ActionPerformed
+
+    private void submitAddCashier5ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_submitAddCashier5ActionPerformed
+        // TODO add your handling code here:
+        updateCustomer();
+    }//GEN-LAST:event_submitAddCashier5ActionPerformed
+
+    private void pictureUploadAddCustomer1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_pictureUploadAddCustomer1ActionPerformed
+        // TODO add your handling code here:
+        newCustomerPic = new JFileChooser();
+        newCustomerPic.showOpenDialog(null);
+    }//GEN-LAST:event_pictureUploadAddCustomer1ActionPerformed
+
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JPanel addCashier;
@@ -2603,6 +3031,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel flashAddCustomer;
     private javax.swing.JLabel flashAddProduct;
     private javax.swing.JLabel flashUpdateCashier;
+    private javax.swing.JLabel flashUpdateCustomer;
     private javax.swing.JTextField inputAddCashierEmail;
     private com.toedter.calendar.JDateChooser inputAddCashierEndDate;
     private javax.swing.JRadioButton inputAddCashierFemale;
@@ -2620,7 +3049,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField inputAddCustomerFirstName;
     private javax.swing.JTextField inputAddCustomerLastName;
     private javax.swing.JRadioButton inputAddCustomerMale;
-    private javax.swing.JPasswordField inputAddCustomerPassword;
     private javax.swing.JTextField inputAddCustomerPhone;
     private javax.swing.JComboBox<String> inputAddProductCategory;
     private javax.swing.JTextField inputAddProductName;
@@ -2663,7 +3091,6 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel30;
     private javax.swing.JLabel jLabel31;
     private javax.swing.JLabel jLabel32;
-    private javax.swing.JLabel jLabel33;
     private javax.swing.JLabel jLabel34;
     private javax.swing.JLabel jLabel35;
     private javax.swing.JLabel jLabel36;
@@ -2681,8 +3108,19 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel jLabel48;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel51;
+    private javax.swing.JLabel jLabel52;
     private javax.swing.JLabel jLabel6;
+    private javax.swing.JLabel jLabel61;
+    private javax.swing.JLabel jLabel62;
+    private javax.swing.JLabel jLabel63;
+    private javax.swing.JLabel jLabel64;
+    private javax.swing.JLabel jLabel65;
+    private javax.swing.JLabel jLabel66;
+    private javax.swing.JLabel jLabel67;
+    private javax.swing.JLabel jLabel68;
+    private javax.swing.JLabel jLabel69;
     private javax.swing.JLabel jLabel7;
+    private javax.swing.JLabel jLabel70;
     private javax.swing.JLabel jLabel8;
     private javax.swing.JLabel jLabel9;
     private javax.swing.JPanel jPanel1;
@@ -2694,8 +3132,12 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextArea jTextArea1;
     private com.k33ptoo.components.KButton kButton1;
     private com.k33ptoo.components.KButton kButton2;
+    private com.k33ptoo.components.KButton kButton3;
+    private com.k33ptoo.components.KButton kButton4;
     private com.k33ptoo.components.KGradientPanel kGradientPanel1;
     private com.k33ptoo.components.KGradientPanel kGradientPanel11;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel12;
+    private com.k33ptoo.components.KGradientPanel kGradientPanel13;
     private com.k33ptoo.components.KGradientPanel kGradientPanel2;
     private com.k33ptoo.components.KGradientPanel kGradientPanel3;
     private com.k33ptoo.components.KGradientPanel kGradientPanel4;
@@ -2712,6 +3154,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel menuName3;
     private javax.swing.JButton pictureUploadAddCashier;
     private javax.swing.JButton pictureUploadAddCustomer;
+    private javax.swing.JButton pictureUploadAddCustomer1;
     private javax.swing.JPanel productMenu;
     private javax.swing.JButton productMenuNavLeft;
     private javax.swing.JButton productMenuNavRight;
@@ -2735,6 +3178,7 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JButton submitAddCashier1;
     private javax.swing.JButton submitAddCashier2;
     private javax.swing.JButton submitAddCashier3;
+    private javax.swing.JButton submitAddCashier5;
     private javax.swing.JTabbedPane tabbedMenu;
     private javax.swing.JTabbedPane tabbedPreview;
     private javax.swing.JPanel totalSalesChartDisplay;
@@ -2748,6 +3192,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JTextField updateCashierNewSalary;
     private javax.swing.JTextField updateCashierPhone;
     private javax.swing.JButton updateCashierPic;
+    private javax.swing.JPanel updateCustomer;
+    private javax.swing.JTextField updateCustomerAdress;
+    private javax.swing.JTextField updateCustomerEmail;
+    private javax.swing.JRadioButton updateCustomerFemale;
+    private javax.swing.JTextField updateCustomerFname;
+    private javax.swing.JTextField updateCustomerLname;
+    private javax.swing.JRadioButton updateCustomerMale;
+    private javax.swing.JTextField updateCustomerPhone;
     private javax.swing.JButton uploadAddProductPic;
     private javax.swing.JPanel viewCashier;
     private javax.swing.JLabel viewCashierCashierEmail;
@@ -2759,6 +3211,14 @@ public class AdminDashboardView extends javax.swing.JFrame {
     private javax.swing.JLabel viewCashierCashierPicture;
     private javax.swing.JLabel viewCashierCashierSD;
     private javax.swing.JLabel viewCashierCashierSalary;
+    private javax.swing.JPanel viewCustomer;
+    private javax.swing.JLabel viewCustomerEmail;
+    private javax.swing.JLabel viewCustomerLastName;
+    private javax.swing.JLabel viewCustomerName;
+    private javax.swing.JLabel viewCustomerPhone;
+    private javax.swing.JLabel viewCustomerPic;
+    private javax.swing.JLabel viewCustomerStars;
+    private javax.swing.JLabel viewCustomerStreet;
     // End of variables declaration//GEN-END:variables
 
     private void fillCashierMenu(ResultSet data){
@@ -3107,6 +3567,87 @@ public class AdminDashboardView extends javax.swing.JFrame {
                 }
             }catch(NullPointerException ex){
                 flashUpdateCashier.setText("All fields required!");
+            }
+        }
+    }
+    
+    public void showCustomerInfo(int index) throws SQLException{
+        AdminController ac = new AdminController(this.con);
+        currentCustomerInPreview= ac.getCustomerByIndex(index);
+        viewCustomerName.setText(currentCustomerInPreview.firstname);
+        viewCustomerLastName.setText(currentCustomerInPreview.lastname);
+        viewCustomerEmail.setText(currentCustomerInPreview.email);
+        viewCustomerPhone.setText(currentCustomerInPreview.phonenumber);
+        viewCustomerStreet.setText(currentCustomerInPreview.address);
+        CashierController cc =new CashierController(this.con);
+        viewCustomerStars.setText(cc.getCustomerStars(currentCustomerInPreview.id));
+        viewCustomerPic.setIcon(new ImageIcon(new ImageIcon(currentCustomerInPreview.pictureurl).getImage().getScaledInstance(viewCustomerPic.getWidth(),viewCustomerPic.getHeight(),Image.SCALE_AREA_AVERAGING)));
+        try {
+            int[] accentColor=new Utils.ImageTester(currentCustomerInPreview.pictureurl).getDominantColor();
+            kGradientPanel12.setkEndColor(new Color(accentColor[0],accentColor[1],accentColor[2]));
+            kGradientPanel12.updateUI();
+        } catch (Exception ex) {
+            Logger.getLogger(CashierDashboardView.class.getName()).log(Level.SEVERE, null, ex);
+        }
+    }
+    
+    public void showCustomerUpdateMenu() throws SQLException{
+        tabbedPreview.setSelectedIndex(7);
+        updateCustomerFname.setText(currentCustomerInPreview.firstname);
+        updateCustomerLname.setText(currentCustomerInPreview.lastname);
+        updateCustomerEmail.setText(currentCustomerInPreview.email);
+        updateCustomerPhone.setText(currentCustomerInPreview.phonenumber);
+        updateCustomerAdress.setText(currentCustomerInPreview.address);
+        if(currentCustomerInPreview.sex=='M'){
+            updateCustomerMale.setSelected(true);
+        }else{
+            updateCustomerFemale.setSelected(true);
+        }
+    }
+    
+    public void updateCustomer(){
+        ArrayList textfields= new ArrayList();
+        textfields.add(updateCustomerFname);
+        textfields.add(updateCustomerLname);
+        textfields.add(updateCustomerEmail);
+        textfields.add(updateCustomerAdress);
+        ArrayList intfields= new ArrayList();
+        intfields.add(updateCustomerPhone);
+        ArrayList filefields= new ArrayList();
+        filefields.add(newCustomerPic);
+        String sex="";
+        if(updateCustomerMale.isSelected()){
+            sex="M";
+        }else if(updateCustomerFemale.isSelected()){
+            sex="F";
+        }
+        if(!sex.isEmpty()){
+            try{
+                if(GlobalController.checkInputFields(textfields) && GlobalController.checkInputFieldsNumeric(intfields) && GlobalController.checkinputFieldsPicture(filefields)){
+                    try{
+                        String filename="customers\\"+updateCustomerEmail.getText().trim()+"."+GlobalController.getExtension(newCustomerPic.getSelectedFile());
+                        GlobalController.saveFile(newCustomerPic.getSelectedFile(), filename);
+                        new AdminController(this.con).updateCustomer(
+                                currentCustomerInPreview.id,
+                                updateCustomerFname.getText().trim(),
+                                updateCustomerLname.getText().trim(),
+                                updateCustomerEmail.getText().trim(),
+                                inputAddCustomerPhone.getText().trim(),
+                                sex,
+                                filename,
+                                updateCustomerAdress.getText().trim());
+                        flashUpdateCustomer.setText("Customer Updated.");
+                        fillCustomerMenu(new AdminController(this.con).getCustomers(prefixCashierMenu));
+                    }catch(SQLException ex){
+                        flashUpdateCustomer.setText(ex.getMessage());
+                    }catch(Exception e){
+                        flashUpdateCustomer.setText("File upload Error!");
+                    }
+                }else{
+                    flashUpdateCustomer.setText("Fields malformed!");
+                }
+            }catch(NullPointerException ex){
+                flashUpdateCustomer.setText("All fields required!");
             }
         }
     }

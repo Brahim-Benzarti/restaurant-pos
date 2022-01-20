@@ -89,6 +89,15 @@ public class AdminController {
         stmt.executeUpdate();
     }
     
+    public void removeCustomer(int customerid) throws SQLException{
+        PreparedStatement stmt0 = this.con.prepareStatement("UPDATE carts SET customerid=0 WHERE customerid=?");
+        stmt0.setInt(1,customerid);
+        stmt0.executeUpdate();
+        PreparedStatement stmt = this.con.prepareStatement("DELETE FROM customers WHERE id=?");
+        stmt.setInt(1,customerid);
+        stmt.executeUpdate();
+    }
+    
     public ResultSet getProducts(int prefix) throws SQLException{
         PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM products offset ? rows fetch first 4 rows only");
         stmt.setInt(1,prefix*4);
@@ -167,6 +176,19 @@ public class AdminController {
         stmt.executeUpdate();
     }
     
+    public void updateCustomer(int id, String firstname, String lastname, String email, String phonenumber, String sex, String picture, String address) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("UPDATE customers SET firstname=?, lastname=?, email=?, address=?, phonenumber=?, sex=?, pictureurl=? WHERE id=?");
+        stmt.setString(1,firstname);
+        stmt.setString(2,lastname);
+        stmt.setString(3, email);
+        stmt.setString(4,address);
+        stmt.setString(5,phonenumber);
+        stmt.setString(6,sex);
+        stmt.setString(7, picture);
+        stmt.setInt(8, id);
+        stmt.executeUpdate();
+    }
+    
     public DefaultPieDataset defaultPieChart() throws SQLException{
         DefaultPieDataset respie = new DefaultPieDataset();
         PreparedStatement stmt = this.con.prepareStatement(
@@ -211,6 +233,12 @@ public class AdminController {
         PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM cashiers offset ? rows fetch first row only");
         stmt.setInt(1,prefix);
         return new CashierModel(this.con, stmt.executeQuery());
+    }
+    
+    public CustomerModel getCustomerByIndex(int prefix) throws SQLException{
+        PreparedStatement stmt = this.con.prepareStatement("SELECT * FROM customers WHERE id<>0 offset ? rows fetch first row only");
+        stmt.setInt(1,prefix);
+        return new CustomerModel(stmt.executeQuery());
     }
     
     public Object[] getCashierContruct(int cashierid) throws SQLException{

@@ -21,7 +21,7 @@ public class CustomerModel {
     public String phonenumber;
     public char sex;
     public String pictureurl;
-    private String address;
+    public String address;
     public Date creationdate;
     
     public CustomerModel(ResultSet rs) throws SQLException{
